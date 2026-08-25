@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Projects | Clairy Sagario</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .projects-hero {
+      align-items: center;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(222, 211, 232, 0.65),
+          transparent 38%
+        ),
+        linear-gradient(
+          135deg,
+          #fbf9fc,
+          var(--nude-soft)
+        );
+      display: grid;
+      gap: 40px;
+      grid-template-columns: 1.2fr 0.8fr;
+      margin: 0 -55px;
+      padding: 70px 55px 60px;
+    }
+
+    .projects-hero-content p:last-child {
+      color: #5f5962;
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .project-overview {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow:
+        0 14px 30px rgba(82, 68, 91, 0.08);
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+      padding: 25px;
+    }
+
+    .overview-item {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 17px;
+      text-align: center;
+    }
+
+    .overview-item strong {
+      color: var(--primary);
+      display: block;
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .overview-item span {
+      color: var(--text-soft);
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .projects-introduction {
+      background:
+        linear-gradient(
+          135deg,
+          var(--nude-soft),
+          #fbf8f6
+        );
+      border: 1px solid var(--nude-accent);
+      border-left: 5px solid #cab9d6;
+      border-radius: 12px;
+      margin: 45px 0;
+      padding: 25px 28px;
+    }
+
+    .projects-introduction p {
+      color: #5d5760;
+      margin: 0;
+    }
+
+    .project-controls {
+      align-items: center;
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .project-controls h2 {
+      margin: 0;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-button {
+      background-color: white;
+      border-color: var(--border);
+      color: #5f5665;
+      font-size: 13px;
+      min-height: 39px;
+      padding: 8px 14px;
+    }
+
+    .filter-button:hover {
+      background-color: var(--lavender-soft);
+      border-color: #d5c8df;
+    }
+
+    .filter-button.active {
+      background-color: var(--lavender-accent);
+      border-color: #d0c2dc;
+      color: #443b4b;
+    }
+
+    .project-result {
+      color: var(--text-soft);
+      font-size: 14px;
+      margin: 0 0 20px;
+    }
+
+    .project-gallery {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-project {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      border-top: 4px solid var(--lavender-accent);
+      display: flex;
+      flex-direction: column;
+      min-height: 330px;
+      padding: 28px;
+      transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .portfolio-project:hover {
+      box-shadow:
+        0 14px 28px rgba(82, 68, 91, 0.09);
+      transform: translateY(-4px);
+    }
+
+    .featured-project {
+      background:
+        linear-gradient(
+          145deg,
+          var(--surface-soft),
+          var(--nude-soft)
+        );
+      border-top-color: #bda9cc;
+    }
+
+    .project-top {
+      align-items: center;
+      display: flex;
+      gap: 15px;
+      justify-content: space-between;
+    }
+
+    .project-category {
+      background-color: var(--lavender-soft);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--primary-dark);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 7px 11px;
+      text-transform: uppercase;
+    }
+
+    .project-status {
+      color: var(--text-soft);
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .portfolio-project h3 {
+      font-size: 23px;
+      margin: 22px 0 10px;
+    }
+
+    .project-description {
+      color: #615b64;
+      font-size: 15px;
+      margin-top: 0;
+    }
+
+    .project-features {
+      border-top: 1px solid var(--border);
+      margin: 10px 0 20px;
+      padding: 15px 0 0 19px;
+    }
+
+    .project-features li {
+      color: #625c65;
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    .project-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: auto 0 20px;
+    }
+
+    .project-tools span {
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      color: #635a68;
+      font-size: 12px;
+      font-weight: 650;
+      padding: 6px 10px;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-actions .button {
+      min-height: 40px;
+    }
+
+    .project-note {
+      background-color: var(--nude-soft);
+      border: 1px solid var(--nude-accent);
+      border-radius: 8px;
+      color: #655b60;
+      font-size: 13px;
+      margin-top: auto;
+      padding: 11px;
+    }
+
+    .learning-section {
+      background:
+        linear-gradient(
+          135deg,
+          var(--lavender-soft),
+          var(--nude-soft)
+        );
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      display: grid;
+      gap: 35px;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 60px;
+      padding: 38px;
+    }
+
+    .learning-section h2 {
+      margin-top: 0;
+    }
+
+    .learning-section p {
+      color: #5f5962;
+    }
+
+    .learning-list {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .learning-item {
+      background-color: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      color: #554e59;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 13px;
+    }
+
+    .projects-cta {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .projects-cta p {
+      color: var(--text-soft);
+      margin: 12px auto 24px;
+      max-width: 620px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .projects-hero {
+        margin-left: -35px;
+        margin-right: -35px;
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .projects-hero,
+      .learning-section {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-hero {
+        text-align: center;
+      }
+
+      .projects-hero-content p:last-child {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .project-overview {
+        margin: 0 auto;
+        max-width: 450px;
+        width: 100%;
+      }
+
+      .project-controls {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .project-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .projects-hero {
+        margin-left: -22px;
+        margin-right: -22px;
+        padding: 55px 22px 45px;
+      }
+
+      .project-overview,
+      .learning-list {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-buttons {
+        width: 100%;
+      }
+
+      .filter-button {
+        flex: 1;
+      }
+
+      .portfolio-project {
+        min-height: auto;
+        padding: 23px;
+      }
+
+      .learning-section {
+        padding: 27px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <nav class="navigation">
+      <a href="index.html" class="logo">Clairy</a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="projects-hero">
+
+      <div class="projects-hero-content">
+        <p class="greeting">Portfolio and Practice</p>
+
+        <h1>My Projects</h1>
+
+        <p>
+          A collection of bookkeeping systems and interactive
+          web-development projects inspired by practical financial
+          and business needs.
+        </p>
+      </div>
+
+      <aside class="project-overview">
+        <div class="overview-item">
+          <strong>6</strong>
+          <span>Total Projects</span>
+        </div>
+
+        <div class="overview-item">
+          <strong>4</strong>
+          <span>Interactive Tools</span>
+        </div>
+
+        <div class="overview-item">
+          <strong>3</strong>
+          <span>Bookkeeping Projects</span>
+        </div>
+
+        <div class="overview-item">
+          <strong>3</strong>
+          <span>Web Projects</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="projects-introduction">
+      <p>
+        These projects combine my accounting background with the
+        web-development skills I’m currently learning. They
+        demonstrate organization, calculations, data tracking,
+        responsive design, and JavaScript functionality.
+      </p>
+    </section>
+
+    <section>
+      <div class="project-controls">
+        <h2>Project Gallery</h2>
+
+        <div class="filter-buttons">
+          <button
+            class="filter-button active"
+            data-filter="all"
+            type="button"
+            aria-pressed="true"
+          >
+            All Projects
+          </button>
+
+          <button
+            class="filter-button"
+            data-filter="bookkeeping"
+            type="button"
+            aria-pressed="false"
+          >
+            Bookkeeping
+          </button>
+
+          <button
+            class="filter-button"
+            data-filter="web"
+            type="button"
+            aria-pressed="false"
+          >
+            Web Development
+          </button>
+        </div>
+      </div>
+
+      <p id="projectResult" class="project-result">
+        Showing all 6 projects
+      </p>
+
+      <div class="project-gallery">
+
+        <article
+          class="portfolio-project"
+          data-category="bookkeeping"
+        >
+          <div class="project-top">
+            <span class="project-category">
+              Bookkeeping
+            </span>
+
+            <span class="project-status">
+              Spreadsheet System
+            </span>
+          </div>
+
+          <h3>Worker Invoice Tracker</h3>
+
+          <p class="project-description">
+            A Google Sheets system for tracking employee hours,
+            different hourly rates, pay periods, and invoice totals.
+          </p>
+
+          <ul class="project-features">
+            <li>Manual worker time entry</li>
+            <li>Biweekly pay-period selection</li>
+            <li>Automatic hours and amount totals</li>
+          </ul>
+
+          <div class="project-tools">
+            <span>Google Sheets</span>
+            <span>Formulas</span>
+            <span>Data Validation</span>
+          </div>
+
+          <p class="project-note">
+            Created as a working bookkeeping and payroll-support
+            system.
+          </p>
+        </article>
+
+        <article
+          class="portfolio-project featured-project"
+          data-category="bookkeeping"
+        >
+          <div class="project-top">
+            <span class="project-category">
+              Bookkeeping
+            </span>
+
+            <span class="project-status">
+              Interactive
+            </span>
+          </div>
+
+          <h3>Property Financial Dashboard</h3>
+
+          <p class="project-description">
+            An interactive dashboard for recording property income
+            and expenses and calculating net income by property.
+          </p>
+
+          <ul class="project-features">
+            <li>Property-level transaction tracking</li>
+            <li>Income, expense, and net-income totals</li>
+            <li>Property filters and printable reports</li>
+          </ul>
+
+          <div class="project-tools">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Local Storage</span>
+          </div>
+
+          <div class="project-actions">
+            <a
+              href="property-dashboard.html"
+              class="button"
+            >
+              Open Dashboard
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="portfolio-project featured-project"
+          data-category="bookkeeping"
+        >
+          <div class="project-top">
+            <span class="project-category">
+              Bookkeeping
+            </span>
+
+            <span class="project-status">
+              Interactive
+            </span>
+          </div>
+
+          <h3>Loan Payment Tracking</h3>
+
+          <p class="project-description">
+            An interactive tool for splitting loan and mortgage
+            payments and tracking the remaining principal balance.
+          </p>
+
+          <ul class="project-features">
+            <li>Principal, interest, escrow, and fee allocation</li>
+            <li>Automatic payment validation and balance updates</li>
+            <li>Browser storage, CSV export, and printable reports</li>
+          </ul>
+
+          <div class="project-tools">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Local Storage</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="loan-tracker.html" class="button">
+              Open Loan Tracker
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="portfolio-project"
+          data-category="web"
+        >
+          <div class="project-top">
+            <span class="project-category">
+              Web Development
+            </span>
+
+            <span class="project-status">
+              Current Website
+            </span>
+          </div>
+
+          <h3>Personal Portfolio Website</h3>
+
+          <p class="project-description">
+            A responsive multi-page website created to showcase my
+            services, experience, and interactive projects.
+          </p>
+
+          <ul class="project-features">
+            <li>Responsive desktop and mobile layouts</li>
+            <li>Professional services and contact pages</li>
+            <li>Consistent lavender and nude design system</li>
+          </ul>
+
+          <div class="project-tools">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Responsive Design</span>
+          </div>
+
+          <p class="project-note">
+            This website is an active project that will continue to
+            improve as I learn.
+          </p>
+        </article>
+
+        <article
+          class="portfolio-project featured-project"
+          data-category="web"
+        >
+          <div class="project-top">
+            <span class="project-category">
+              Web Development
+            </span>
+
+            <span class="project-status">
+              Interactive
+            </span>
+          </div>
+
+          <h3>Expense Tracker</h3>
+
+          <p class="project-description">
+            An online tool for recording expenses, calculating
+            totals, and reviewing spending by category.
+          </p>
+
+          <ul class="project-features">
+            <li>Expense dates and categories</li>
+            <li>Automatic overall and category totals</li>
+            <li>Browser-based data storage</li>
+          </ul>
+
+          <div class="project-tools">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Local Storage</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="calculator.html" class="button">
+              Open Expense Tracker
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="portfolio-project featured-project"
+          data-category="web"
+        >
+          <div class="project-top">
+            <span class="project-category">
+              Web Development
+            </span>
+
+            <span class="project-status">
+              Interactive
+            </span>
+          </div>
+
+          <h3>Online Invoice Generator</h3>
+
+          <p class="project-description">
+            A reusable invoice tool that calculates service amounts
+            and creates clean, printable invoices.
+          </p>
+
+          <ul class="project-features">
+            <li>Multiple invoice line items</li>
+            <li>Automatic quantity and rate calculations</li>
+            <li>Printable and PDF-ready invoice layout</li>
+          </ul>
+
+          <div class="project-tools">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Print Layout</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="invoice.html" class="button">
+              Open Invoice Generator
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="learning-section">
+
+      <div>
+        <p class="greeting">What I’m Learning</p>
+
+        <h2>Building Skills Through Practical Projects</h2>
+
+        <p>
+          Each project introduces a different part of web
+          development while connecting the lessons to financial
+          systems I already understand.
+        </p>
+      </div>
+
+      <div class="learning-list">
+        <div class="learning-item">HTML Structure</div>
+        <div class="learning-item">CSS Layouts</div>
+        <div class="learning-item">Responsive Design</div>
+        <div class="learning-item">JavaScript Events</div>
+        <div class="learning-item">Form Validation</div>
+        <div class="learning-item">Local Storage</div>
+        <div class="learning-item">Calculations</div>
+        <div class="learning-item">Print Layouts</div>
+      </div>
+
+    </section>
+
+    <section class="projects-cta">
+      <p class="greeting">Work With Me</p>
+
+      <h2>Need Help Organizing Your Books?</h2>
+
+      <p>
+        Contact me to discuss bookkeeping, financial reporting, or
+        real-estate accounting support.
+      </p>
+
+      <a href="contact.html" class="button">
+        Request a Custom Quote
+      </a>
+    </section>
+
+    <footer>
+      <p>© 2026 Clairy Sagario</p>
+    </footer>
+
+  </main>
+
+  <script>
+    const filterButtons =
+      document.querySelectorAll(".filter-button");
+
+    const projectCards =
+      document.querySelectorAll(".portfolio-project");
+
+    const projectResult =
+      document.getElementById("projectResult");
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const selectedFilter = button.dataset.filter;
+
+        filterButtons.forEach(function (filterButton) {
+          filterButton.classList.remove("active");
+          filterButton.setAttribute(
+            "aria-pressed",
+            "false"
+          );
+        });
+
+        button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
+
+        let visibleProjects = 0;
+
+        projectCards.forEach(function (card) {
+          const shouldShow =
+            selectedFilter === "all" ||
+            card.dataset.category === selectedFilter;
+
+          card.hidden = !shouldShow;
+
+          if (shouldShow) {
+            visibleProjects += 1;
+          }
+        });
+
+        if (selectedFilter === "all") {
+          projectResult.textContent =
+            "Showing all " +
+            visibleProjects +
+            " projects";
+        } else if (selectedFilter === "bookkeeping") {
+          projectResult.textContent =
+            "Showing " +
+            visibleProjects +
+            " bookkeeping projects";
+        } else {
+          projectResult.textContent =
+            "Showing " +
+            visibleProjects +
+            " web-development projects";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Clairy Sagario | Bookkeeper</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .home-hero {
+      align-items: center;
+      display: grid;
+      gap: 55px;
+      grid-template-columns: 1.25fr 0.75fr;
+      text-align: left;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .signature-name {
+      color: var(--primary);
+      font-family:
+        "WindSong",
+        "Allura",
+        "Segoe Script",
+        cursive;
+      font-size: clamp(68px, 9vw, 104px);
+      font-weight: 500;
+      letter-spacing: -2px;
+      line-height: 0.9;
+      margin: 5px 0 25px;
+      text-shadow:
+        1px 2px 2px rgba(96, 75, 141, 0.08);
+    }
+
+    .role-title {
+      color: var(--secondary);
+      font-size: 18px;
+      font-weight: 750;
+      letter-spacing: 0.4px;
+      margin: 0 0 17px;
+    }
+
+    .home-hero .introduction {
+      color: #565160;
+      margin: 0 0 30px;
+      max-width: 650px;
+    }
+
+    .home-hero .hero-buttons {
+      justify-content: flex-start;
+    }
+
+    .outline-action {
+      background-color: transparent;
+      color: var(--primary);
+    }
+
+    .outline-action:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .hero-visual {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(180, 158, 216, 0.3),
+          transparent 35%
+        ),
+        linear-gradient(
+          145deg,
+          #faf8fd,
+          #eee9f6
+        );
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      box-shadow:
+        0 20px 40px rgba(76, 58, 105, 0.16);
+      max-width: 315px;
+      padding: 32px;
+      position: relative;
+      text-align: center;
+      transform: rotate(1.5deg);
+      width: 100%;
+    }
+
+    .profile-card::before {
+      background-color: rgba(120, 100, 165, 0.1);
+      border-radius: 50%;
+      content: "";
+      height: 100px;
+      position: absolute;
+      right: -28px;
+      top: -28px;
+      width: 100px;
+    }
+
+    .profile-card::after {
+      border: 1px solid rgba(120, 100, 165, 0.16);
+      border-radius: 50%;
+      bottom: 20px;
+      content: "";
+      height: 60px;
+      left: -25px;
+      position: absolute;
+      width: 60px;
+    }
+
+    .initials-circle {
+      align-items: center;
+      background:
+        linear-gradient(
+          145deg,
+          #8d7bb5,
+          #604b8d
+        );
+      border: 7px solid white;
+      border-radius: 50%;
+      box-shadow:
+        0 12px 25px rgba(96, 75, 141, 0.24);
+      color: white;
+      display: flex;
+      font-family: "WindSong", cursive;
+      font-size: 75px;
+      font-weight: 500;
+      height: 175px;
+      justify-content: center;
+      margin: 0 auto 25px;
+      position: relative;
+      width: 175px;
+      z-index: 1;
+    }
+
+    .profile-card h2 {
+      color: var(--text);
+      font-size: 21px;
+      margin: 0 0 7px;
+    }
+
+    .profile-card p {
+      color: var(--secondary);
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .availability {
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--primary-dark);
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 15px;
+      padding: 8px 13px;
+    }
+
+    .home-introduction {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: 1.2fr 0.8fr;
+      margin-top: 55px;
+    }
+
+    .about {
+      padding-top: 0;
+    }
+
+    .quick-details {
+      background:
+        linear-gradient(
+          145deg,
+          var(--surface-soft),
+          #f1ecf7
+        );
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .quick-details h2 {
+      margin-top: 0;
+    }
+
+    .detail-row {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-row span {
+      color: var(--text-soft);
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .detail-row strong {
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    @media (max-width: 850px) {
+      .home-hero {
+        gap: 40px;
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-content {
+        margin: 0 auto;
+      }
+
+      .home-hero .introduction {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .home-hero .hero-buttons {
+        justify-content: center;
+      }
+
+      .profile-card {
+        max-width: 350px;
+        transform: none;
+      }
+
+      .home-introduction {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .signature-name {
+        font-size: 68px;
+      }
+
+      .role-title {
+        font-size: 16px;
+      }
+
+      .initials-circle {
+        font-size: 62px;
+        height: 145px;
+        width: 145px;
+      }
+
+      .profile-card {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <nav class="navigation">
+      <a href="index.html" class="logo">Clairy</a>
+
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero home-hero">
+
+      <div class="hero-content">
+        <p class="greeting">Hello, I’m</p>
+
+        <h1 class="signature-name">
+          Clairy Sagario
+        </h1>
+
+        <p class="role-title">
+          Bookkeeper · Real Estate Accounting · Web Developer
+        </p>
+
+        <p class="introduction">
+          I help businesses organize their finances, maintain
+          accurate books, and understand their financial reports.
+          I’m also learning web development to create practical
+          financial tools and online systems.
+        </p>
+
+        <div class="hero-buttons">
+          <a
+            href="contact.html"
+            class="button"
+          >
+            Request a Quote
+          </a>
+
+          <a
+            href="projects.html"
+            class="button outline-action"
+          >
+            View My Projects
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="profile-card">
+
+          <div class="initials-circle">
+            CS
+          </div>
+
+          <h2>Marie Clair Sagario</h2>
+
+          <p>QuickBooks Online Bookkeeper</p>
+
+          <p>Real Estate Accounting Support</p>
+
+          <span class="availability">
+            Available 20–30 hours per week
+          </span>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="home-introduction">
+
+      <div class="about">
+        <p class="greeting">About Me</p>
+
+        <h2>Organized Books. Clearer Decisions.</h2>
+
+        <p>
+          My professional name is Marie Clair Sagario, but I prefer
+          to be called Clairy. I have experience in bookkeeping,
+          QuickBooks Online, financial reporting, banking, and
+          real-estate accounting.
+        </p>
+
+        <p>
+          I support businesses by keeping financial information
+          organized, resolving discrepancies, and preparing clear
+          reports. My banking experience also strengthened my
+          attention to detail and my ability to work accurately with
+          financial records, Google Sheets, and Microsoft Excel.
+        </p>
+
+        <a href="experience.html" class="button">
+          View My Experience
+        </a>
+      </div>
+
+      <aside class="quick-details">
+        <h2>Quick Details</h2>
+
+        <div class="detail-row">
+          <span>Professional Name</span>
+          <strong>Marie Clair Sagario</strong>
+        </div>
+
+        <div class="detail-row">
+          <span>Preferred Name</span>
+          <strong>Clairy Sagario</strong>
+        </div>
+
+        <div class="detail-row">
+          <span>Specialization</span>
+          <strong>Bookkeeping and Real Estate Accounting</strong>
+        </div>
+
+        <div class="detail-row">
+          <span>Availability</span>
+          <strong>20–30 hours per week</strong>
+        </div>
+
+        <div class="detail-row">
+          <span>Response Time</span>
+          <strong>Within 24–48 hours</strong>
+        </div>
+      </aside>
+
+    </section>
+
+    <section class="skills">
+      <h2>My Core Skills</h2>
+
+      <div class="skill-list">
+        <div class="skill-card">Bookkeeping</div>
+        <div class="skill-card">QuickBooks Online</div>
+        <div class="skill-card">Google Sheets</div>
+        <div class="skill-card">Real Estate Accounting</div>
+        <div class="skill-card">Financial Reporting</div>
+        <div class="skill-card">Bank Reconciliation</div>
+        <div class="skill-card">HTML and CSS</div>
+        <div class="skill-card">JavaScript</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Clairy Sagario</p>
+    </footer>
+
+  </main>
+</body>
+</html>

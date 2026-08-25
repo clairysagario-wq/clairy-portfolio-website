@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Experience | Clairy Sagario</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .experience-hero {
+      align-items: center;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(222, 211, 232, 0.65),
+          transparent 38%
+        ),
+        linear-gradient(
+          135deg,
+          #fbf9fc,
+          var(--nude-soft)
+        );
+      display: grid;
+      gap: 45px;
+      grid-template-columns: 1.2fr 0.8fr;
+      margin: 0 -55px;
+      padding: 70px 55px 60px;
+    }
+
+    .experience-hero-content > p:last-of-type {
+      color: #5f5962;
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .professional-name {
+      color: var(--secondary);
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .resume-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .outline-button {
+      background-color: white;
+      border-color: var(--lavender-accent);
+      color: var(--primary-dark);
+    }
+
+    .outline-button:hover {
+      background-color: var(--lavender-soft);
+      color: var(--primary-dark);
+    }
+
+    .profile-summary {
+      background-color: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow:
+        0 14px 30px rgba(82, 68, 91, 0.08);
+      padding: 28px;
+    }
+
+    .profile-summary h2 {
+      font-size: 22px;
+      margin: 0 0 18px;
+    }
+
+    .profile-row {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .profile-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .profile-row span {
+      color: var(--text-soft);
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .profile-row strong {
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .summary-section {
+      background:
+        linear-gradient(
+          135deg,
+          var(--nude-soft),
+          #fbf8f6
+        );
+      border: 1px solid var(--nude-accent);
+      border-left: 5px solid #cab9d6;
+      border-radius: 12px;
+      margin: 45px 0 55px;
+      padding: 28px;
+    }
+
+    .summary-section h2 {
+      margin-top: 0;
+    }
+
+    .summary-section p {
+      color: #5d5760;
+      margin-bottom: 0;
+    }
+
+    .section-heading {
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--text-soft);
+      margin-top: 0;
+    }
+
+    .timeline {
+      margin-left: 18px;
+      position: relative;
+    }
+
+    .timeline::before {
+      background:
+        linear-gradient(
+          var(--lavender-accent),
+          var(--nude-accent)
+        );
+      content: "";
+      height: 100%;
+      left: 7px;
+      position: absolute;
+      top: 0;
+      width: 3px;
+    }
+
+    .experience-item {
+      padding: 0 0 35px 48px;
+      position: relative;
+    }
+
+    .experience-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-marker {
+      background-color: var(--surface);
+      border: 4px solid #bca8cc;
+      border-radius: 50%;
+      height: 18px;
+      left: 0;
+      position: absolute;
+      top: 8px;
+      width: 18px;
+      z-index: 1;
+    }
+
+    .experience-card {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 27px;
+      transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .experience-card:hover {
+      box-shadow:
+        0 12px 25px rgba(82, 68, 91, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .experience-heading {
+      align-items: start;
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .experience-heading h3 {
+      margin: 0 0 5px;
+    }
+
+    .company-name {
+      color: var(--secondary);
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .experience-date {
+      background-color: var(--lavender-soft);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--primary-dark);
+      flex-shrink: 0;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 7px 11px;
+    }
+
+    .experience-card ul {
+      border-top: 1px solid var(--border);
+      margin: 18px 0 0;
+      padding: 17px 0 0 20px;
+    }
+
+    .experience-card li {
+      color: #5d5760;
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .details-grid {
+      display: grid;
+      gap: 25px;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 60px;
+    }
+
+    .details-card {
+      background:
+        linear-gradient(
+          145deg,
+          var(--surface-soft),
+          var(--nude-soft)
+        );
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 28px;
+    }
+
+    .details-card h2 {
+      margin-top: 0;
+    }
+
+    .education-entry h3 {
+      margin-bottom: 7px;
+    }
+
+    .education-entry p {
+      color: #625b65;
+      font-size: 15px;
+      margin: 5px 0;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .skills-tags span {
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: #5b5262;
+      font-size: 13px;
+      font-weight: 650;
+      padding: 8px 13px;
+    }
+
+    .experience-tools {
+      margin-top: 60px;
+    }
+
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tool {
+      background-color: var(--nude-soft);
+      border: 1px solid var(--nude-accent);
+      border-radius: 20px;
+      color: #5a5056;
+      font-size: 14px;
+      font-weight: 650;
+      padding: 9px 15px;
+    }
+
+    .contact-resume {
+      background:
+        linear-gradient(
+          135deg,
+          var(--lavender-soft),
+          var(--nude-soft)
+        );
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      color: var(--text);
+      margin-top: 60px;
+      padding: 45px 30px;
+      text-align: center;
+    }
+
+    .contact-resume h2 {
+      color: var(--secondary);
+      margin-top: 0;
+    }
+
+    .contact-resume p {
+      color: #5f5962;
+      margin: 15px auto 25px;
+      max-width: 650px;
+    }
+
+    @media (max-width: 900px) {
+      .experience-hero {
+        margin-left: -35px;
+        margin-right: -35px;
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .experience-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .experience-hero-content > p:last-of-type {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .resume-buttons {
+        justify-content: center;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-heading {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .experience-hero {
+        margin-left: -22px;
+        margin-right: -22px;
+        padding: 55px 22px 45px;
+      }
+
+      .resume-buttons {
+        flex-direction: column;
+      }
+
+      .resume-buttons .button,
+      .resume-buttons button {
+        width: 100%;
+      }
+
+      .timeline {
+        margin-left: 5px;
+      }
+
+      .experience-item {
+        padding-left: 35px;
+      }
+
+      .experience-card {
+        padding: 22px;
+      }
+    }
+
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+
+      .container {
+        border: none;
+        box-shadow: none;
+        max-width: none;
+        padding: 15px;
+      }
+
+      .navigation,
+      .resume-buttons,
+      .contact-resume,
+      footer {
+        display: none;
+      }
+
+      .experience-hero {
+        background: white;
+        display: block;
+        margin: 0;
+        padding: 10px 0 25px;
+      }
+
+      .profile-summary {
+        box-shadow: none;
+        margin-top: 20px;
+      }
+
+      .summary-section {
+        margin: 20px 0 30px;
+      }
+
+      .experience-card,
+      .details-card {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+
+      .experience-card:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <nav class="navigation">
+      <a href="index.html" class="logo">Clairy</a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="experience.html" class="active">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="experience-hero">
+
+      <div class="experience-hero-content">
+        <p class="greeting">Professional Background</p>
+
+        <h1>Clairy Sagario</h1>
+
+        <p class="professional-name">
+          Professional name: Marie Clair Sagario
+        </p>
+
+        <p>
+          Bookkeeper and financial professional with experience in
+          banking, QuickBooks Online, real-estate accounting,
+          financial reporting, and remote business support.
+        </p>
+
+        <div class="resume-buttons">
+          <button id="printResumeButton" type="button">
+            Print or Save as PDF
+          </button>
+
+          <a
+            href="contact.html"
+            class="button outline-button"
+          >
+            Discuss an Opportunity
+          </a>
+        </div>
+      </div>
+
+      <aside class="profile-summary">
+        <h2>Professional Profile</h2>
+
+        <div class="profile-row">
+          <span>Specialization</span>
+          <strong>Bookkeeping and Real Estate Accounting</strong>
+        </div>
+
+        <div class="profile-row">
+          <span>Primary Software</span>
+          <strong>QuickBooks Online</strong>
+        </div>
+
+        <div class="profile-row">
+          <span>Work Arrangement</span>
+          <strong>Remote</strong>
+        </div>
+
+        <div class="profile-row">
+          <span>Availability</span>
+          <strong>20–30 hours per week</strong>
+        </div>
+      </aside>
+
+    </section>
+
+    <section class="summary-section">
+      <h2>Professional Summary</h2>
+
+      <p>
+        Detail-oriented bookkeeper experienced in transaction
+        categorization, bank and credit-card reconciliation, accounts
+        payable and receivable, financial reporting, and real-estate
+        accounting. Experienced in organizing financial information
+        across multiple entities and properties, tracking loans and
+        escrow, and preparing accurate records for business owners
+        and accounting professionals.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Professional Experience</h2>
+
+        <p>
+          My current client work remains confidential to protect
+          client and business information.
+        </p>
+      </div>
+
+      <div class="timeline">
+
+        <article class="experience-item">
+          <span class="timeline-marker"></span>
+
+          <div class="experience-card">
+            <div class="experience-heading">
+              <div>
+                <h3>Remote Real Estate Bookkeeper</h3>
+
+                <p class="company-name">
+                  Confidential Real Estate Clients
+                </p>
+              </div>
+
+              <span class="experience-date">Current</span>
+            </div>
+
+            <ul>
+              <li>
+                Maintain bookkeeping records for multiple
+                real-estate businesses, LLCs, and properties.
+              </li>
+
+              <li>
+                Categorize transactions and reconcile bank,
+                credit-card, loan, and escrow accounts.
+              </li>
+
+              <li>
+                Track rental income, operating expenses, repairs,
+                improvements, and renovation costs.
+              </li>
+
+              <li>
+                Record mortgage and loan payments using the proper
+                principal, interest, and escrow allocations.
+              </li>
+
+              <li>
+                Prepare Profit and Loss, Balance Sheet, and
+                property-level reports.
+              </li>
+
+              <li>
+                Assist with vendors, invoices, accounts payable,
+                and 1099 preparation support.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <span class="timeline-marker"></span>
+
+          <div class="experience-card">
+            <div class="experience-heading">
+              <div>
+                <h3>Customer Associate</h3>
+
+                <p class="company-name">
+                  Land Bank of the Philippines
+                </p>
+              </div>
+
+              <span class="experience-date">
+                Previous Role
+              </span>
+            </div>
+
+            <ul>
+              <li>
+                Assisted customers with account transactions,
+                payments, inquiries, and banking services.
+              </li>
+
+              <li>
+                Processed financial transactions while following
+                documentation and internal-control requirements.
+              </li>
+
+              <li>
+                Supported loan applications, payment posting, and
+                collection-related activities.
+              </li>
+
+              <li>
+                Used spreadsheets daily to organize information,
+                monitor records, and maintain accuracy.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <span class="timeline-marker"></span>
+
+          <div class="experience-card">
+            <div class="experience-heading">
+              <div>
+                <h3>Bookkeeper</h3>
+
+                <p class="company-name">
+                  Automated Retail Commerce
+                </p>
+              </div>
+
+              <span class="experience-date">
+                May 2023–January 2024<br>
+                August 2024–March 2025
+              </span>
+            </div>
+
+            <ul>
+              <li>
+                Categorized transactions and maintained accurate
+                bookkeeping records.
+              </li>
+
+              <li>
+                Reconciled bank, credit-card, and payment-platform
+                activity.
+              </li>
+
+              <li>
+                Assisted with accounts receivable, accounts payable,
+                and financial reporting.
+              </li>
+
+              <li>
+                Worked with QuickBooks Online and payment-processing
+                platforms.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <span class="timeline-marker"></span>
+
+          <div class="experience-card">
+            <div class="experience-heading">
+              <div>
+                <h3>
+                  Bookkeeper and Administrative Assistant
+                </h3>
+
+                <p class="company-name">
+                  Start Virtual PH
+                </p>
+              </div>
+
+              <span class="experience-date">
+                January–April 2023
+              </span>
+            </div>
+
+            <ul>
+              <li>
+                Assisted with bookkeeping, transaction
+                categorization, and financial-record organization.
+              </li>
+
+              <li>
+                Supported email management, scheduling, and client
+                communication.
+              </li>
+
+              <li>
+                Prepared spreadsheets, reports, and organized
+                business information.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <span class="timeline-marker"></span>
+
+          <div class="experience-card">
+            <div class="experience-heading">
+              <div>
+                <h3>
+                  Real Estate Virtual Assistant and Bookkeeper
+                </h3>
+
+                <p class="company-name">
+                  Infinite VA Services
+                </p>
+              </div>
+
+              <span class="experience-date">
+                June–November 2022
+              </span>
+            </div>
+
+            <ul>
+              <li>
+                Supported real-estate clients with bookkeeping and
+                administrative tasks.
+              </li>
+
+              <li>
+                Managed lead information, follow-ups, appointments,
+                and CRM records.
+              </li>
+
+              <li>
+                Handled inbound and outbound calls and helped qualify
+                real-estate leads.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="details-grid">
+
+      <article class="details-card">
+        <h2>Education</h2>
+
+        <div class="education-entry">
+          <h3>
+            Bachelor of Science in Management Accounting
+          </h3>
+
+          <p>
+            University of Negros Occidental–Recoletos
+          </p>
+
+          <p>2018–2022</p>
+
+          <p>Bronze Dean’s Lister, 2019</p>
+        </div>
+      </article>
+
+      <article class="details-card">
+        <h2>Core Skills</h2>
+
+        <div class="skills-tags">
+          <span>QuickBooks Online</span>
+          <span>Bookkeeping</span>
+          <span>Bank Reconciliation</span>
+          <span>Financial Reporting</span>
+          <span>Real Estate Accounting</span>
+          <span>Accounts Payable</span>
+          <span>Accounts Receivable</span>
+          <span>Loan Tracking</span>
+          <span>Property Reporting</span>
+          <span>Google Sheets</span>
+          <span>Microsoft Excel</span>
+          <span>Administrative Support</span>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="experience-tools">
+      <div class="section-heading">
+        <h2>Software and Platforms</h2>
+
+        <p>
+          Tools I’ve used in bookkeeping, payments, reporting,
+          property operations, and remote collaboration.
+        </p>
+      </div>
+
+      <div class="tool-list">
+        <span class="tool">QuickBooks Online</span>
+        <span class="tool">Google Sheets</span>
+        <span class="tool">Microsoft Excel</span>
+        <span class="tool">Stripe</span>
+        <span class="tool">Wave</span>
+        <span class="tool">Airbnb</span>
+        <span class="tool">VRBO</span>
+        <span class="tool">Booking.com</span>
+        <span class="tool">Slack</span>
+        <span class="tool">Canva</span>
+      </div>
+    </section>
+
+    <section class="contact-resume">
+      <p class="greeting">Let’s Work Together</p>
+
+      <h2>Looking for Reliable Bookkeeping Support?</h2>
+
+      <p>
+        Contact me to discuss your bookkeeping, real-estate
+        accounting, financial reporting, or administrative-support
+        needs.
+      </p>
+
+      <a href="contact.html" class="button">
+        Request a Custom Quote
+      </a>
+    </section>
+
+    <footer>
+      <p>© 2026 Clairy Sagario</p>
+    </footer>
+
+  </main>
+
+  <script>
+    const printResumeButton =
+      document.getElementById("printResumeButton");
+
+    printResumeButton.addEventListener("click", function () {
+      window.print();
+    });
+  </script>
+</body>
+</html>

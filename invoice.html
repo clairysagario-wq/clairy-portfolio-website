@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Invoice Generator | Clairy Sagario</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .invoice-hero {
+      align-items: center;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(222, 211, 232, 0.65),
+          transparent 38%
+        ),
+        linear-gradient(
+          135deg,
+          #fbf9fc,
+          var(--nude-soft)
+        );
+      display: grid;
+      gap: 40px;
+      grid-template-columns: 1.2fr 0.8fr;
+      margin: 0 -55px;
+      padding: 65px 55px 55px;
+    }
+
+    .invoice-hero-content p:last-child {
+      color: #5f5962;
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .invoice-features {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      box-shadow:
+        0 14px 30px rgba(82, 68, 91, 0.08);
+      padding: 25px;
+    }
+
+    .invoice-features h2 {
+      font-size: 21px;
+      margin: 0 0 15px;
+    }
+
+    .invoice-features ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .invoice-features li {
+      color: #5d5760;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .invoice-workspace {
+      align-items: start;
+      display: grid;
+      gap: 28px;
+      grid-template-columns: 0.9fr 1.1fr;
+      margin-top: 45px;
+    }
+
+    .editor-panel {
+      background:
+        linear-gradient(
+          145deg,
+          var(--surface-soft),
+          #faf7fb
+        );
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .editor-panel > h2 {
+      margin: 0 0 8px;
+    }
+
+    .save-status {
+      color: var(--text-soft);
+      font-size: 13px;
+      margin: 0 0 25px;
+    }
+
+    .form-section {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 27px;
+      padding-bottom: 27px;
+    }
+
+    .form-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .form-section h3 {
+      color: #62596a;
+      font-size: 17px;
+      margin: 0 0 16px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: #706779;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      background-color: #fffdfc;
+      border: 1px solid #e2d9e1;
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      padding: 10px;
+      width: 100%;
+    }
+
+    input,
+    select {
+      height: 43px;
+    }
+
+    textarea {
+      min-height: 85px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #b8a5c6;
+      outline: 3px solid rgba(184, 165, 198, 0.17);
+    }
+
+    .line-item-input {
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 2fr 0.7fr 1fr auto;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    .line-item-input input {
+      min-width: 0;
+    }
+
+    .remove-line {
+      align-self: center;
+      background-color: #b98288;
+      border-color: #b98288;
+      color: white;
+      font-size: 12px;
+      min-height: 38px;
+      padding: 7px 10px;
+    }
+
+    .remove-line:hover {
+      background-color: #a86f76;
+      border-color: #a86f76;
+      color: white;
+    }
+
+    .add-line-button {
+      background-color: white;
+      border-color: var(--lavender-accent);
+      color: var(--primary-dark);
+      margin-top: 5px;
+    }
+
+    .add-line-button:hover {
+      background-color: var(--lavender-soft);
+      color: var(--primary-dark);
+    }
+
+    .editor-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .editor-actions button {
+      flex: 1;
+    }
+
+    .reset-button {
+      background-color: var(--nude-accent);
+      border-color: #dccabd;
+      color: #493f3a;
+    }
+
+    .reset-button:hover {
+      background-color: #ddccc0;
+      color: #3e3531;
+    }
+
+    .invoice-preview {
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow:
+        0 16px 35px rgba(82, 68, 91, 0.09);
+      min-height: 830px;
+      padding: 40px;
+    }
+
+    .invoice-top {
+      align-items: start;
+      display: flex;
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    .invoice-brand h2 {
+      color: var(--primary);
+      font-size: 24px;
+      margin: 0 0 7px;
+    }
+
+    .invoice-brand p {
+      color: #655e68;
+      font-size: 13px;
+      margin: 3px 0;
+    }
+
+    .invoice-title {
+      text-align: right;
+    }
+
+    .invoice-title h1 {
+      color: #736780;
+      font-size: 38px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .invoice-title p {
+      color: #625c65;
+      font-size: 13px;
+      margin: 5px 0;
+    }
+
+    .invoice-parties {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: 1fr 1fr;
+      margin: 35px 0;
+    }
+
+    .party-card {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--lavender-accent);
+      border-radius: 9px;
+      padding: 16px;
+    }
+
+    .party-card span {
+      color: var(--text-soft);
+      display: block;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .party-card strong {
+      color: var(--text);
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .party-card p {
+      color: #655e68;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .invoice-table-wrapper {
+      overflow-x: auto;
+    }
+
+    .invoice-table {
+      border-collapse: collapse;
+      min-width: 520px;
+      width: 100%;
+    }
+
+    .invoice-table th {
+      background-color: #81768a;
+      color: white;
+      font-size: 12px;
+      padding: 11px 8px;
+      text-align: left;
+    }
+
+    .invoice-table td {
+      border-bottom: 1px solid var(--border);
+      color: #534d56;
+      font-size: 13px;
+      padding: 13px 8px;
+    }
+
+    .invoice-table th:nth-child(2),
+    .invoice-table td:nth-child(2) {
+      text-align: center;
+    }
+
+    .invoice-table th:nth-child(3),
+    .invoice-table th:nth-child(4),
+    .invoice-table td:nth-child(3),
+    .invoice-table td:nth-child(4) {
+      text-align: right;
+    }
+
+    .invoice-summary {
+      margin-left: auto;
+      margin-top: 25px;
+      max-width: 300px;
+    }
+
+    .summary-row {
+      align-items: center;
+      display: flex;
+      font-size: 13px;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+
+    .summary-row span {
+      color: #655e68;
+    }
+
+    .summary-row strong {
+      color: var(--text);
+    }
+
+    .total-row {
+      background-color: var(--lavender-soft);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-top: 6px;
+      padding: 14px;
+    }
+
+    .total-row span {
+      color: var(--primary-dark);
+      font-weight: bold;
+    }
+
+    .total-row strong {
+      color: var(--primary-dark);
+      font-size: 22px;
+    }
+
+    .invoice-bottom {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 45px;
+    }
+
+    .invoice-note {
+      border-top: 1px solid var(--border);
+      padding-top: 15px;
+    }
+
+    .invoice-note span {
+      color: var(--text-soft);
+      display: block;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .invoice-note p {
+      color: #655e68;
+      font-size: 13px;
+      white-space: pre-line;
+    }
+
+    @media (max-width: 950px) {
+      .invoice-hero {
+        margin-left: -35px;
+        margin-right: -35px;
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+
+      .invoice-workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .invoice-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .invoice-hero-content p:last-child {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .invoice-features {
+        margin: 0 auto;
+        max-width: 450px;
+        text-align: left;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .invoice-hero {
+        margin-left: -22px;
+        margin-right: -22px;
+        padding: 55px 22px 45px;
+      }
+
+      .form-grid,
+      .invoice-parties,
+      .invoice-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .full-width {
+        grid-column: auto;
+      }
+
+      .line-item-input {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .line-description {
+        grid-column: 1 / -1;
+      }
+
+      .remove-line {
+        grid-column: 1 / -1;
+      }
+
+      .editor-actions {
+        flex-direction: column;
+      }
+
+      .invoice-preview {
+        padding: 27px 20px;
+      }
+
+      .invoice-top {
+        flex-direction: column;
+      }
+
+      .invoice-title {
+        text-align: left;
+      }
+    }
+
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+
+      .container {
+        border: none;
+        box-shadow: none;
+        max-width: none;
+        padding: 0;
+      }
+
+      .navigation,
+      .invoice-hero,
+      .editor-panel,
+      footer {
+        display: none;
+      }
+
+      .invoice-workspace {
+        display: block;
+        margin: 0;
+      }
+
+      .invoice-preview {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: auto;
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <nav class="navigation">
+      <a href="index.html" class="logo">Clairy</a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="invoice-hero">
+
+      <div class="invoice-hero-content">
+        <p class="greeting">Interactive Project</p>
+
+        <h1>Invoice Generator</h1>
+
+        <p>
+          Create professional invoices with multiple line items,
+          discounts, tax calculations, notes, and payment
+          instructions.
+        </p>
+      </div>
+
+      <aside class="invoice-features">
+        <h2>Generator Features</h2>
+
+        <ul>
+          <li>Automatic invoice calculations</li>
+          <li>Discount and tax options</li>
+          <li>Automatic browser draft saving</li>
+          <li>Printable and PDF-ready layout</li>
+        </ul>
+      </aside>
+
+    </section>
+
+    <section class="invoice-workspace">
+
+      <div class="editor-panel">
+        <h2>Invoice Details</h2>
+
+        <p id="saveStatus" class="save-status">
+          Draft is saved automatically on this device.
+        </p>
+
+        <section class="form-section">
+          <h3>Your Information</h3>
+
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="businessName">
+                Your name or business
+              </label>
+
+              <input
+                id="businessName"
+                type="text"
+                value="Marie Clair Sagario"
+              >
+            </div>
+
+            <div class="form-group full-width">
+              <label for="businessEmail">
+                Your email
+              </label>
+
+              <input
+                id="businessEmail"
+                type="email"
+                value="clairysagario@gmail.com"
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h3>Client Information</h3>
+
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="clientName">
+                Client name or business
+              </label>
+
+              <input
+                id="clientName"
+                type="text"
+                placeholder="Example: ABC Company"
+              >
+            </div>
+
+            <div class="form-group full-width">
+              <label for="clientEmail">
+                Client email
+              </label>
+
+              <input
+                id="clientEmail"
+                type="email"
+                placeholder="client@example.com"
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h3>Invoice Information</h3>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="invoiceNumber">
+                Invoice number
+              </label>
+
+              <input
+                id="invoiceNumber"
+                type="text"
+                value="INV-001"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="currency">Currency</label>
+
+              <select id="currency">
+                <option value="$">USD ($)</option>
+                <option value="₱">PHP (₱)</option>
+                <option value="€">EUR (€)</option>
+                <option value="£">GBP (£)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="issueDate">Issue date</label>
+
+              <input id="issueDate" type="date">
+            </div>
+
+            <div class="form-group">
+              <label for="dueDate">Due date</label>
+
+              <input id="dueDate" type="date">
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h3>Services or Line Items</h3>
+
+          <div id="lineItemInputs"></div>
+
+          <button
+            id="addLineButton"
+            class="add-line-button"
+            type="button"
+          >
+            + Add Another Item
+          </button>
+        </section>
+
+        <section class="form-section">
+          <h3>Adjustments</h3>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="discountPercent">
+                Discount percentage
+              </label>
+
+              <input
+                id="discountPercent"
+                type="number"
+                min="0"
+                max="100"
+                step="0.01"
+                value="0"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="taxPercent">
+                Tax percentage
+              </label>
+
+              <input
+                id="taxPercent"
+                type="number"
+                min="0"
+                step="0.01"
+                value="0"
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h3>Notes and Payment</h3>
+
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="notes">Invoice notes</label>
+
+              <textarea id="notes">Thank you for your business!</textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="paymentInstructions">
+                Payment instructions
+              </label>
+
+              <textarea
+                id="paymentInstructions"
+                placeholder="Example: Payment may be made through bank transfer."
+              ></textarea>
+            </div>
+          </div>
+        </section>
+
+        <div class="editor-actions">
+          <button id="printButton" type="button">
+            Print or Save as PDF
+          </button>
+
+          <button
+            id="resetButton"
+            class="reset-button"
+            type="button"
+          >
+            Reset Invoice
+          </button>
+        </div>
+      </div>
+
+      <article class="invoice-preview">
+
+        <header class="invoice-top">
+          <div class="invoice-brand">
+            <h2 id="previewBusinessName">
+              Marie Clair Sagario
+            </h2>
+
+            <p id="previewBusinessEmail">
+              clairysagario@gmail.com
+            </p>
+          </div>
+
+          <div class="invoice-title">
+            <h1>INVOICE</h1>
+
+            <p>
+              <strong>Invoice:</strong>
+              <span id="previewInvoiceNumber">INV-001</span>
+            </p>
+
+            <p>
+              <strong>Issued:</strong>
+              <span id="previewIssueDate"></span>
+            </p>
+
+            <p>
+              <strong>Due:</strong>
+              <span id="previewDueDate"></span>
+            </p>
+          </div>
+        </header>
+
+        <section class="invoice-parties">
+          <div class="party-card">
+            <span>From</span>
+
+            <strong id="previewFromName">
+              Marie Clair Sagario
+            </strong>
+
+            <p id="previewFromEmail">
+              clairysagario@gmail.com
+            </p>
+          </div>
+
+          <div class="party-card">
+            <span>Bill To</span>
+
+            <strong id="previewClientName">
+              Client name
+            </strong>
+
+            <p id="previewClientEmail">
+              Client email
+            </p>
+          </div>
+        </section>
+
+        <div class="invoice-table-wrapper">
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Qty/Hours</th>
+                <th>Rate</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+
+            <tbody id="previewItems"></tbody>
+          </table>
+        </div>
+
+        <section class="invoice-summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="previewSubtotal">$0.00</strong>
+          </div>
+
+          <div class="summary-row">
+            <span id="discountLabel">Discount (0%)</span>
+            <strong id="previewDiscount">-$0.00</strong>
+          </div>
+
+          <div class="summary-row">
+            <span id="taxLabel">Tax (0%)</span>
+            <strong id="previewTax">$0.00</strong>
+          </div>
+
+          <div class="summary-row total-row">
+            <span>Total Due</span>
+            <strong id="previewTotal">$0.00</strong>
+          </div>
+        </section>
+
+        <section class="invoice-bottom">
+          <div class="invoice-note">
+            <span>Notes</span>
+
+            <p id="previewNotes">
+              Thank you for your business!
+            </p>
+          </div>
+
+          <div class="invoice-note">
+            <span>Payment Instructions</span>
+
+            <p id="previewPaymentInstructions">
+              Payment instructions not provided.
+            </p>
+          </div>
+        </section>
+
+      </article>
+
+    </section>
+
+    <footer>
+      <p>© 2026 Clairy Sagario</p>
+    </footer>
+
+  </main>
+
+  <script>
+    const businessName =
+      document.getElementById("businessName");
+
+    const businessEmail =
+      document.getElementById("businessEmail");
+
+    const clientName =
+      document.getElementById("clientName");
+
+    const clientEmail =
+      document.getElementById("clientEmail");
+
+    const invoiceNumber =
+      document.getElementById("invoiceNumber");
+
+    const currency =
+      document.getElementById("currency");
+
+    const issueDate =
+      document.getElementById("issueDate");
+
+    const dueDate =
+      document.getElementById("dueDate");
+
+    const discountPercent =
+      document.getElementById("discountPercent");
+
+    const taxPercent =
+      document.getElementById("taxPercent");
+
+    const notes =
+      document.getElementById("notes");
+
+    const paymentInstructions =
+      document.getElementById("paymentInstructions");
+
+    const lineItemInputs =
+      document.getElementById("lineItemInputs");
+
+    const addLineButton =
+      document.getElementById("addLineButton");
+
+    const printButton =
+      document.getElementById("printButton");
+
+    const resetButton =
+      document.getElementById("resetButton");
+
+    const saveStatus =
+      document.getElementById("saveStatus");
+
+    function getLocalDate(date) {
+      const year = date.getFullYear();
+
+      const month = String(
+        date.getMonth() + 1
+      ).padStart(2, "0");
+
+      const day = String(
+        date.getDate()
+      ).padStart(2, "0");
+
+      return `${year}-${month}-${day}`;
+    }
+
+    function setDefaultDates() {
+      const today = new Date();
+      const due = new Date();
+
+      due.setDate(due.getDate() + 14);
+
+      issueDate.value = getLocalDate(today);
+      dueDate.value = getLocalDate(due);
+    }
+
+    function addLineItem(itemData) {
+      const item = itemData || {
+        description: "",
+        quantity: 1,
+        rate: ""
+      };
+
+      const row = document.createElement("div");
+
+      row.className = "line-item-input";
+
+      row.innerHTML = `
+        <input
+          class="line-description"
+          type="text"
+          placeholder="Service description"
+          aria-label="Service description"
+        >
+
+        <input
+          class="line-quantity"
+          type="number"
+          min="0"
+          step="0.01"
+          aria-label="Quantity or hours"
+        >
+
+        <input
+          class="line-rate"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="Rate"
+          aria-label="Rate"
+        >
+
+        <button
+          class="remove-line"
+          type="button"
+        >
+          Remove
+        </button>
+      `;
+
+      row.querySelector(".line-description").value =
+        item.description;
+
+      row.querySelector(".line-quantity").value =
+        item.quantity;
+
+      row.querySelector(".line-rate").value =
+        item.rate;
+
+      const removeButton =
+        row.querySelector(".remove-line");
+
+      removeButton.addEventListener("click", function () {
+        const rows =
+          document.querySelectorAll(".line-item-input");
+
+        if (rows.length === 1) {
+          row.querySelector(".line-description").value = "";
+          row.querySelector(".line-quantity").value = "1";
+          row.querySelector(".line-rate").value = "";
+        } else {
+          row.remove();
+        }
+
+        updateInvoice();
+      });
+
+      row.addEventListener("input", updateInvoice);
+
+      lineItemInputs.appendChild(row);
+    }
+
+    function formatDate(dateValue) {
+      if (!dateValue) {
+        return "Not selected";
+      }
+
+      const date = new Date(dateValue + "T00:00:00");
+
+      return date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+      });
+    }
+
+    function formatMoney(amount) {
+      return (
+        currency.value +
+        amount.toLocaleString("en-US", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        })
+      );
+    }
+
+    function collectLineItems() {
+      const rows =
+        document.querySelectorAll(".line-item-input");
+
+      return Array.from(rows).map(function (row) {
+        return {
+          description:
+            row.querySelector(".line-description")
+              .value.trim(),
+
+          quantity:
+            Number(
+              row.querySelector(".line-quantity").value
+            ) || 0,
+
+          rate:
+            Number(
+              row.querySelector(".line-rate").value
+            ) || 0
+        };
+      });
+    }
+
+    function saveDraft() {
+      const draft = {
+        businessName: businessName.value,
+        businessEmail: businessEmail.value,
+        clientName: clientName.value,
+        clientEmail: clientEmail.value,
+        invoiceNumber: invoiceNumber.value,
+        currency: currency.value,
+        issueDate: issueDate.value,
+        dueDate: dueDate.value,
+        discountPercent: discountPercent.value,
+        taxPercent: taxPercent.value,
+        notes: notes.value,
+        paymentInstructions:
+          paymentInstructions.value,
+        lineItems: collectLineItems()
+      };
+
+      localStorage.setItem(
+        "clairyInvoiceDraft",
+        JSON.stringify(draft)
+      );
+
+      saveStatus.textContent =
+        "Draft saved automatically.";
+    }
+
+    function updateInvoice() {
+      document.getElementById(
+        "previewBusinessName"
+      ).textContent =
+        businessName.value.trim() || "Your Name";
+
+      document.getElementById(
+        "previewBusinessEmail"
+      ).textContent =
+        businessEmail.value.trim() || "your@email.com";
+
+      document.getElementById(
+        "previewFromName"
+      ).textContent =
+        businessName.value.trim() || "Your Name";
+
+      document.getElementById(
+        "previewFromEmail"
+      ).textContent =
+        businessEmail.value.trim() || "your@email.com";
+
+      document.getElementById(
+        "previewClientName"
+      ).textContent =
+        clientName.value.trim() || "Client name";
+
+      document.getElementById(
+        "previewClientEmail"
+      ).textContent =
+        clientEmail.value.trim() || "Client email";
+
+      document.getElementById(
+        "previewInvoiceNumber"
+      ).textContent =
+        invoiceNumber.value.trim() || "INV-001";
+
+      document.getElementById(
+        "previewIssueDate"
+      ).textContent =
+        formatDate(issueDate.value);
+
+      document.getElementById(
+        "previewDueDate"
+      ).textContent =
+        formatDate(dueDate.value);
+
+      document.getElementById(
+        "previewNotes"
+      ).textContent =
+        notes.value.trim() || "No notes provided.";
+
+      document.getElementById(
+        "previewPaymentInstructions"
+      ).textContent =
+        paymentInstructions.value.trim() ||
+        "Payment instructions not provided.";
+
+      const previewItems =
+        document.getElementById("previewItems");
+
+      previewItems.innerHTML = "";
+
+      const items = collectLineItems();
+      let subtotal = 0;
+
+      items.forEach(function (item) {
+        const itemAmount =
+          item.quantity * item.rate;
+
+        subtotal += itemAmount;
+
+        const row = document.createElement("tr");
+        const descriptionCell = document.createElement("td");
+        const quantityCell = document.createElement("td");
+        const rateCell = document.createElement("td");
+        const amountCell = document.createElement("td");
+
+        descriptionCell.textContent =
+          item.description || "Service";
+
+        quantityCell.textContent =
+          item.quantity.toFixed(2);
+
+        rateCell.textContent =
+          formatMoney(item.rate);
+
+        amountCell.textContent =
+          formatMoney(itemAmount);
+
+        row.appendChild(descriptionCell);
+        row.appendChild(quantityCell);
+        row.appendChild(rateCell);
+        row.appendChild(amountCell);
+
+        previewItems.appendChild(row);
+      });
+
+      const discountRate =
+        Math.max(
+          0,
+          Number(discountPercent.value) || 0
+        );
+
+      const taxRate =
+        Math.max(
+          0,
+          Number(taxPercent.value) || 0
+        );
+
+      const discountAmount =
+        subtotal * (discountRate / 100);
+
+      const taxableAmount =
+        subtotal - discountAmount;
+
+      const taxAmount =
+        taxableAmount * (taxRate / 100);
+
+      const total =
+        taxableAmount + taxAmount;
+
+      document.getElementById(
+        "previewSubtotal"
+      ).textContent =
+        formatMoney(subtotal);
+
+      document.getElementById(
+        "discountLabel"
+      ).textContent =
+        "Discount (" + discountRate + "%)";
+
+      document.getElementById(
+        "previewDiscount"
+      ).textContent =
+        "-" + formatMoney(discountAmount);
+
+      document.getElementById(
+        "taxLabel"
+      ).textContent =
+        "Tax (" + taxRate + "%)";
+
+      document.getElementById(
+        "previewTax"
+      ).textContent =
+        formatMoney(taxAmount);
+
+      document.getElementById(
+        "previewTotal"
+      ).textContent =
+        formatMoney(total);
+
+      saveDraft();
+    }
+
+    function loadDraft() {
+      const savedDraft =
+        localStorage.getItem("clairyInvoiceDraft");
+
+      if (!savedDraft) {
+        setDefaultDates();
+        addLineItem();
+        updateInvoice();
+        return;
+      }
+
+      const draft = JSON.parse(savedDraft);
+
+      businessName.value =
+        draft.businessName || "Marie Clair Sagario";
+
+      businessEmail.value =
+        draft.businessEmail ||
+        "clairysagario@gmail.com";
+
+      clientName.value = draft.clientName || "";
+      clientEmail.value = draft.clientEmail || "";
+      invoiceNumber.value =
+        draft.invoiceNumber || "INV-001";
+
+      currency.value = draft.currency || "$";
+      issueDate.value = draft.issueDate || "";
+      dueDate.value = draft.dueDate || "";
+
+      discountPercent.value =
+        draft.discountPercent || "0";
+
+      taxPercent.value =
+        draft.taxPercent || "0";
+
+      notes.value =
+        draft.notes || "Thank you for your business!";
+
+      paymentInstructions.value =
+        draft.paymentInstructions || "";
+
+      lineItemInputs.innerHTML = "";
+
+      if (
+        draft.lineItems &&
+        draft.lineItems.length > 0
+      ) {
+        draft.lineItems.forEach(function (item) {
+          addLineItem(item);
+        });
+      } else {
+        addLineItem();
+      }
+
+      if (!issueDate.value || !dueDate.value) {
+        setDefaultDates();
+      }
+
+      updateInvoice();
+    }
+
+    addLineButton.addEventListener("click", function () {
+      addLineItem();
+      updateInvoice();
+    });
+
+    printButton.addEventListener("click", function () {
+      updateInvoice();
+      window.print();
+    });
+
+    resetButton.addEventListener("click", function () {
+      const confirmed = window.confirm(
+        "Are you sure you want to reset this invoice?"
+      );
+
+      if (!confirmed) {
+        return;
+      }
+
+      localStorage.removeItem("clairyInvoiceDraft");
+
+      businessName.value = "Marie Clair Sagario";
+      businessEmail.value = "clairysagario@gmail.com";
+      clientName.value = "";
+      clientEmail.value = "";
+      invoiceNumber.value = "INV-001";
+      currency.value = "$";
+      discountPercent.value = "0";
+      taxPercent.value = "0";
+      notes.value = "Thank you for your business!";
+      paymentInstructions.value = "";
+
+      setDefaultDates();
+
+      lineItemInputs.innerHTML = "";
+      addLineItem();
+
+      updateInvoice();
+    });
+
+    document
+      .querySelector(".editor-panel")
+      .addEventListener("input", updateInvoice);
+
+    document
+      .querySelector(".editor-panel")
+      .addEventListener("change", updateInvoice);
+
+    loadDraft();
+  </script>
+</body>
+</html>

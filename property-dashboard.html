@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Property Financial Dashboard | Clairy Sagario</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .dashboard-hero {
+      align-items: center;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(222, 211, 232, 0.65),
+          transparent 38%
+        ),
+        linear-gradient(
+          135deg,
+          #fbf9fc,
+          var(--nude-soft)
+        );
+      display: grid;
+      gap: 40px;
+      grid-template-columns: 1.2fr 0.8fr;
+      margin: 0 -55px;
+      padding: 65px 55px 55px;
+    }
+
+    .dashboard-hero-content p:last-child {
+      color: #5f5962;
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .dashboard-features {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      box-shadow:
+        0 14px 30px rgba(82, 68, 91, 0.08);
+      padding: 25px;
+    }
+
+    .dashboard-features h2 {
+      font-size: 21px;
+      margin: 0 0 15px;
+    }
+
+    .dashboard-features ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .dashboard-features li {
+      color: #5d5760;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .entry-section {
+      margin-top: 45px;
+    }
+
+    .entry-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .transaction-form {
+      background:
+        linear-gradient(
+          145deg,
+          var(--surface-soft),
+          #faf7fb
+        );
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 27px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: #706779;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      background-color: #fffdfc;
+      border: 1px solid #e2d9e1;
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      height: 45px;
+      padding: 10px;
+      width: 100%;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #b8a5c6;
+      outline: 3px solid rgba(184, 165, 198, 0.17);
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .message {
+      color: #9a6269;
+      font-weight: bold;
+      min-height: 25px;
+      text-align: center;
+    }
+
+    .save-note {
+      color: var(--text-soft);
+      font-size: 13px;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .dashboard-controls {
+      background-color: var(--nude-soft);
+      border: 1px solid var(--nude-accent);
+      border-radius: 14px;
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 35px 0 15px;
+      padding: 21px;
+    }
+
+    .control-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      grid-column: 1 / -1;
+    }
+
+    .secondary-button {
+      background-color: var(--nude-accent);
+      border-color: #dccabd;
+      color: #493f3a;
+    }
+
+    .filter-button {
+      background-color: white;
+      border-color: var(--lavender-accent);
+      color: var(--primary-dark);
+    }
+
+    .clear-button {
+      background-color: transparent;
+      border-color: #b98288;
+      color: #9a6269;
+    }
+
+    .clear-button:hover {
+      background-color: #b98288;
+      border-color: #b98288;
+      color: white;
+    }
+
+    .currency-note {
+      color: var(--text-soft);
+      font-size: 12px;
+      margin: 0 0 25px;
+      text-align: right;
+    }
+
+    .overall-summary {
+      display: grid;
+      gap: 17px;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 28px 0 45px;
+    }
+
+    .summary-card {
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 22px;
+    }
+
+    .summary-card span {
+      color: #625b65;
+      display: block;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .summary-card strong {
+      color: var(--text);
+      font-size: 25px;
+    }
+
+    .income-card {
+      background-color: #e4ede8;
+    }
+
+    .expense-card {
+      background-color: #f0e1e2;
+    }
+
+    .net-card {
+      background-color: var(--lavender-soft);
+    }
+
+    .count-card {
+      background-color: var(--nude-soft);
+    }
+
+    .section-heading {
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 7px;
+    }
+
+    .section-heading p {
+      color: var(--text-soft);
+      margin-top: 0;
+    }
+
+    .property-summary-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 50px;
+    }
+
+    .property-card {
+      background:
+        linear-gradient(
+          145deg,
+          var(--surface-soft),
+          #faf7fb
+        );
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--lavender-accent);
+      border-radius: 13px;
+      padding: 22px;
+    }
+
+    .property-card h3 {
+      color: var(--text);
+      margin: 0 0 17px;
+    }
+
+    .property-amount {
+      display: flex;
+      font-size: 14px;
+      justify-content: space-between;
+      margin: 11px 0;
+    }
+
+    .property-amount span {
+      color: var(--text-soft);
+    }
+
+    .property-amount strong {
+      color: var(--text);
+    }
+
+    .property-net {
+      border-top: 1px solid var(--border);
+      margin-top: 13px;
+      padding-top: 13px;
+    }
+
+    .property-net strong {
+      color: var(--primary-dark);
+    }
+
+    .transaction-table-wrapper {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow-x: auto;
+    }
+
+    .transaction-table {
+      border-collapse: collapse;
+      min-width: 900px;
+      width: 100%;
+    }
+
+    .transaction-table th {
+      background-color: #81768a;
+      color: white;
+      font-size: 12px;
+      padding: 12px;
+      text-align: left;
+    }
+
+    .transaction-table td {
+      border-bottom: 1px solid var(--border);
+      color: #554f58;
+      font-size: 13px;
+      padding: 13px 12px;
+    }
+
+    .transaction-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .transaction-table tbody tr:hover {
+      background-color: var(--surface-soft);
+    }
+
+    .amount-column {
+      text-align: right !important;
+    }
+
+    .income-amount {
+      color: #547269 !important;
+      font-weight: bold;
+    }
+
+    .expense-amount {
+      color: #a66f76 !important;
+      font-weight: bold;
+    }
+
+    .remove-button {
+      background-color: #b98288;
+      border-color: #b98288;
+      color: white;
+      font-size: 12px;
+      min-height: 35px;
+      padding: 7px 10px;
+    }
+
+    .remove-button:hover {
+      background-color: #a86f76;
+      border-color: #a86f76;
+      color: white;
+    }
+
+    .empty-message {
+      background-color: var(--nude-soft);
+      border: 1px solid var(--nude-accent);
+      border-radius: 9px;
+      color: var(--text-soft);
+      grid-column: 1 / -1;
+      padding: 30px;
+      text-align: center;
+    }
+
+    @media (max-width: 950px) {
+      .dashboard-hero {
+        margin-left: -35px;
+        margin-right: -35px;
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+
+      .dashboard-controls {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .overall-summary {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .property-summary-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .dashboard-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .dashboard-hero-content p:last-child {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .dashboard-features {
+        margin: 0 auto;
+        max-width: 450px;
+        text-align: left;
+        width: 100%;
+      }
+
+      .transaction-form {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .dashboard-hero {
+        margin-left: -22px;
+        margin-right: -22px;
+        padding: 55px 22px 45px;
+      }
+
+      .transaction-form,
+      .dashboard-controls,
+      .overall-summary,
+      .property-summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full-width,
+      .control-buttons {
+        grid-column: auto;
+      }
+
+      .form-actions button,
+      .control-buttons button {
+        width: 100%;
+      }
+
+      .currency-note {
+        text-align: left;
+      }
+    }
+
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+
+      .container {
+        border: none;
+        box-shadow: none;
+        max-width: none;
+        padding: 15px;
+      }
+
+      .navigation,
+      .entry-section,
+      .message,
+      .save-note,
+      .control-buttons,
+      .currency-note,
+      .remove-column,
+      footer {
+        display: none;
+      }
+
+      .dashboard-hero {
+        background: white;
+        display: block;
+        margin: 0;
+        padding: 10px 0 25px;
+      }
+
+      .dashboard-features {
+        display: none;
+      }
+
+      .dashboard-controls {
+        background: white;
+        border: none;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0;
+        padding: 0;
+      }
+
+      .dashboard-controls .currency-control {
+        display: none;
+      }
+
+      .summary-card,
+      .property-card {
+        break-inside: avoid;
+      }
+
+      .transaction-table {
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <nav class="navigation">
+      <a href="index.html" class="logo">Clairy</a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="dashboard-hero">
+
+      <div class="dashboard-hero-content">
+        <p class="greeting">
+          Interactive Bookkeeping Project
+        </p>
+
+        <h1>Property Financial Dashboard</h1>
+
+        <p>
+          Record property income and expenses, review net income,
+          filter financial activity, and export property records.
+        </p>
+      </div>
+
+      <aside class="dashboard-features">
+        <h2>Dashboard Features</h2>
+
+        <ul>
+          <li>Income and expenses by property</li>
+          <li>Date and property filters</li>
+          <li>Automatic net-income calculations</li>
+          <li>CSV export and printable reports</li>
+        </ul>
+      </aside>
+
+    </section>
+
+    <section class="entry-section">
+      <h2>Add a Property Transaction</h2>
+
+      <form id="transactionForm" class="transaction-form">
+
+        <div class="form-group">
+          <label for="transactionDate">Date</label>
+
+          <input id="transactionDate" type="date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyName">Property</label>
+
+          <input
+            id="propertyName"
+            type="text"
+            required
+            placeholder="Example: Oak Street Rental"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="transactionType">
+            Transaction type
+          </label>
+
+          <select id="transactionType" required>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+
+          <select id="category" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+
+          <input
+            id="description"
+            type="text"
+            required
+            placeholder="Example: August rent"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount</label>
+
+          <input
+            id="amount"
+            type="number"
+            required
+            min="0.01"
+            step="0.01"
+            placeholder="0.00"
+          >
+        </div>
+
+        <div class="full-width form-actions">
+          <button type="submit">
+            Add Transaction
+          </button>
+        </div>
+
+      </form>
+
+      <p id="message" class="message"></p>
+
+      <p class="save-note">
+        Transactions are automatically saved on this device.
+      </p>
+    </section>
+
+    <section>
+      <div class="dashboard-controls">
+
+        <div class="form-group">
+          <label for="propertyFilter">
+            Filter by property
+          </label>
+
+          <select id="propertyFilter">
+            <option value="All Properties">
+              All Properties
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="dateFrom">From date</label>
+
+          <input id="dateFrom" type="date">
+        </div>
+
+        <div class="form-group">
+          <label for="dateTo">To date</label>
+
+          <input id="dateTo" type="date">
+        </div>
+
+        <div class="form-group currency-control">
+          <label for="currencySelect">
+            Display currency
+          </label>
+
+          <select id="currencySelect">
+            <option value="USD">USD ($)</option>
+            <option value="PHP">PHP (₱)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+          </select>
+        </div>
+
+        <div class="control-buttons">
+          <button
+            id="resetFiltersButton"
+            class="filter-button"
+            type="button"
+          >
+            Reset Filters
+          </button>
+
+          <button
+            id="printButton"
+            class="secondary-button"
+            type="button"
+          >
+            Print Report
+          </button>
+
+          <button id="exportButton" type="button">
+            Export CSV
+          </button>
+
+          <button
+            id="clearButton"
+            class="clear-button"
+            type="button"
+          >
+            Clear All Data
+          </button>
+        </div>
+
+      </div>
+
+      <p class="currency-note">
+        Changing the currency updates the symbol only. It does not
+        convert transaction amounts.
+      </p>
+
+      <section class="overall-summary">
+
+        <article class="summary-card income-card">
+          <span>Total Income</span>
+          <strong id="totalIncome">$0.00</strong>
+        </article>
+
+        <article class="summary-card expense-card">
+          <span>Total Expenses</span>
+          <strong id="totalExpenses">$0.00</strong>
+        </article>
+
+        <article class="summary-card net-card">
+          <span>Net Income</span>
+          <strong id="netIncome">$0.00</strong>
+        </article>
+
+        <article class="summary-card count-card">
+          <span>Transactions</span>
+          <strong id="transactionCount">0</strong>
+        </article>
+
+      </section>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Property Summary</h2>
+
+        <p>
+          Income, expenses, and net income for the properties
+          included in the selected filters.
+        </p>
+      </div>
+
+      <div
+        id="propertySummary"
+        class="property-summary-grid"
+      ></div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Transaction History</h2>
+
+        <p id="tableResult">
+          Showing all property transactions.
+        </p>
+      </div>
+
+      <div class="transaction-table-wrapper">
+        <table class="transaction-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Property</th>
+              <th>Type</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th class="amount-column">Amount</th>
+              <th class="remove-column">Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="transactionTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Clairy Sagario</p>
+    </footer>
+
+  </main>
+
+  <script>
+    const transactionForm =
+      document.getElementById("transactionForm");
+
+    const transactionDate =
+      document.getElementById("transactionDate");
+
+    const propertyName =
+      document.getElementById("propertyName");
+
+    const transactionType =
+      document.getElementById("transactionType");
+
+    const category =
+      document.getElementById("category");
+
+    const description =
+      document.getElementById("description");
+
+    const amount =
+      document.getElementById("amount");
+
+    const propertyFilter =
+      document.getElementById("propertyFilter");
+
+    const dateFrom =
+      document.getElementById("dateFrom");
+
+    const dateTo =
+      document.getElementById("dateTo");
+
+    const currencySelect =
+      document.getElementById("currencySelect");
+
+    const totalIncome =
+      document.getElementById("totalIncome");
+
+    const totalExpenses =
+      document.getElementById("totalExpenses");
+
+    const netIncome =
+      document.getElementById("netIncome");
+
+    const transactionCount =
+      document.getElementById("transactionCount");
+
+    const propertySummary =
+      document.getElementById("propertySummary");
+
+    const transactionTableBody =
+      document.getElementById("transactionTableBody");
+
+    const tableResult =
+      document.getElementById("tableResult");
+
+    const message =
+      document.getElementById("message");
+
+    const resetFiltersButton =
+      document.getElementById("resetFiltersButton");
+
+    const printButton =
+      document.getElementById("printButton");
+
+    const exportButton =
+      document.getElementById("exportButton");
+
+    const clearButton =
+      document.getElementById("clearButton");
+
+    const incomeCategories = [
+      "Rental Income",
+      "Cleaning Fee Income",
+      "Pet Fee Income",
+      "Late Fee Income",
+      "Other Income"
+    ];
+
+    const expenseCategories = [
+      "Repairs and Maintenance",
+      "Utilities",
+      "Property Taxes",
+      "Insurance",
+      "Mortgage Interest",
+      "Cleaning",
+      "Supplies",
+      "Management Fees",
+      "Other Expense"
+    ];
+
+    const currencySymbols = {
+      USD: "$",
+      PHP: "₱",
+      EUR: "€",
+      GBP: "£"
+    };
+
+    let transactions =
+      JSON.parse(
+        localStorage.getItem("propertyTransactions")
+      ) || [];
+
+    const savedCurrency =
+      localStorage.getItem("propertyCurrency");
+
+    if (savedCurrency) {
+      currencySelect.value = savedCurrency;
+    }
+
+    function getToday() {
+      const today = new Date();
+      const year = today.getFullYear();
+
+      const month = String(
+        today.getMonth() + 1
+      ).padStart(2, "0");
+
+      const day = String(
+        today.getDate()
+      ).padStart(2, "0");
+
+      return `${year}-${month}-${day}`;
+    }
+
+    function formatDate(dateValue) {
+      const date = new Date(dateValue + "T00:00:00");
+
+      return date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+      });
+    }
+
+    function formatMoney(value) {
+      const symbol =
+        currencySymbols[currencySelect.value];
+
+      return symbol + value.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    function updateCategories() {
+      const categories =
+        transactionType.value === "Income"
+          ? incomeCategories
+          : expenseCategories;
+
+      category.innerHTML = "";
+
+      categories.forEach(function (categoryName) {
+        const option = document.createElement("option");
+
+        option.value = categoryName;
+        option.textContent = categoryName;
+
+        category.appendChild(option);
+      });
+    }
+
+    function saveTransactions() {
+      localStorage.setItem(
+        "propertyTransactions",
+        JSON.stringify(transactions)
+      );
+    }
+
+    transactionForm.addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+
+        const transactionAmount =
+          Number(amount.value);
+
+        if (
+          transactionDate.value === "" ||
+          propertyName.value.trim() === "" ||
+          description.value.trim() === "" ||
+          amount.value === "" ||
+          transactionAmount <= 0
+        ) {
+          message.textContent =
+            "Please complete all fields using a valid amount.";
+
+          return;
+        }
+
+        const transaction = {
+          id: Date.now(),
+          date: transactionDate.value,
+          property: propertyName.value.trim(),
+          type: transactionType.value,
+          category: category.value,
+          description: description.value.trim(),
+          amount: transactionAmount
+        };
+
+        transactions.push(transaction);
+
+        saveTransactions();
+
+        const savedProperty =
+          propertyName.value.trim();
+
+        transactionForm.reset();
+
+        transactionDate.value = getToday();
+        propertyName.value = savedProperty;
+        transactionType.value = "Income";
+
+        updateCategories();
+
+        message.textContent = "";
+
+        updateDashboard();
+      }
+    );
+
+    transactionType.addEventListener(
+      "change",
+      updateCategories
+    );
+
+    propertyFilter.addEventListener(
+      "change",
+      updateDashboard
+    );
+
+    dateFrom.addEventListener(
+      "change",
+      updateDashboard
+    );
+
+    dateTo.addEventListener(
+      "change",
+      updateDashboard
+    );
+
+    currencySelect.addEventListener(
+      "change",
+      function () {
+        localStorage.setItem(
+          "propertyCurrency",
+          currencySelect.value
+        );
+
+        updateDashboard();
+      }
+    );
+
+    function updatePropertyFilter() {
+      const selectedProperty =
+        propertyFilter.value;
+
+      const properties = [
+        ...new Set(
+          transactions.map(function (transaction) {
+            return transaction.property;
+          })
+        )
+      ].sort();
+
+      propertyFilter.innerHTML = "";
+
+      const allOption = document.createElement("option");
+
+      allOption.value = "All Properties";
+      allOption.textContent = "All Properties";
+
+      propertyFilter.appendChild(allOption);
+
+      properties.forEach(function (property) {
+        const option = document.createElement("option");
+
+        option.value = property;
+        option.textContent = property;
+
+        propertyFilter.appendChild(option);
+      });
+
+      if (properties.includes(selectedProperty)) {
+        propertyFilter.value = selectedProperty;
+      } else {
+        propertyFilter.value = "All Properties";
+      }
+    }
+
+    function getFilteredTransactions() {
+      return transactions.filter(function (transaction) {
+        const matchesProperty =
+          propertyFilter.value === "All Properties" ||
+          transaction.property === propertyFilter.value;
+
+        const matchesStartDate =
+          dateFrom.value === "" ||
+          transaction.date >= dateFrom.value;
+
+        const matchesEndDate =
+          dateTo.value === "" ||
+          transaction.date <= dateTo.value;
+
+        return (
+          matchesProperty &&
+          matchesStartDate &&
+          matchesEndDate
+        );
+      });
+    }
+
+    function updateOverallSummary(filteredTransactions) {
+      const income = filteredTransactions
+        .filter(function (transaction) {
+          return transaction.type === "Income";
+        })
+        .reduce(function (total, transaction) {
+          return total + transaction.amount;
+        }, 0);
+
+      const expenses = filteredTransactions
+        .filter(function (transaction) {
+          return transaction.type === "Expense";
+        })
+        .reduce(function (total, transaction) {
+          return total + transaction.amount;
+        }, 0);
+
+      totalIncome.textContent = formatMoney(income);
+      totalExpenses.textContent = formatMoney(expenses);
+      netIncome.textContent =
+        formatMoney(income - expenses);
+
+      transactionCount.textContent =
+        filteredTransactions.length;
+    }
+
+    function updatePropertySummary(filteredTransactions) {
+      propertySummary.innerHTML = "";
+
+      if (filteredTransactions.length === 0) {
+        const emptyMessage = document.createElement("div");
+
+        emptyMessage.className = "empty-message";
+        emptyMessage.textContent =
+          "No property transactions match the filters.";
+
+        propertySummary.appendChild(emptyMessage);
+        return;
+      }
+
+      const summaries = {};
+
+      filteredTransactions.forEach(function (transaction) {
+        if (!summaries[transaction.property]) {
+          summaries[transaction.property] = {
+            income: 0,
+            expenses: 0
+          };
+        }
+
+        if (transaction.type === "Income") {
+          summaries[transaction.property].income +=
+            transaction.amount;
+        } else {
+          summaries[transaction.property].expenses +=
+            transaction.amount;
+        }
+      });
+
+      Object.keys(summaries)
+        .sort()
+        .forEach(function (property) {
+          const totals = summaries[property];
+
+          const card = document.createElement("article");
+          const heading = document.createElement("h3");
+          const incomeRow = document.createElement("div");
+          const expenseRow = document.createElement("div");
+          const netRow = document.createElement("div");
+
+          card.className = "property-card";
+          incomeRow.className = "property-amount";
+          expenseRow.className = "property-amount";
+          netRow.className =
+            "property-amount property-net";
+
+          heading.textContent = property;
+
+          const incomeLabel =
+            document.createElement("span");
+
+          const incomeValue =
+            document.createElement("strong");
+
+          incomeLabel.textContent = "Income";
+          incomeValue.textContent =
+            formatMoney(totals.income);
+
+          incomeRow.appendChild(incomeLabel);
+          incomeRow.appendChild(incomeValue);
+
+          const expenseLabel =
+            document.createElement("span");
+
+          const expenseValue =
+            document.createElement("strong");
+
+          expenseLabel.textContent = "Expenses";
+          expenseValue.textContent =
+            formatMoney(totals.expenses);
+
+          expenseRow.appendChild(expenseLabel);
+          expenseRow.appendChild(expenseValue);
+
+          const netLabel =
+            document.createElement("span");
+
+          const netValue =
+            document.createElement("strong");
+
+          netLabel.textContent = "Net Income";
+          netValue.textContent =
+            formatMoney(
+              totals.income - totals.expenses
+            );
+
+          netRow.appendChild(netLabel);
+          netRow.appendChild(netValue);
+
+          card.appendChild(heading);
+          card.appendChild(incomeRow);
+          card.appendChild(expenseRow);
+          card.appendChild(netRow);
+
+          propertySummary.appendChild(card);
+        });
+    }
+
+    function updateTransactionTable(filteredTransactions) {
+      transactionTableBody.innerHTML = "";
+
+      tableResult.textContent =
+        "Showing " +
+        filteredTransactions.length +
+        (
+          filteredTransactions.length === 1
+            ? " transaction."
+            : " transactions."
+        );
+
+      if (filteredTransactions.length === 0) {
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+
+        cell.colSpan = 7;
+        cell.className = "empty-message";
+        cell.textContent =
+          "No transactions match the selected filters.";
+
+        row.appendChild(cell);
+        transactionTableBody.appendChild(row);
+        return;
+      }
+
+      const sortedTransactions =
+        [...filteredTransactions].sort(function (a, b) {
+          return new Date(b.date) - new Date(a.date);
+        });
+
+      sortedTransactions.forEach(function (transaction) {
+        const row = document.createElement("tr");
+
+        const values = [
+          formatDate(transaction.date),
+          transaction.property,
+          transaction.type,
+          transaction.category,
+          transaction.description
+        ];
+
+        values.forEach(function (value) {
+          const cell = document.createElement("td");
+
+          cell.textContent = value;
+          row.appendChild(cell);
+        });
+
+        const amountCell = document.createElement("td");
+
+        amountCell.className =
+          "amount-column " +
+          (
+            transaction.type === "Income"
+              ? "income-amount"
+              : "expense-amount"
+          );
+
+        amountCell.textContent =
+          (
+            transaction.type === "Income"
+              ? "+"
+              : "-"
+          ) + formatMoney(transaction.amount);
+
+        row.appendChild(amountCell);
+
+        const actionCell =
+          document.createElement("td");
+
+        const removeButton =
+          document.createElement("button");
+
+        actionCell.className = "remove-column";
+
+        removeButton.className = "remove-button";
+        removeButton.type = "button";
+        removeButton.textContent = "Remove";
+
+        removeButton.addEventListener(
+          "click",
+          function () {
+            removeTransaction(transaction.id);
+          }
+        );
+
+        actionCell.appendChild(removeButton);
+        row.appendChild(actionCell);
+
+        transactionTableBody.appendChild(row);
+      });
+    }
+
+    function updateDashboard() {
+      updatePropertyFilter();
+
+      const filteredTransactions =
+        getFilteredTransactions();
+
+      updateOverallSummary(filteredTransactions);
+      updatePropertySummary(filteredTransactions);
+      updateTransactionTable(filteredTransactions);
+    }
+
+    function removeTransaction(transactionId) {
+      transactions = transactions.filter(
+        function (transaction) {
+          return transaction.id !== transactionId;
+        }
+      );
+
+      saveTransactions();
+      updateDashboard();
+    }
+
+    resetFiltersButton.addEventListener(
+      "click",
+      function () {
+        propertyFilter.value = "All Properties";
+        dateFrom.value = "";
+        dateTo.value = "";
+
+        updateDashboard();
+      }
+    );
+
+    printButton.addEventListener("click", function () {
+      window.print();
+    });
+
+    exportButton.addEventListener(
+      "click",
+      function () {
+        const filteredTransactions =
+          getFilteredTransactions();
+
+        if (filteredTransactions.length === 0) {
+          message.textContent =
+            "There are no transactions to export.";
+
+          return;
+        }
+
+        const rows = [
+          [
+            "Date",
+            "Property",
+            "Type",
+            "Category",
+            "Description",
+            "Amount",
+            "Currency"
+          ]
+        ];
+
+        filteredTransactions.forEach(
+          function (transaction) {
+            rows.push([
+              transaction.date,
+              transaction.property,
+              transaction.type,
+              transaction.category,
+              transaction.description,
+              transaction.amount.toFixed(2),
+              currencySelect.value
+            ]);
+          }
+        );
+
+        const csvContent = rows
+          .map(function (row) {
+            return row
+              .map(function (value) {
+                return (
+                  '"' +
+                  String(value).replace(/"/g, '""') +
+                  '"'
+                );
+              })
+              .join(",");
+          })
+          .join("\n");
+
+        const file = new Blob(
+          [csvContent],
+          { type: "text/csv;charset=utf-8;" }
+        );
+
+        const fileUrl = URL.createObjectURL(file);
+        const downloadLink = document.createElement("a");
+
+        downloadLink.href = fileUrl;
+        downloadLink.download =
+          "property-financial-report.csv";
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        downloadLink.remove();
+
+        URL.revokeObjectURL(fileUrl);
+
+        message.textContent =
+          "Property report downloaded successfully.";
+      }
+    );
+
+    clearButton.addEventListener(
+      "click",
+      function () {
+        if (transactions.length === 0) {
+          message.textContent =
+            "There are no transactions to clear.";
+
+          return;
+        }
+
+        const confirmed = window.confirm(
+          "Are you sure you want to delete all property transactions?"
+        );
+
+        if (confirmed) {
+          transactions = [];
+          saveTransactions();
+
+          propertyFilter.value = "All Properties";
+          dateFrom.value = "";
+          dateTo.value = "";
+          message.textContent = "";
+
+          updateDashboard();
+        }
+      }
+    );
+
+    transactionDate.value = getToday();
+
+    updateCategories();
+    updateDashboard();
+  </script>
+</body>
+</html>

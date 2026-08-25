@@ -1,0 +1,384 @@
+@import url("base.css");
+
+:root {
+  --primary: #7d6f8f;
+  --primary-dark: #665975;
+  --secondary: #7a7279;
+  --secondary-dark: #625a61;
+
+  --background: #f8f5f8;
+  --surface: #fffdfc;
+  --surface-soft: #fbf8fa;
+
+  --lavender-soft: #eee8f3;
+  --lavender-accent: #ded3e8;
+  --lavender-hover: #cfc1db;
+
+  --nude-soft: #f6efe9;
+  --nude-accent: #e8d9ce;
+
+  --text: #3e3941;
+  --text-soft: #777078;
+  --border: #e9e1e8;
+
+  --shadow:
+    0 12px 35px rgba(82, 68, 91, 0.08);
+}
+
+/* Main background */
+
+body {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(222, 211, 232, 0.5),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(232, 217, 206, 0.5),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #f7f3f8 0%,
+      #fffdfb 52%,
+      #f5efeb 100%
+    );
+}
+
+::selection {
+  background-color: var(--lavender-accent);
+  color: var(--text);
+}
+
+/* Navigation */
+
+.navigation {
+  background-color: rgba(255, 253, 252, 0.96);
+}
+
+.nav-links a:hover {
+  background-color: var(--lavender-soft);
+  color: var(--primary-dark);
+}
+
+.nav-links a.active {
+  background-color: var(--lavender-accent);
+  color: #4b4252;
+}
+
+.logo {
+  color: var(--primary);
+}
+
+/* Main headings */
+
+h1,
+.greeting {
+  color: var(--primary);
+}
+
+h2 {
+  color: #706877;
+}
+
+/* Main buttons */
+
+button,
+.button {
+  background-color: var(--lavender-accent);
+  border-color: #d3c6df;
+  color: #403847;
+}
+
+button:hover,
+.button:hover {
+  background-color: var(--lavender-hover);
+  border-color: #c4b4d2;
+  box-shadow:
+    0 6px 15px rgba(98, 79, 112, 0.12);
+  color: #342d3a;
+}
+
+/* Home-page colors */
+
+.hero {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(222, 211, 232, 0.55),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(232, 217, 206, 0.48),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      #fbf8fc,
+      #f9f4f1
+    ) !important;
+}
+
+.home-hero .introduction {
+  color: #5f5962 !important;
+}
+
+.outline-action {
+  background-color: white !important;
+  border-color: #d3c6df !important;
+  color: var(--primary-dark) !important;
+}
+
+.outline-action:hover {
+  background-color: var(--lavender-soft) !important;
+  color: #44394d !important;
+}
+
+.profile-card {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(222, 211, 232, 0.6),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      #fdfbfc,
+      #f5eee9
+    ) !important;
+  border-color: var(--border) !important;
+  box-shadow:
+    0 18px 35px rgba(82, 68, 91, 0.1) !important;
+}
+
+.profile-card::before {
+  background-color:
+    rgba(222, 211, 232, 0.5) !important;
+}
+
+.profile-card::after {
+  border-color:
+    rgba(185, 166, 199, 0.35) !important;
+}
+
+.initials-circle {
+  background:
+    linear-gradient(
+      145deg,
+      #cbbbd8,
+      #a996bb
+    ) !important;
+  box-shadow:
+    0 10px 22px rgba(110, 89, 124, 0.16) !important;
+}
+
+.availability {
+  background-color: var(--nude-soft) !important;
+  border-color: var(--nude-accent) !important;
+  color: #645762 !important;
+}
+
+.quick-details {
+  background:
+    linear-gradient(
+      145deg,
+      #fbf8fc,
+      var(--nude-soft)
+    ) !important;
+  border-left-color: #bba8ca !important;
+}
+
+/* General cards */
+
+.skill-card,
+.project-card,
+.service-card,
+.services-introduction,
+.services-cta,
+.details-card,
+.inquiry-form,
+.contact-card,
+.category-card,
+.expense-item,
+.empty-message,
+.bill-to {
+  background-color: var(--surface-soft) !important;
+  border-color: var(--border) !important;
+}
+
+.skill-card,
+.project-card,
+.service-card {
+  border-top-color: #c7b7d4 !important;
+}
+
+.skill-card {
+  border-left-color: #c7b7d4 !important;
+}
+
+.service-number,
+.process-step strong,
+.experience-date,
+.category-card strong,
+.project-type {
+  color: var(--primary) !important;
+}
+
+/* Nude sections */
+
+.services-introduction,
+.summary-box,
+.quote-note {
+  background-color: var(--nude-soft) !important;
+  border-color: var(--nude-accent) !important;
+  color: var(--text) !important;
+}
+
+/* Light lavender sections */
+
+.experience-section,
+.contact-resume,
+.total-box {
+  background:
+    linear-gradient(
+      135deg,
+      var(--lavender-soft),
+      #f5eff7
+    ) !important;
+  color: var(--text) !important;
+}
+
+.experience-section h2,
+.contact-resume h2 {
+  color: #655a70 !important;
+}
+
+.tool {
+  background-color:
+    rgba(255, 255, 255, 0.7) !important;
+  border-color: #d8cce1 !important;
+  color: #514958 !important;
+}
+
+/* Form colors */
+
+label {
+  color: #706779 !important;
+}
+
+input,
+select,
+textarea {
+  background-color: #fffdfc !important;
+  border-color: #e2d9e1 !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #b8a5c6 !important;
+  outline-color:
+    rgba(184, 165, 198, 0.2) !important;
+}
+
+/* WhatsApp and secondary buttons */
+
+.secondary-button,
+.whatsapp-button {
+  background-color: var(--nude-accent) !important;
+  border-color: #dccabd !important;
+  color: #493f3a !important;
+}
+
+.secondary-button:hover,
+.whatsapp-button:hover {
+  background-color: #ddccc0 !important;
+  color: #3e3531 !important;
+}
+
+/* Delete buttons remain visibly different */
+
+.remove-button {
+  background-color: #b98288 !important;
+  border-color: #b98288 !important;
+  color: white !important;
+}
+
+.remove-button:hover {
+  background-color: #a86f76 !important;
+  border-color: #a86f76 !important;
+}
+
+.clear-button {
+  background-color: transparent !important;
+  border-color: #b98288 !important;
+  color: #9a6269 !important;
+}
+
+.clear-button:hover {
+  background-color: #b98288 !important;
+  color: white !important;
+}
+
+/* Dashboard summary cards */
+
+.summary-card {
+  color: var(--text) !important;
+}
+
+.income-card {
+  background-color: #e4ede8 !important;
+}
+
+.expense-card {
+  background-color: #f0e1e2 !important;
+}
+
+.net-card {
+  background-color: var(--lavender-soft) !important;
+}
+
+.summary-card span,
+.summary-card strong {
+  color: inherit !important;
+}
+
+/* Project-page heading */
+
+.page-heading {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(222, 211, 232, 0.55),
+      rgba(246, 239, 233, 0.75)
+    ) !important;
+}
+
+/* Tables */
+
+.invoice-table th,
+.transaction-table th {
+  background-color: #81768a !important;
+}
+
+.invoice-total {
+  background-color: var(--lavender-soft) !important;
+}
+
+/* Footer */
+
+footer {
+  border-color: var(--border);
+}
+
+footer p {
+  color: var(--text-soft);
+}
+/* Fix Custom Pricing heading readability */
+
+.quote-note h3 {
+  color: var(--text) !important;
+}

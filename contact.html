@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Request a Quote | Clairy Sagario</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .contact-hero {
+      align-items: center;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(222, 211, 232, 0.65),
+          transparent 38%
+        ),
+        linear-gradient(
+          135deg,
+          #fbf9fc,
+          var(--nude-soft)
+        );
+      display: grid;
+      gap: 45px;
+      grid-template-columns: 1.2fr 0.8fr;
+      margin: 0 -55px;
+      padding: 70px 55px 60px;
+    }
+
+    .contact-hero-content p:last-of-type {
+      color: #5f5962;
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .availability-card {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow:
+        0 14px 30px rgba(82, 68, 91, 0.08);
+      padding: 27px;
+    }
+
+    .availability-card h2 {
+      font-size: 22px;
+      margin: 0 0 18px;
+    }
+
+    .availability-row {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .availability-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .availability-row span {
+      color: var(--text-soft);
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .availability-row strong {
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .contact-introduction {
+      background:
+        linear-gradient(
+          135deg,
+          var(--nude-soft),
+          #fbf8f6
+        );
+      border: 1px solid var(--nude-accent);
+      border-left: 5px solid #cab9d6;
+      border-radius: 12px;
+      margin: 45px 0;
+      padding: 25px 28px;
+    }
+
+    .contact-introduction p {
+      color: #5d5760;
+      margin: 0;
+    }
+
+    .contact-layout {
+      align-items: start;
+      display: grid;
+      gap: 30px;
+      grid-template-columns: 0.75fr 1.35fr;
+    }
+
+    .contact-information {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-information > h2 {
+      margin: 0 0 5px;
+    }
+
+    .contact-card {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--lavender-accent);
+      border-radius: 11px;
+      padding: 20px;
+    }
+
+    .contact-card span {
+      color: var(--text-soft);
+      display: block;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 7px;
+      text-transform: uppercase;
+    }
+
+    .contact-card strong,
+    .contact-card a {
+      color: var(--text);
+      font-size: 15px;
+      overflow-wrap: anywhere;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .contact-actions {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .contact-actions .button {
+      width: 100%;
+    }
+
+    .whatsapp-button {
+      background-color: var(--nude-accent);
+      border-color: #dccabd;
+      color: #493f3a;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #ddccc0;
+      color: #3e3531;
+    }
+
+    .quote-note {
+      background:
+        linear-gradient(
+          135deg,
+          var(--nude-soft),
+          #faf6f3
+        );
+      border: 1px solid var(--nude-accent);
+      border-radius: 12px;
+      color: var(--text);
+      padding: 23px;
+    }
+
+    .quote-note h3 {
+      color: var(--text);
+      margin: 0 0 10px;
+    }
+
+    .quote-note p {
+      color: #5f575c;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .inquiry-form {
+      background:
+        linear-gradient(
+          145deg,
+          var(--surface-soft),
+          #faf7fb
+        );
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .inquiry-form h2 {
+      margin: 0 0 8px;
+    }
+
+    .form-introduction {
+      color: var(--text-soft);
+      font-size: 15px;
+      margin: 0 0 27px;
+    }
+
+    .form-section {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 27px;
+      padding-bottom: 27px;
+    }
+
+    .form-section:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .form-section h3 {
+      color: #62596a;
+      font-size: 17px;
+      margin: 0 0 17px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 17px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: #706779;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .optional {
+      color: #918a92;
+      font-weight: normal;
+    }
+
+    input,
+    select,
+    textarea {
+      background-color: #fffdfc;
+      border: 1px solid #e2d9e1;
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      padding: 11px;
+      width: 100%;
+    }
+
+    input,
+    select {
+      height: 45px;
+    }
+
+    textarea {
+      min-height: 135px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #b8a5c6;
+      outline: 3px solid rgba(184, 165, 198, 0.17);
+    }
+
+    .submit-button {
+      margin-top: 25px;
+      width: 100%;
+    }
+
+    .form-notice {
+      color: var(--text-soft);
+      font-size: 13px;
+      margin: 13px 0 0;
+      text-align: center;
+    }
+
+    .form-status {
+      color: var(--primary-dark);
+      font-weight: bold;
+      min-height: 24px;
+      text-align: center;
+    }
+
+    .quote-process {
+      margin-top: 60px;
+    }
+
+    .quote-process h2 {
+      text-align: center;
+    }
+
+    .process-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 28px;
+    }
+
+    .process-card {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .process-number {
+      align-items: center;
+      background-color: var(--lavender-soft);
+      border-radius: 50%;
+      color: var(--primary-dark);
+      display: flex;
+      font-size: 14px;
+      font-weight: 800;
+      height: 42px;
+      justify-content: center;
+      margin: 0 auto 15px;
+      width: 42px;
+    }
+
+    .process-card h3 {
+      margin: 0 0 8px;
+    }
+
+    .process-card p {
+      color: #645e67;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .contact-hero {
+        margin-left: -35px;
+        margin-right: -35px;
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-information {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-information > h2,
+      .quote-note {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .contact-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .contact-hero-content p:last-of-type {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .availability-card {
+        margin: 0 auto;
+        max-width: 450px;
+        text-align: left;
+        width: 100%;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-hero {
+        margin-left: -22px;
+        margin-right: -22px;
+        padding: 55px 22px 45px;
+      }
+
+      .contact-information,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-information > h2,
+      .quote-note,
+      .full-width {
+        grid-column: auto;
+      }
+
+      .inquiry-form {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <nav class="navigation">
+      <a href="index.html" class="logo">Clairy</a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+    </nav>
+
+    <section class="contact-hero">
+
+      <div class="contact-hero-content">
+        <p class="greeting">Let’s Work Together</p>
+
+        <h1>Request a Custom Quote</h1>
+
+        <p>
+          Tell me about your business and the bookkeeping support you
+          need. I’ll review your information and respond with the
+          recommended next steps.
+        </p>
+      </div>
+
+      <aside class="availability-card">
+        <h2>Current Availability</h2>
+
+        <div class="availability-row">
+          <span>Weekly Availability</span>
+          <strong>20–30 hours per week</strong>
+        </div>
+
+        <div class="availability-row">
+          <span>Response Time</span>
+          <strong>Within 24–48 hours</strong>
+        </div>
+
+        <div class="availability-row">
+          <span>Work Arrangement</span>
+          <strong>Remote</strong>
+        </div>
+
+        <div class="availability-row">
+          <span>Pricing</span>
+          <strong>Custom quotation based on scope</strong>
+        </div>
+      </aside>
+
+    </section>
+
+    <section class="contact-introduction">
+      <p>
+        The form asks about your transaction volume, number of
+        entities or properties, current bookkeeping condition, and
+        requested services. This information helps me understand the
+        work before preparing a quotation.
+      </p>
+    </section>
+
+    <section class="contact-layout">
+
+      <aside class="contact-information">
+        <h2>Contact Information</h2>
+
+        <div class="contact-card">
+          <span>Email</span>
+
+          <a href="mailto:clairysagario@gmail.com">
+            clairysagario@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <span>WhatsApp</span>
+
+          <a
+            href="https://wa.me/639998676459"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +63 999 867 6459
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <span>Availability</span>
+
+          <strong>20–30 hours per week</strong>
+        </div>
+
+        <div class="contact-card">
+          <span>Response Time</span>
+
+          <strong>Within 24–48 hours</strong>
+        </div>
+
+        <div class="contact-actions">
+          <a
+            class="button whatsapp-button"
+            href="https://wa.me/639998676459?text=Hi%20Clairy%2C%20I%27m%20interested%20in%20your%20bookkeeping%20services."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Message Me on WhatsApp
+          </a>
+
+          <a
+            class="button"
+            href="mailto:clairysagario@gmail.com"
+          >
+            Send a Direct Email
+          </a>
+        </div>
+
+        <div class="quote-note">
+          <h3>Custom Pricing</h3>
+
+          <p>
+            Pricing is based on the number of accounts, monthly
+            transactions, entities or properties, condition of the
+            books, and the level of support required.
+          </p>
+        </div>
+      </aside>
+
+      <form id="inquiryForm" class="inquiry-form">
+        <h2>Bookkeeping Inquiry Form</h2>
+
+        <p class="form-introduction">
+          Complete the fields below to prepare your inquiry.
+        </p>
+
+        <section class="form-section">
+          <h3>Contact Details</h3>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="clientName">Your name</label>
+
+              <input
+                id="clientName"
+                type="text"
+                required
+                placeholder="Your full name"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="clientEmail">Your email</label>
+
+              <input
+                id="clientEmail"
+                type="email"
+                required
+                placeholder="you@example.com"
+              >
+            </div>
+
+            <div class="form-group full-width">
+              <label for="businessName">
+                Business name
+                <span class="optional">(optional)</span>
+              </label>
+
+              <input
+                id="businessName"
+                type="text"
+                placeholder="Your company or organization"
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h3>Business and Bookkeeping</h3>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="businessType">
+                Business type
+              </label>
+
+              <select id="businessType" required>
+                <option value="">
+                  Select business type
+                </option>
+
+                <option>Real Estate Investor</option>
+                <option>Property Owner or Landlord</option>
+                <option>Construction or Renovation</option>
+                <option>Short-Term Rental</option>
+                <option>E-commerce</option>
+                <option>Professional Services</option>
+                <option>Other Small Business</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="serviceNeeded">
+                Service needed
+              </label>
+
+              <select id="serviceNeeded" required>
+                <option value="">Select a service</option>
+
+                <option>Monthly Bookkeeping</option>
+                <option>QuickBooks Online Cleanup</option>
+
+                <option>
+                  Bank and Credit Card Reconciliation
+                </option>
+
+                <option>Real Estate Accounting</option>
+                <option>Loan and Mortgage Tracking</option>
+                <option>Financial Reporting</option>
+
+                <option>
+                  Accounts Payable and Vendor Support
+                </option>
+
+                <option>
+                  Multiple Bookkeeping Services
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="monthlyTransactions">
+                Approximate monthly transactions
+              </label>
+
+              <select id="monthlyTransactions" required>
+                <option value="">Select a range</option>
+                <option>Fewer than 100</option>
+                <option>100–300</option>
+                <option>301–500</option>
+                <option>More than 500</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="bookStatus">
+                Current condition of your books
+              </label>
+
+              <select id="bookStatus" required>
+                <option value="">
+                  Select current status
+                </option>
+
+                <option>Up to date</option>
+                <option>One to three months behind</option>
+                <option>More than three months behind</option>
+                <option>Cleanup needed</option>
+                <option>New business or new books</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="entities">
+                Number of entities or properties
+              </label>
+
+              <select id="entities" required>
+                <option value="">Select a range</option>
+                <option>1</option>
+                <option>2–3</option>
+                <option>4–10</option>
+                <option>More than 10</option>
+                <option>Not applicable</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="startTime">
+                Preferred start time
+              </label>
+
+              <select id="startTime" required>
+                <option value="">
+                  Select a timeframe
+                </option>
+
+                <option>As soon as possible</option>
+                <option>Within two weeks</option>
+                <option>Within one month</option>
+                <option>More than one month from now</option>
+                <option>Just exploring options</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h3>Additional Information</h3>
+
+          <div class="form-group">
+            <label for="message">
+              Additional details
+              <span class="optional">(optional)</span>
+            </label>
+
+            <textarea
+              id="message"
+              placeholder="Tell me about your bookkeeping needs, accounting software, challenges, or questions."
+            ></textarea>
+          </div>
+        </section>
+
+        <button class="submit-button" type="submit">
+          Prepare Email Inquiry
+        </button>
+
+        <p class="form-notice">
+          This opens your email application with the inquiry
+          information filled in. You can review it before sending.
+        </p>
+
+        <p id="formStatus" class="form-status"></p>
+      </form>
+
+    </section>
+
+    <section class="quote-process">
+      <h2>What Happens Next?</h2>
+
+      <div class="process-grid">
+
+        <article class="process-card">
+          <span class="process-number">1</span>
+
+          <h3>Submit Your Inquiry</h3>
+
+          <p>
+            Provide basic information about your business and
+            bookkeeping needs.
+          </p>
+        </article>
+
+        <article class="process-card">
+          <span class="process-number">2</span>
+
+          <h3>Needs Review</h3>
+
+          <p>
+            I review the scope, transaction volume, accounts, and
+            current bookkeeping condition.
+          </p>
+        </article>
+
+        <article class="process-card">
+          <span class="process-number">3</span>
+
+          <h3>Discuss Next Steps</h3>
+
+          <p>
+            I’ll respond within 24–48 hours to discuss the work and
+            custom quotation.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Clairy Sagario</p>
+    </footer>
+
+  </main>
+
+  <script>
+    const inquiryForm =
+      document.getElementById("inquiryForm");
+
+    const formStatus =
+      document.getElementById("formStatus");
+
+    inquiryForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!inquiryForm.checkValidity()) {
+        inquiryForm.reportValidity();
+        return;
+      }
+
+      const clientName =
+        document.getElementById("clientName").value.trim();
+
+      const clientEmail =
+        document.getElementById("clientEmail").value.trim();
+
+      const businessName =
+        document.getElementById("businessName").value.trim();
+
+      const businessType =
+        document.getElementById("businessType").value;
+
+      const serviceNeeded =
+        document.getElementById("serviceNeeded").value;
+
+      const monthlyTransactions =
+        document.getElementById("monthlyTransactions").value;
+
+      const bookStatus =
+        document.getElementById("bookStatus").value;
+
+      const entities =
+        document.getElementById("entities").value;
+
+      const startTime =
+        document.getElementById("startTime").value;
+
+      const message =
+        document.getElementById("message").value.trim();
+
+      const emailSubject =
+        "Bookkeeping Quote Request from " + clientName;
+
+      const emailBody = `
+Hello Clairy,
+
+I would like to request a custom bookkeeping quote.
+
+CONTACT INFORMATION
+Name: ${clientName}
+Email: ${clientEmail}
+Business: ${businessName || "Not provided"}
+
+BOOKKEEPING DETAILS
+Business type: ${businessType}
+Service needed: ${serviceNeeded}
+Monthly transactions: ${monthlyTransactions}
+Condition of books: ${bookStatus}
+Entities or properties: ${entities}
+Preferred start time: ${startTime}
+
+ADDITIONAL DETAILS
+${message || "No additional details provided."}
+
+Thank you.
+      `.trim();
+
+      const emailLink =
+        "mailto:clairysagario@gmail.com" +
+        "?subject=" + encodeURIComponent(emailSubject) +
+        "&body=" + encodeURIComponent(emailBody);
+
+      formStatus.textContent =
+        "Opening your email application...";
+
+      window.location.href = emailLink;
+    });
+  </script>
+</body>
+</html>
