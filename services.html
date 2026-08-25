@@ -8,6 +8,11 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="Professional QuickBooks Online bookkeeping, financial reporting, and real-estate accounting support from Clairy Sagario."
+  >
+
   <title>Bookkeeping Services | Clairy Sagario</title>
 
   <link rel="stylesheet" href="style.css">
@@ -18,7 +23,7 @@
       background:
         radial-gradient(
           circle at top right,
-          rgba(222, 211, 232, 0.6),
+          rgba(222, 211, 232, 0.7),
           transparent 38%
         ),
         linear-gradient(
@@ -28,113 +33,124 @@
         );
       display: grid;
       gap: 45px;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
       margin: 0 -55px;
-      padding: 75px 55px 60px;
+      padding: 75px 55px 65px;
     }
 
-    .services-hero-content p:last-of-type {
+    .services-hero-content h1 {
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.08;
+      margin: 10px 0 22px;
+      max-width: 760px;
+    }
+
+    .services-hero-content > p:last-of-type {
       color: #5f5962;
       font-size: 18px;
-      max-width: 680px;
-    }
-
-    .services-hero h1 {
-      max-width: 650px;
+      max-width: 700px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 25px;
+      margin-top: 28px;
     }
 
-    .hero-outline-button {
+    .hero-actions .secondary-button {
       background-color: white;
-      border-color: var(--lavender-accent);
+      border: 1px solid var(--border);
       color: var(--primary-dark);
     }
 
-    .hero-outline-button:hover {
+    .hero-actions .secondary-button:hover {
       background-color: var(--lavender-soft);
-      color: var(--primary-dark);
     }
 
-    .quote-summary {
-      background-color: rgba(255, 255, 255, 0.8);
+    .services-summary {
+      background-color: rgba(255, 255, 255, 0.82);
       border: 1px solid var(--border);
       border-radius: 18px;
       box-shadow:
-        0 14px 30px rgba(82, 68, 91, 0.08);
+        0 16px 35px rgba(82, 68, 91, 0.09);
       padding: 28px;
     }
 
-    .quote-summary h2 {
-      font-size: 22px;
-      margin: 0 0 20px;
+    .services-summary h2 {
+      font-size: 21px;
+      margin: 0 0 18px;
     }
 
-    .summary-row {
-      border-bottom: 1px solid var(--border);
-      padding: 13px 0;
+    .summary-list {
+      display: grid;
+      gap: 12px;
     }
 
-    .summary-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    .summary-item {
+      align-items: flex-start;
+      background-color: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      gap: 12px;
+      padding: 14px;
     }
 
-    .summary-row span {
-      color: var(--text-soft);
-      display: block;
-      font-size: 12px;
+    .summary-check {
+      align-items: center;
+      background-color: var(--lavender-accent);
+      border-radius: 50%;
+      color: var(--primary-dark);
+      display: inline-flex;
+      flex: 0 0 25px;
+      font-size: 13px;
       font-weight: bold;
-      margin-bottom: 4px;
-      text-transform: uppercase;
+      height: 25px;
+      justify-content: center;
+      width: 25px;
     }
 
-    .summary-row strong {
-      color: var(--text);
-      font-size: 15px;
+    .summary-item strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
     }
 
-    .services-introduction {
-      margin: 45px 0;
-      padding: 25px 28px;
-    }
-
-    .services-introduction p {
-      margin: 0;
+    .summary-item span {
+      color: var(--text-soft);
+      font-size: 13px;
     }
 
     .section-heading {
-      margin-bottom: 25px;
+      margin: 65px auto 35px;
+      max-width: 760px;
+      text-align: center;
     }
 
     .section-heading h2 {
-      margin-bottom: 8px;
+      font-size: clamp(30px, 4vw, 42px);
+      margin: 8px 0 14px;
     }
 
     .section-heading p {
       color: var(--text-soft);
-      margin-top: 0;
-      max-width: 700px;
+      margin: 0 auto;
+      max-width: 680px;
     }
 
-    .service-grid {
+    .services-grid {
       display: grid;
       gap: 20px;
       grid-template-columns: repeat(3, 1fr);
     }
 
     .service-card {
+      background-color: var(--surface-soft);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 15px;
       border-top: 4px solid var(--lavender-accent);
-      display: flex;
-      flex-direction: column;
-      padding: 26px;
+      padding: 27px;
       transition:
         box-shadow 0.2s ease,
         transform 0.2s ease;
@@ -142,50 +158,36 @@
 
     .service-card:hover {
       box-shadow:
-        0 12px 25px rgba(82, 68, 91, 0.09);
+        0 14px 28px rgba(82, 68, 91, 0.09);
       transform: translateY(-4px);
     }
 
     .service-number {
       align-items: center;
       background-color: var(--lavender-soft);
+      border: 1px solid var(--border);
       border-radius: 50%;
       color: var(--primary-dark);
-      display: flex;
+      display: inline-flex;
       font-size: 13px;
       font-weight: 800;
-      height: 42px;
+      height: 38px;
       justify-content: center;
-      margin-bottom: 17px;
-      width: 42px;
+      width: 38px;
     }
 
     .service-card h3 {
-      color: var(--text);
-      margin: 0 0 10px;
+      font-size: 20px;
+      margin: 18px 0 10px;
     }
 
-    .service-card > p {
-      color: #645e67;
-      font-size: 15px;
-      margin-top: 0;
-    }
-
-    .service-card ul {
-      border-top: 1px solid var(--border);
-      margin: auto 0 0;
-      padding: 16px 0 0 19px;
-    }
-
-    .service-card li {
-      color: #5d5760;
+    .service-card p {
+      color: #625c65;
       font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 8px;
+      margin: 0;
     }
 
-    .specialty-section {
-      align-items: center;
+    .pricing-section {
       background:
         linear-gradient(
           135deg,
@@ -193,90 +195,161 @@
           var(--nude-soft)
         );
       border: 1px solid var(--border);
-      border-radius: 18px;
-      display: grid;
-      gap: 40px;
-      grid-template-columns: 1fr 1fr;
-      margin-top: 60px;
-      padding: 40px;
-    }
-
-    .specialty-section h2 {
-      margin-top: 0;
-    }
-
-    .specialty-section p {
-      color: #5f5962;
-    }
-
-    .specialty-list {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .specialty-item {
-      background-color: rgba(255, 255, 255, 0.75);
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      color: #514a55;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 14px;
-    }
-
-    .tools-section {
-      margin-top: 60px;
-    }
-
-    .tool-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .tool {
-      background-color: var(--nude-soft);
-      border: 1px solid var(--nude-accent);
       border-radius: 20px;
-      color: #5a5056;
-      font-size: 14px;
-      font-weight: 650;
-      padding: 9px 15px;
+      margin-top: 75px;
+      padding: 45px;
     }
 
-    .process-section {
-      margin-top: 60px;
+    .pricing-heading {
+      margin: 0 auto 32px;
+      max-width: 760px;
+      text-align: center;
     }
 
-    .process-grid {
+    .pricing-heading h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      margin: 8px 0 14px;
+    }
+
+    .pricing-heading p {
+      color: var(--text-soft);
+      margin: 0;
+    }
+
+    .pricing-grid {
       display: grid;
       gap: 20px;
       grid-template-columns: repeat(3, 1fr);
     }
 
+    .pricing-card {
+      background-color: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      padding: 27px;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid #bda9cc;
+      box-shadow:
+        0 14px 30px rgba(82, 68, 91, 0.1);
+      position: relative;
+    }
+
+    .pricing-label {
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin: 0 0 9px;
+      text-transform: uppercase;
+    }
+
+    .pricing-card h3 {
+      font-size: 21px;
+      margin: 0 0 12px;
+    }
+
+    .rate {
+      color: #3f3744;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 5px 0 18px;
+    }
+
+    .rate span {
+      color: var(--text-soft);
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    .pricing-card ul {
+      border-top: 1px solid var(--border);
+      margin: 0;
+      padding: 17px 0 0 19px;
+    }
+
+    .pricing-card li {
+      color: #625c65;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .pricing-note {
+      background-color: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--border);
+      border-left: 5px solid #c5b3d2;
+      border-radius: 12px;
+      margin-top: 28px;
+      padding: 22px 24px;
+    }
+
+    .pricing-note h3 {
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+
+    .pricing-note p {
+      color: #625c65;
+      margin: 0;
+    }
+
+    .quote-factors {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 18px;
+    }
+
+    .quote-factor {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      color: #5d5660;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .process-section {
+      margin-top: 75px;
+    }
+
+    .process-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
     .process-step {
       background-color: var(--surface-soft);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 25px;
+      border-radius: 13px;
+      padding: 23px;
     }
 
     .process-step strong {
       color: var(--primary);
       display: block;
       font-size: 13px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       text-transform: uppercase;
     }
 
     .process-step h3 {
-      margin: 0 0 9px;
+      font-size: 18px;
+      margin: 0 0 8px;
     }
 
     .process-step p {
-      color: #645e67;
-      font-size: 15px;
+      color: var(--text-soft);
+      font-size: 13px;
       margin: 0;
     }
 
@@ -289,22 +362,53 @@
         );
       border: 1px solid var(--border);
       border-radius: 18px;
-      margin-top: 60px;
-      padding: 45px 30px;
+      margin-top: 70px;
+      padding: 42px;
       text-align: center;
     }
 
     .services-cta h2 {
-      margin-top: 0;
+      margin: 8px 0 12px;
     }
 
     .services-cta p {
-      color: #5f5962;
-      margin: 15px auto 25px;
-      max-width: 650px;
+      color: var(--text-soft);
+      margin: 0 auto 24px;
+      max-width: 680px;
     }
 
-    @media (max-width: 900px) {
+    .professional-note {
+      color: var(--text-soft);
+      font-size: 12px;
+      margin: 22px auto 0;
+      max-width: 760px;
+      text-align: center;
+    }
+
+    @media (max-width: 950px) {
+      .services-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .services-summary {
+        max-width: 620px;
+      }
+
+      .services-grid,
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 750px) {
       .services-hero {
         margin-left: -35px;
         margin-right: -35px;
@@ -312,32 +416,8 @@
         padding-right: 35px;
       }
 
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 750px) {
-      .services-hero,
-      .specialty-section {
-        grid-template-columns: 1fr;
-      }
-
-      .services-hero {
-        text-align: center;
-      }
-
-      .services-hero-content p:last-of-type {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .process-grid {
-        grid-template-columns: 1fr;
+      .quote-factors {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
@@ -348,21 +428,31 @@
         padding: 55px 22px 45px;
       }
 
-      .service-grid,
-      .specialty-list {
-        grid-template-columns: 1fr;
-      }
-
-      .specialty-section {
-        padding: 27px 22px;
+      .services-hero-content {
+        text-align: center;
       }
 
       .hero-actions {
-        flex-direction: column;
+        justify-content: center;
       }
 
-      .hero-actions .button {
-        width: 100%;
+      .services-grid,
+      .pricing-grid,
+      .process-grid,
+      .quote-factors {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card:last-child {
+        grid-column: auto;
+      }
+
+      .pricing-section {
+        padding: 32px 20px;
+      }
+
+      .services-cta {
+        padding: 34px 22px;
       }
     }
   </style>
@@ -386,14 +476,18 @@
     <section class="services-hero">
 
       <div class="services-hero-content">
-        <p class="greeting">How I Can Help</p>
+        <p class="greeting">
+          Bookkeeping and Financial Support
+        </p>
 
-        <h1>Reliable Bookkeeping Support</h1>
+        <h1>
+          Clean, organized books for confident business decisions.
+        </h1>
 
         <p>
-          Organized and detail-oriented bookkeeping services for
-          small businesses, real-estate investors, property owners,
-          and growing remote teams.
+          I provide reliable QuickBooks Online bookkeeping and
+          financial support for real-estate businesses, property
+          owners, and growing small businesses.
         </p>
 
         <div class="hero-actions">
@@ -402,293 +496,355 @@
           </a>
 
           <a
-            href="experience.html"
-            class="button hero-outline-button"
+            href="projects.html"
+            class="button secondary-button"
           >
-            View My Experience
+            View My Projects
           </a>
         </div>
       </div>
 
-      <aside class="quote-summary">
-        <h2>Working With Me</h2>
+      <aside class="services-summary">
+        <h2>Professional Support You Can Rely On</h2>
 
-        <div class="summary-row">
-          <span>Availability</span>
-          <strong>20–30 hours per week</strong>
-        </div>
+        <div class="summary-list">
 
-        <div class="summary-row">
-          <span>Response Time</span>
-          <strong>Within 24–48 hours</strong>
-        </div>
+          <div class="summary-item">
+            <span class="summary-check">✓</span>
 
-        <div class="summary-row">
-          <span>Work Arrangement</span>
-          <strong>Remote bookkeeping support</strong>
-        </div>
+            <div>
+              <strong>QuickBooks Online Experience</strong>
 
-        <div class="summary-row">
-          <span>Pricing</span>
-          <strong>Custom quotation based on scope</strong>
+              <span>
+                Accurate categorization, reconciliation, and reporting
+              </span>
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-check">✓</span>
+
+            <div>
+              <strong>Real-Estate Bookkeeping</strong>
+
+              <span>
+                Property, entity, loan, income, and expense tracking
+              </span>
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-check">✓</span>
+
+            <div>
+              <strong>Flexible Availability</strong>
+
+              <span>
+                Available for 20–30 hours of support per week
+              </span>
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-check">✓</span>
+
+            <div>
+              <strong>Responsive Communication</strong>
+
+              <span>
+                Inquiries answered within 24–48 hours
+              </span>
+            </div>
+          </div>
+
         </div>
       </aside>
 
     </section>
 
-    <section class="services-introduction">
-      <p>
-        I help business owners maintain accurate financial records,
-        reconcile accounts, organize transactions, and prepare clear
-        reports. Each engagement is based on the number of accounts,
-        monthly transactions, entities or properties, and the current
-        condition of the books.
-      </p>
-    </section>
-
     <section>
       <div class="section-heading">
-        <h2>Services I Offer</h2>
+        <p class="greeting">How I Can Help</p>
+
+        <h2>Professional Bookkeeping Services</h2>
 
         <p>
-          Services can be provided individually or combined into an
-          ongoing bookkeeping arrangement.
+          Services can be adjusted based on your business,
+          transaction volume, reporting requirements, and current
+          bookkeeping needs.
         </p>
       </div>
 
-      <div class="service-grid">
+      <div class="services-grid">
 
         <article class="service-card">
           <span class="service-number">01</span>
 
-          <h3>QuickBooks Online Bookkeeping</h3>
+          <h3>Monthly Bookkeeping</h3>
 
           <p>
-            Ongoing bookkeeping support to keep accounts organized,
-            accurate, and current.
+            Transaction categorization, account maintenance, and
+            organized monthly records to keep your books accurate
+            and current.
           </p>
-
-          <ul>
-            <li>Transaction categorization</li>
-            <li>Bank-feed management</li>
-            <li>Chart of accounts organization</li>
-            <li>Books cleanup and catch-up</li>
-          </ul>
         </article>
 
         <article class="service-card">
           <span class="service-number">02</span>
 
-          <h3>Account Reconciliation</h3>
+          <h3>Bank and Credit-Card Reconciliation</h3>
 
           <p>
-            Detailed comparison of accounting records with financial
-            statements.
+            Monthly reconciliation of bank and credit-card accounts,
+            with differences investigated and properly documented.
           </p>
-
-          <ul>
-            <li>Bank-account reconciliation</li>
-            <li>Credit-card reconciliation</li>
-            <li>Loan-account reconciliation</li>
-            <li>Discrepancy and duplicate review</li>
-          </ul>
         </article>
 
         <article class="service-card">
           <span class="service-number">03</span>
 
-          <h3>Real Estate Accounting</h3>
+          <h3>Financial Reporting</h3>
 
           <p>
-            Bookkeeping support for rental properties, investors,
-            owners, and real-estate businesses.
+            Preparation and review of Profit and Loss, Balance Sheet,
+            property-level, and management reports.
           </p>
-
-          <ul>
-            <li>Income and expenses by property</li>
-            <li>Rental-income tracking</li>
-            <li>Repairs versus improvements</li>
-            <li>Renovation and project costs</li>
-          </ul>
         </article>
 
         <article class="service-card">
           <span class="service-number">04</span>
 
-          <h3>Loans, Mortgages and Escrow</h3>
+          <h3>Real-Estate Bookkeeping</h3>
 
           <p>
-            Accurate recording and reconciliation of financing
-            transactions.
+            Income, expense, escrow, loan, contractor, and
+            property-level tracking for real-estate businesses.
           </p>
-
-          <ul>
-            <li>Principal and interest allocation</li>
-            <li>Mortgage payment recording</li>
-            <li>Escrow payment tracking</li>
-            <li>Loan balance reconciliation</li>
-          </ul>
         </article>
 
         <article class="service-card">
           <span class="service-number">05</span>
 
-          <h3>Financial Reporting</h3>
+          <h3>Multi-Entity Support</h3>
 
           <p>
-            Organized financial reports that show business and
-            property performance.
+            Organized bookkeeping across multiple businesses,
+            entities, properties, and intercompany transactions.
           </p>
-
-          <ul>
-            <li>Profit and Loss reports</li>
-            <li>Balance Sheet reports</li>
-            <li>Property-level reporting</li>
-            <li>Cash-flow and variance analysis</li>
-          </ul>
         </article>
 
         <article class="service-card">
           <span class="service-number">06</span>
 
-          <h3>Payables and Vendor Support</h3>
+          <h3>Cleanup and Catch-Up</h3>
 
           <p>
-            Administrative bookkeeping support for bills, vendors,
-            invoices, and contractors.
+            Review and correction of incomplete, outdated, or
+            disorganized books to prepare them for ongoing
+            bookkeeping or CPA review.
           </p>
+        </article>
 
-          <ul>
-            <li>Bill and payment tracking</li>
-            <li>Vendor-record maintenance</li>
-            <li>Invoice organization</li>
-            <li>1099 preparation support</li>
-          </ul>
+        <article class="service-card">
+          <span class="service-number">07</span>
+
+          <h3>Accounts Receivable and Payable</h3>
+
+          <p>
+            Invoice, customer-payment, vendor-bill, and outstanding
+            balance tracking to support healthy cash flow.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">08</span>
+
+          <h3>Loan and Mortgage Tracking</h3>
+
+          <p>
+            Accurate allocation of principal, interest, escrow, fees,
+            and remaining loan balances.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">09</span>
+
+          <h3>Bookkeeping Systems and Spreadsheets</h3>
+
+          <p>
+            Custom Google Sheets and Excel trackers for invoices,
+            expenses, payments, properties, and financial processes.
+          </p>
         </article>
 
       </div>
     </section>
 
-    <section class="specialty-section">
+    <section class="pricing-section">
 
-      <div>
-        <p class="greeting">Specialized Experience</p>
+      <div class="pricing-heading">
+        <p class="greeting">Professional Rates</p>
 
-        <h2>Real Estate and Property Bookkeeping</h2>
-
-        <p>
-          I have experience supporting residential, commercial,
-          short-term rental, investment, construction, and renovation
-          activities across multiple entities and properties.
-        </p>
-
-        <a href="projects.html" class="button">
-          View My Financial Projects
-        </a>
-      </div>
-
-      <div class="specialty-list">
-        <div class="specialty-item">
-          Multiple LLCs and Entities
-        </div>
-
-        <div class="specialty-item">
-          Property-Level Reporting
-        </div>
-
-        <div class="specialty-item">
-          Rental Income Tracking
-        </div>
-
-        <div class="specialty-item">
-          Repairs and Improvements
-        </div>
-
-        <div class="specialty-item">
-          Construction Costs
-        </div>
-
-        <div class="specialty-item">
-          Loans and Escrow
-        </div>
-
-        <div class="specialty-item">
-          Short-Term Rentals
-        </div>
-
-        <div class="specialty-item">
-          Intercompany Transactions
-        </div>
-      </div>
-
-    </section>
-
-    <section class="tools-section">
-      <div class="section-heading">
-        <h2>Tools and Platforms</h2>
+        <h2>Flexible and Transparent Pricing</h2>
 
         <p>
-          Software I’ve used for bookkeeping, reporting, payments,
-          property operations, and team collaboration.
+          Pricing reflects the complexity and volume of the work.
+          Final scope and rates are confirmed before services begin.
         </p>
       </div>
 
-      <div class="tool-list">
-        <span class="tool">QuickBooks Online</span>
-        <span class="tool">Google Sheets</span>
-        <span class="tool">Microsoft Excel</span>
-        <span class="tool">Stripe</span>
-        <span class="tool">Wave</span>
-        <span class="tool">Airbnb</span>
-        <span class="tool">VRBO</span>
-        <span class="tool">Booking.com</span>
-        <span class="tool">Slack</span>
-        <span class="tool">Canva</span>
+      <div class="pricing-grid">
+
+        <article class="pricing-card">
+          <p class="pricing-label">Essential Support</p>
+
+          <h3>Basic Bookkeeping</h3>
+
+          <p class="rate">
+            Starting at $10
+            <span>USD per hour</span>
+          </p>
+
+          <ul>
+            <li>Routine transaction categorization</li>
+            <li>Bank and credit-card reconciliation</li>
+            <li>Basic bookkeeping maintenance</li>
+            <li>Standard financial reports</li>
+          </ul>
+        </article>
+
+        <article class="pricing-card featured">
+          <p class="pricing-label">Specialized Support</p>
+
+          <h3>Ongoing and Real-Estate Bookkeeping</h3>
+
+          <p class="rate">
+            $10–$15
+            <span>USD per hour, depending on scope</span>
+          </p>
+
+          <ul>
+            <li>Property and entity-level bookkeeping</li>
+            <li>Loan, mortgage, and escrow tracking</li>
+            <li>Financial and management reporting</li>
+            <li>More complex reconciliations</li>
+          </ul>
+        </article>
+
+        <article class="pricing-card">
+          <p class="pricing-label">Project-Based</p>
+
+          <h3>Cleanup and Catch-Up</h3>
+
+          <p class="rate">
+            Custom Quote
+            <span>Provided after an initial review</span>
+          </p>
+
+          <ul>
+            <li>Historical bookkeeping cleanup</li>
+            <li>Prior-period reconciliation</li>
+            <li>Multi-entity or multi-property review</li>
+            <li>Custom spreadsheet systems</li>
+          </ul>
+        </article>
+
       </div>
+
+      <div class="pricing-note">
+        <h3>What determines the final quotation?</h3>
+
+        <p>
+          Pricing is based on the amount and complexity of the work,
+          including:
+        </p>
+
+        <div class="quote-factors">
+          <div class="quote-factor">
+            Number of accounts
+          </div>
+
+          <div class="quote-factor">
+            Monthly transactions
+          </div>
+
+          <div class="quote-factor">
+            Entities or properties
+          </div>
+
+          <div class="quote-factor">
+            Condition of the books
+          </div>
+
+          <div class="quote-factor">
+            Reporting requirements
+          </div>
+
+          <div class="quote-factor">
+            Urgency and support needed
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <section class="process-section">
+
       <div class="section-heading">
-        <h2>How the Process Works</h2>
+        <p class="greeting">Getting Started</p>
+
+        <h2>A Clear and Simple Process</h2>
 
         <p>
-          Every project begins with understanding the current books
-          and the support the business needs.
+          Every engagement begins with understanding your current
+          bookkeeping situation and the support you need.
         </p>
       </div>
 
       <div class="process-grid">
 
         <article class="process-step">
-          <strong>Step 01</strong>
+          <strong>Step 1</strong>
 
-          <h3>Review</h3>
+          <h3>Send an Inquiry</h3>
 
           <p>
-            I review the business structure, accounts, books, and
-            current financial processes.
+            Share the basic details about your business and
+            bookkeeping requirements.
           </p>
         </article>
 
         <article class="process-step">
-          <strong>Step 02</strong>
+          <strong>Step 2</strong>
 
-          <h3>Organize</h3>
+          <h3>Review the Scope</h3>
 
           <p>
-            I categorize transactions, reconcile accounts, and
-            identify bookkeeping questions or discrepancies.
+            I review the number of accounts, transactions, entities,
+            and condition of the books.
           </p>
         </article>
 
         <article class="process-step">
-          <strong>Step 03</strong>
+          <strong>Step 3</strong>
 
-          <h3>Report</h3>
+          <h3>Receive a Quote</h3>
 
           <p>
-            I prepare organized financial reports and communicate
-            any issues that require attention.
+            You receive a clear quotation based on the expected work
+            and level of support.
+          </p>
+        </article>
+
+        <article class="process-step">
+          <strong>Step 4</strong>
+
+          <h3>Begin the Work</h3>
+
+          <p>
+            Once the scope is approved, we confirm access,
+            communication, and the starting schedule.
           </p>
         </article>
 
@@ -696,18 +852,24 @@
     </section>
 
     <section class="services-cta">
-      <p class="greeting">Get Started</p>
+      <p class="greeting">Let’s Work Together</p>
 
-      <h2>Request a Custom Bookkeeping Quote</h2>
+      <h2>Ready to Get Your Books Organized?</h2>
 
       <p>
-        Tell me about your business, monthly transaction volume,
-        accounting setup, and the type of support you need.
+        Tell me about your bookkeeping needs and receive a custom
+        quotation based on your business, transaction volume, and
+        required support.
       </p>
 
       <a href="contact.html" class="button">
-        Complete the Inquiry Form
+        Request a Custom Quote
       </a>
+
+      <p class="professional-note">
+        Bookkeeping services do not include tax preparation, audit,
+        legal advice, or CPA services.
+      </p>
     </section>
 
     <footer>
