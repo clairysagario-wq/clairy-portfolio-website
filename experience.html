@@ -10,19 +10,18 @@
   >
 
   <title>Experience | Clairy Sagario</title>
-
   <link rel="stylesheet" href="style.css">
 
   <style>
     :root {
-      --ink: #342f38;
-      --muted: #706a75;
-      --lavender: #eee7f5;
+      --text: #352f39;
+      --muted: #716a76;
+      --lavender: #f1ebf7;
       --lavender-dark: #88739c;
-      --nude: #efe1d7;
-      --paper: #fffdfb;
+      --nude: #f0e2d8;
+      --white: #fffdfb;
       --border: #e5dfe8;
-      --shadow: 0 18px 45px rgba(73, 60, 84, 0.1);
+      --shadow: 0 18px 45px rgba(73, 60, 84, 0.09);
     }
 
     * {
@@ -31,13 +30,13 @@
 
     body {
       margin: 0;
-      color: var(--ink);
+      color: var(--text);
       background: #fbf9fb;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.7;
     }
 
-    .experience-header {
+    .site-header {
       position: sticky;
       top: 0;
       z-index: 20;
@@ -46,7 +45,7 @@
       backdrop-filter: blur(14px);
     }
 
-    .experience-nav {
+    .site-nav {
       width: min(1120px, calc(100% - 40px));
       min-height: 76px;
       margin: auto;
@@ -56,44 +55,44 @@
       gap: 28px;
     }
 
-    .experience-brand {
-      color: var(--ink);
+    .brand {
+      color: var(--text);
       font-size: 1.15rem;
       font-weight: 800;
       text-decoration: none;
     }
 
-    .experience-links {
+    .nav-links {
       display: flex;
       gap: 24px;
       flex-wrap: wrap;
     }
 
-    .experience-links a {
+    .nav-links a {
       color: #655e69;
       font-size: 0.95rem;
       font-weight: 700;
       text-decoration: none;
     }
 
-    .experience-links a:hover,
-    .experience-links a[aria-current="page"] {
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
       color: var(--lavender-dark);
     }
 
-    .experience-page {
+    main {
       width: min(1120px, calc(100% - 40px));
       margin: auto;
       padding: 42px 0 70px;
     }
 
-    .experience-hero {
-      padding: clamp(34px, 6vw, 76px);
+    .hero {
+      padding: clamp(34px, 6vw, 72px);
       border: 1px solid var(--border);
       border-radius: 30px;
       background:
-        radial-gradient(circle at 88% 14%, var(--nude), transparent 34%),
-        linear-gradient(135deg, #f4eef9 0%, #fffdfb 68%);
+        radial-gradient(circle at 88% 15%, var(--nude), transparent 35%),
+        linear-gradient(135deg, #f4eef9, var(--white));
       box-shadow: var(--shadow);
     }
 
@@ -106,29 +105,29 @@
       text-transform: uppercase;
     }
 
-    .experience-hero h1 {
-      max-width: 760px;
+    .hero h1 {
+      max-width: 780px;
       margin: 0;
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
       line-height: 1.04;
-      letter-spacing: -0.055em;
+      letter-spacing: -0.05em;
     }
 
-    .experience-intro {
-      max-width: 760px;
+    .hero-description {
+      max-width: 780px;
       margin: 24px 0 0;
       color: var(--muted);
-      font-size: clamp(1rem, 2vw, 1.18rem);
+      font-size: clamp(1rem, 2vw, 1.16rem);
     }
 
-    .experience-actions {
+    .buttons {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
       margin-top: 30px;
     }
 
-    .experience-button {
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -143,49 +142,49 @@
       transition: 0.2s ease;
     }
 
-    .experience-button:hover {
+    .button:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 25px rgba(95, 75, 112, 0.18);
     }
 
-    .experience-button.secondary {
+    .button.secondary {
       border-color: #d8c9df;
-      background: rgba(255, 255, 255, 0.75);
-      color: var(--ink);
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--text);
     }
 
-    .experience-stats {
+    .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-top: 24px;
     }
 
-    .experience-stat {
+    .stat {
       padding: 22px;
       border: 1px solid var(--border);
       border-radius: 18px;
-      background: var(--paper);
+      background: var(--white);
     }
 
-    .experience-stat strong {
+    .stat strong {
       display: block;
       margin-bottom: 4px;
-      font-size: 1.35rem;
-      line-height: 1.2;
+      font-size: 1.3rem;
+      line-height: 1.3;
     }
 
-    .experience-stat span {
+    .stat span {
       color: var(--muted);
       font-size: 0.92rem;
     }
 
-    .experience-section {
+    .section {
       margin-top: 64px;
     }
 
     .section-heading {
-      max-width: 720px;
+      max-width: 760px;
       margin-bottom: 26px;
     }
 
@@ -201,40 +200,97 @@
       color: var(--muted);
     }
 
+    .testimonial {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 5vw, 50px);
+      border: 1px solid #ddd2e4;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #f2ebf7, #fffaf6);
+      box-shadow: var(--shadow);
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: -20px;
+      right: 28px;
+      color: rgba(136, 115, 156, 0.13);
+      font-family: Georgia, serif;
+      font-size: 11rem;
+      line-height: 1;
+    }
+
+    .verified {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: white;
+      color: #6f5c7c;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    blockquote {
+      position: relative;
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(1.4rem, 4vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.025em;
+    }
+
+    .reviewer {
+      margin-top: 26px;
+    }
+
+    .reviewer strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .reviewer span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
     .credentials {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .credential-card {
+    .card {
       padding: 26px;
       border: 1px solid var(--border);
       border-radius: 20px;
-      background: var(--paper);
-      box-shadow: 0 12px 30px rgba(73, 60, 84, 0.06);
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(73, 60, 84, 0.05);
     }
 
-    .credential-tag {
+    .card-label {
       display: inline-block;
       margin-bottom: 12px;
       padding: 5px 10px;
       border-radius: 999px;
       background: var(--lavender);
       color: #6f5c7c;
-      font-size: 0.74rem;
+      font-size: 0.73rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .credential-card h3 {
+    .card h3 {
       margin: 0 0 8px;
       font-size: 1.15rem;
       line-height: 1.35;
     }
 
-    .credential-card p {
+    .card p {
       margin: 0;
       color: var(--muted);
       font-size: 0.94rem;
@@ -262,7 +318,7 @@
       padding: 26px;
       border: 1px solid var(--border);
       border-radius: 20px;
-      background: var(--paper);
+      background: var(--white);
     }
 
     .role.current {
@@ -282,7 +338,7 @@
       box-shadow: 0 0 0 1px var(--lavender-dark);
     }
 
-    .role-top {
+    .role-heading {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -291,7 +347,7 @@
 
     .role h3 {
       margin: 0;
-      font-size: 1.22rem;
+      font-size: 1.2rem;
       line-height: 1.35;
     }
 
@@ -338,7 +394,7 @@
       font-weight: 700;
     }
 
-    .experience-cta {
+    .cta {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -349,18 +405,18 @@
       background: linear-gradient(135deg, #eee6f4, #f4e8df);
     }
 
-    .experience-cta h2 {
+    .cta h2 {
       margin: 0;
       font-size: clamp(1.6rem, 3.5vw, 2.3rem);
       line-height: 1.2;
     }
 
-    .experience-cta p {
+    .cta p {
       margin: 9px 0 0;
       color: var(--muted);
     }
 
-    .experience-footer {
+    footer {
       padding: 28px 20px 36px;
       color: #7b747e;
       text-align: center;
@@ -368,24 +424,24 @@
     }
 
     @media (max-width: 820px) {
-      .experience-nav {
+      .site-nav {
         padding: 16px 0;
         align-items: flex-start;
         flex-direction: column;
         gap: 10px;
       }
 
-      .experience-links {
+      .nav-links {
         gap: 14px 18px;
       }
 
-      .experience-stats,
+      .stats,
       .credentials {
         grid-template-columns: 1fr;
       }
 
-      .role-top,
-      .experience-cta {
+      .role-heading,
+      .cta {
         align-items: flex-start;
         flex-direction: column;
       }
@@ -396,33 +452,37 @@
     }
 
     @media (max-width: 520px) {
-      .experience-page,
-      .experience-nav {
+      main,
+      .site-nav {
         width: calc(100% - 24px);
       }
 
-      .experience-page {
+      main {
         padding-top: 20px;
       }
 
-      .experience-hero {
+      .hero {
         padding: 28px 22px;
         border-radius: 22px;
       }
 
-      .experience-actions .experience-button {
+      .buttons .button {
         width: 100%;
+      }
+
+      .testimonial {
+        padding: 28px 22px;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="experience-header">
-    <nav class="experience-nav" aria-label="Main navigation">
-      <a class="experience-brand" href="index.html">Clairy Sagario</a>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">Clairy Sagario</a>
 
-      <div class="experience-links">
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="experience.html" aria-current="page">Experience</a>
@@ -432,24 +492,24 @@
     </nav>
   </header>
 
-  <main class="experience-page">
-    <section class="experience-hero">
+  <main>
+    <section class="hero">
       <p class="eyebrow">Experience &amp; qualifications</p>
 
       <h1>
         Bookkeeping experience built around accuracy, clarity, and trust.
       </h1>
 
-      <p class="experience-intro">
+      <p class="hero-description">
         I’m Clairy Sagario, a bookkeeper and financial analyst with 3+ years
         of experience supporting U.S.-based real estate, property management,
         and e-commerce businesses. I specialize in clean books, useful
         reports, reconciliations, and organized multi-entity financial records.
       </p>
 
-      <div class="experience-actions">
+      <div class="buttons">
         <a
-          class="experience-button"
+          class="button"
           href="Clairy-Sagario-Resume.pdf"
           download
         >
@@ -457,7 +517,7 @@
         </a>
 
         <a
-          class="experience-button secondary"
+          class="button secondary"
           href="Clairy-Sagario-Resume.pdf"
           target="_blank"
           rel="noopener"
@@ -465,61 +525,89 @@
           View résumé
         </a>
 
-        <a class="experience-button secondary" href="contact.html">
+        <a class="button secondary" href="contact.html">
           Request a quote
         </a>
       </div>
     </section>
 
-    <section class="experience-stats" aria-label="Professional highlights">
-      <div class="experience-stat">
+    <section class="stats" aria-label="Professional highlights">
+      <div class="stat">
         <strong>3+ years</strong>
         <span>Bookkeeping and financial support experience</span>
       </div>
 
-      <div class="experience-stat">
+      <div class="stat">
         <strong>Real estate focused</strong>
         <span>Property, rental, loan, and multi-entity accounting</span>
       </div>
 
-      <div class="experience-stat">
+      <div class="stat">
         <strong>20–30 hours</strong>
         <span>Weekly availability for the right client</span>
       </div>
     </section>
 
-    <section class="experience-section">
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Client feedback</p>
+        <h2>What a previous client said</h2>
+        <p>
+          Feedback from a verified employer review posted on OnlineJobs.ph.
+        </p>
+      </div>
+
+      <article class="testimonial">
+        <span class="quote-mark" aria-hidden="true">“</span>
+
+        <span class="verified">
+          Employer review
+        </span>
+
+        <blockquote>
+          “Marie Clair was wonderful. She did a great job.”
+        </blockquote>
+
+        <div class="reviewer">
+          <strong>Rose Kern</strong>
+          <span>Former client · OnlineJobs.ph · March 3, 2024</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
       <div class="section-heading">
         <p class="eyebrow">Credentials</p>
         <h2>Professional and academic background</h2>
         <p>
-          Relevant qualifications that support dependable bookkeeping and
-          financial work.
+          Qualifications that support dependable bookkeeping and financial work.
         </p>
       </div>
 
       <div class="credentials">
-        <article class="credential-card">
-          <span class="credential-tag">Degree</span>
+        <article class="card">
+          <span class="card-label">Degree</span>
           <h3>BS in Management Accounting</h3>
-          <p>University of Negros Occidental–Recoletos, 2018–2022</p>
+          <p>
+            University of Negros Occidental–Recoletos, 2018–2022
+          </p>
         </article>
 
-        <article class="credential-card">
-          <span class="credential-tag">Qualification</span>
+        <article class="card">
+          <span class="card-label">Qualification</span>
           <h3>Civil Service Examination Passer</h3>
           <p>Professional level, August 2022</p>
         </article>
 
-        <article class="credential-card">
-          <span class="credential-tag">Recognition</span>
+        <article class="card">
+          <span class="card-label">Recognition</span>
           <h3>Bronze Dean’s Lister</h3>
           <p>Academic recognition received in 2019</p>
         </article>
       </div>
     </section>
 
-    <section class="experience-section">
+    <section class="section">
       <div class="section-heading">
         <p class="eyebrow">Work history</p>
         <h2>Experience across bookkeeping, finance, and operations</h2>
@@ -531,7 +619,7 @@
 
       <div class="timeline">
         <article class="role current">
-          <div class="role-top">
+          <div class="role-heading">
             <div>
               <h3>Bookkeeper / Accounting Assistant</h3>
               <p class="company">
@@ -547,14 +635,17 @@
               Manage full-cycle bookkeeping for multiple real estate and
               e-commerce entities in QuickBooks Online.
             </li>
+
             <li>
               Complete bank, credit card, loan, and escrow reconciliations,
               payout allocations, and month-end close.
             </li>
+
             <li>
               Prepare financial statements and customized reports for cash
               flow, rental income, expenses, loans, and property performance.
             </li>
+
             <li>
               Maintain contractor time and invoice systems and coordinate with
               owners, accountants, lenders, vendors, and property managers.
@@ -563,7 +654,7 @@
         </article>
 
         <article class="role">
-          <div class="role-top">
+          <div class="role-heading">
             <div>
               <h3>Financial Analyst</h3>
               <p class="company">Automated Retail Commerce</p>
@@ -577,10 +668,12 @@
               Prepared financial reports, budgets, forecasts, and variance
               analyses.
             </li>
+
             <li>
               Performed ROI, cost-benefit, and profitability analyses to
               support business decisions.
             </li>
+
             <li>
               Managed Stripe invoicing and helped ensure accurate, timely
               client payments.
@@ -589,7 +682,7 @@
         </article>
 
         <article class="role">
-          <div class="role-top">
+          <div class="role-heading">
             <div>
               <h3>General Assistant</h3>
               <p class="company">Systems First OBM</p>
@@ -603,10 +696,12 @@
               Managed client communications, follow-ups, meeting notes, and
               action items.
             </li>
+
             <li>
               Supported blogs, social media scheduling, email marketing, and
               Canva graphics.
             </li>
+
             <li>
               Used Fathom, Metricool, and Flodesk to maintain organized client
               workflows.
@@ -615,7 +710,7 @@
         </article>
 
         <article class="role">
-          <div class="role-top">
+          <div class="role-heading">
             <div>
               <h3>Bookkeeper / Accounting Virtual Assistant</h3>
               <p class="company">
@@ -631,10 +726,12 @@
               Maintained accurate QuickBooks records and reconciled financial
               accounts.
             </li>
+
             <li>
               Categorized transactions and managed accounts receivable and
               payable.
             </li>
+
             <li>
               Prepared weekly, monthly, and quarterly reports and corrected
               transaction classifications.
@@ -643,7 +740,7 @@
         </article>
 
         <article class="role">
-          <div class="role-top">
+          <div class="role-heading">
             <div>
               <h3>Real Estate Virtual Assistant</h3>
               <p class="company">Infinite VA Services</p>
@@ -654,9 +751,10 @@
 
           <ul>
             <li>
-              Handled outbound and incoming property-related calls with
-              potential clients.
+              Handled property-related calls and communicated with potential
+              clients.
             </li>
+
             <li>
               Organized prospect information and accurately recorded contact
               dispositions.
@@ -666,7 +764,7 @@
       </div>
     </section>
 
-    <section class="experience-section">
+    <section class="section">
       <div class="section-heading">
         <p class="eyebrow">Tools &amp; expertise</p>
         <h2>Skills I bring to client work</h2>
@@ -691,19 +789,21 @@
       </div>
     </section>
 
-    <section class="experience-cta">
+    <section class="cta">
       <div>
         <h2>Need reliable support for your books?</h2>
-        <p>Tell me what you need, and I’ll respond within 24–48 hours.</p>
+        <p>
+          Tell me what you need, and I’ll respond within 24–48 hours.
+        </p>
       </div>
 
-      <a class="experience-button" href="contact.html">
+      <a class="button" href="contact.html">
         Request a quote
       </a>
     </section>
   </main>
 
-  <footer class="experience-footer">
+  <footer>
     <p>
       © 2026 Clairy Sagario. Professional bookkeeping and financial support.
     </p>
