@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#88739c"/>
+  <circle cx="49" cy="15" r="13" fill="#f0e2d8" opacity="0.95"/>
+  <text
+    x="32"
+    y="40"
+    fill="#fffdfb"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="25"
+    font-weight="700"
+    text-anchor="middle"
+  >CS</text>
+</svg>
