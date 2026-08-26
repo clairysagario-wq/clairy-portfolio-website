@@ -411,6 +411,88 @@
       font-weight: 800;
     }
 
+    .home-testimonial {
+      position: relative;
+      padding: clamp(30px, 5vw, 48px);
+      overflow: hidden;
+      border: 1px solid var(--home-border);
+      border-radius: 24px;
+      background: linear-gradient(135deg, #f2ecf7, #fffaf6);
+      box-shadow: 0 12px 30px rgba(73, 60, 84, 0.05);
+    }
+
+    .home-testimonial::before {
+      content: "“";
+      position: absolute;
+      top: -32px;
+      right: 24px;
+      color: rgba(136, 115, 156, 0.12);
+      font-family: Georgia, serif;
+      font-size: 11rem;
+      line-height: 1;
+    }
+
+    .home-testimonial blockquote {
+      position: relative;
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: -0.02em;
+    }
+
+    .home-testimonial footer {
+      position: relative;
+      margin-top: 22px;
+      color: var(--home-muted);
+    }
+
+    .home-testimonial footer strong {
+      display: block;
+      color: var(--home-text);
+      font-size: 1rem;
+    }
+
+    .home-expect-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .home-expect-card {
+      padding: 22px 18px;
+      border: 1px solid var(--home-border);
+      border-radius: 18px;
+      background: var(--home-white);
+    }
+
+    .home-expect-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 15px;
+      border-radius: 11px;
+      background: var(--home-lavender);
+      color: #6c5878;
+      font-weight: 900;
+    }
+
+    .home-expect-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .home-expect-card p {
+      margin: 0;
+      color: var(--home-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
     .home-pricing {
       display: flex;
       align-items: center;
@@ -492,7 +574,8 @@
       }
 
       .home-services,
-      .home-projects {
+      .home-projects,
+      .home-expect-grid {
         grid-template-columns: 1fr;
       }
 
@@ -634,6 +717,7 @@
       <div class="home-section-heading">
         <p class="home-eyebrow">How I can help</p>
         <h2>Dependable financial support for growing businesses</h2>
+
         <p>
           Practical bookkeeping services designed to keep your records
           organized, reports understandable, and financial information ready
@@ -644,7 +728,6 @@
       <div class="home-services">
         <article class="home-card">
           <span class="home-card-number">01</span>
-
           <h3>Monthly bookkeeping</h3>
 
           <p>
@@ -657,7 +740,6 @@
 
         <article class="home-card">
           <span class="home-card-number">02</span>
-
           <h3>Real estate accounting</h3>
 
           <p>
@@ -670,7 +752,6 @@
 
         <article class="home-card">
           <span class="home-card-number">03</span>
-
           <h3>Reporting and cleanup</h3>
 
           <p>
@@ -725,7 +806,6 @@
     <section class="home-section">
       <div class="home-section-heading">
         <p class="home-eyebrow">Interactive portfolio</p>
-
         <h2>Financial tools and sample projects</h2>
 
         <p>
@@ -737,7 +817,6 @@
       <div class="home-projects">
         <a class="home-project" href="property-dashboard.html">
           <span class="home-project-tag">Real estate</span>
-
           <h3>Property Financial Dashboard</h3>
 
           <p>
@@ -750,7 +829,6 @@
 
         <a class="home-project" href="loan-tracker.html">
           <span class="home-project-tag">Loan accounting</span>
-
           <h3>Loan Payment Splitter &amp; Tracker</h3>
 
           <p>
@@ -763,7 +841,6 @@
 
         <a class="home-project" href="invoice.html">
           <span class="home-project-tag">Contractor payments</span>
-
           <h3>Invoice &amp; Hours Tracker</h3>
 
           <p>
@@ -776,10 +853,71 @@
       </div>
     </section>
 
+    <section class="home-section">
+      <div class="home-section-heading">
+        <p class="home-eyebrow">Client feedback</p>
+        <h2>Trusted support, delivered with care</h2>
+      </div>
+
+      <article class="home-testimonial">
+        <blockquote>
+          “Marie Clair was wonderful. She did a great job.”
+        </blockquote>
+
+        <footer>
+          <strong>Rose Kern</strong>
+          <span>Former Client · OnlineJobs.ph · March 3, 2024</span>
+        </footer>
+      </article>
+    </section>
+
+    <section class="home-section">
+      <div class="home-section-heading">
+        <p class="home-eyebrow">What to expect</p>
+        <h2>A reliable and organized working relationship</h2>
+
+        <p>
+          I aim to make financial support straightforward, dependable, and
+          easy to follow from the beginning of our work together.
+        </p>
+      </div>
+
+      <div class="home-expect-grid">
+        <article class="home-expect-card">
+          <span class="home-expect-icon">01</span>
+          <h3>Clear communication</h3>
+          <p>Questions, priorities, and next steps are communicated clearly.</p>
+        </article>
+
+        <article class="home-expect-card">
+          <span class="home-expect-icon">02</span>
+          <h3>Accurate work</h3>
+          <p>Financial details are reviewed carefully and kept organized.</p>
+        </article>
+
+        <article class="home-expect-card">
+          <span class="home-expect-icon">03</span>
+          <h3>Confidentiality</h3>
+          <p>Your business and financial information are handled responsibly.</p>
+        </article>
+
+        <article class="home-expect-card">
+          <span class="home-expect-icon">04</span>
+          <h3>Progress updates</h3>
+          <p>You receive reliable updates on completed work and open items.</p>
+        </article>
+
+        <article class="home-expect-card">
+          <span class="home-expect-icon">05</span>
+          <h3>Timely responses</h3>
+          <p>New inquiries normally receive a response within 24–48 hours.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="home-section home-pricing">
       <div>
         <p class="home-eyebrow">Professional pricing</p>
-
         <h2>Flexible support based on your bookkeeping needs</h2>
 
         <p>
