@@ -9,7 +9,20 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="Request a custom quote for bookkeeping, financial reporting, real estate accounting, or business operations support from Clairy Sagario."
+  >
+
   <title>Request a Quote | Clairy Sagario</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="style.css">
 
@@ -44,8 +57,7 @@
       background-color: rgba(255, 255, 255, 0.8);
       border: 1px solid var(--border);
       border-radius: 18px;
-      box-shadow:
-        0 14px 30px rgba(82, 68, 91, 0.08);
+      box-shadow: 0 14px 30px rgba(82, 68, 91, 0.08);
       padding: 27px;
     }
 
@@ -286,6 +298,87 @@
       outline: 3px solid rgba(184, 165, 198, 0.17);
     }
 
+    .checkbox-fieldset {
+      border: 0;
+      margin: 0;
+      min-width: 0;
+      padding: 0;
+    }
+
+    .checkbox-fieldset legend {
+      color: #706779;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .checkbox-help {
+      color: #918a92;
+      font-size: 12px;
+      margin: 0 0 10px;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .checkbox-option {
+      align-items: flex-start;
+      background-color: #fffdfc;
+      border: 1px solid #e2d9e1;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      padding: 11px 12px;
+    }
+
+    .checkbox-option:hover {
+      border-color: #c8b6d2;
+    }
+
+    .checkbox-option:focus-within {
+      border-color: #b8a5c6;
+      outline: 3px solid rgba(184, 165, 198, 0.17);
+    }
+
+    .checkbox-option input {
+      accent-color: #88739c;
+      box-shadow: none;
+      flex: 0 0 auto;
+      height: 18px;
+      margin: 2px 0 0;
+      padding: 0;
+      width: 18px;
+    }
+
+    .checkbox-option input:focus {
+      outline: none;
+    }
+
+    .checkbox-option span {
+      color: #5f5962;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .checkbox-error {
+      color: #9a3f4b;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 7px 0 0;
+      min-height: 18px;
+    }
+
+    .checkbox-fieldset.has-error .checkbox-grid {
+      border-radius: 10px;
+      outline: 2px solid rgba(154, 63, 75, 0.22);
+      outline-offset: 3px;
+    }
+
     .submit-button {
       margin-top: 25px;
       width: 100%;
@@ -423,6 +516,10 @@
         grid-template-columns: 1fr;
       }
 
+      .checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+
       .contact-information > h2,
       .quote-note,
       .full-width {
@@ -440,7 +537,7 @@
   <main class="container">
 
     <nav class="navigation">
-      <a href="index.html" class="logo">Clairy</a>
+      <a href="index.html" class="logo">Clairy Sagario</a>
 
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -452,16 +549,15 @@
     </nav>
 
     <section class="contact-hero">
-
       <div class="contact-hero-content">
         <p class="greeting">Let’s Work Together</p>
 
         <h1>Request a Custom Quote</h1>
 
         <p>
-          Tell me about your business and the bookkeeping support you
-          need. I’ll review your information and respond with the
-          recommended next steps.
+          Tell me about your business and the bookkeeping, reporting,
+          or operations support you need. I’ll review your information
+          and respond with the recommended next steps.
         </p>
       </div>
 
@@ -469,8 +565,8 @@
         <h2>Current Availability</h2>
 
         <div class="availability-row">
-          <span>Weekly Availability</span>
-          <strong>20–30 hours per week</strong>
+          <span>Client Capacity</span>
+          <strong>Accepting a limited number of new clients</strong>
         </div>
 
         <div class="availability-row">
@@ -488,20 +584,18 @@
           <strong>Custom quotation based on scope</strong>
         </div>
       </aside>
-
     </section>
 
     <section class="contact-introduction">
       <p>
         The form asks about your transaction volume, number of
         entities or properties, current bookkeeping condition, and
-        requested services. This information helps me understand the
+        requested support. This information helps me understand the
         work before preparing a quotation.
       </p>
     </section>
 
     <section class="contact-layout">
-
       <aside class="contact-information">
         <h2>Contact Information</h2>
 
@@ -526,21 +620,19 @@
         </div>
 
         <div class="contact-card">
-          <span>Availability</span>
-
-          <strong>20–30 hours per week</strong>
+          <span>Client Capacity</span>
+          <strong>Accepting a limited number of new clients</strong>
         </div>
 
         <div class="contact-card">
           <span>Response Time</span>
-
           <strong>Within 24–48 hours</strong>
         </div>
 
         <div class="contact-actions">
           <a
             class="button whatsapp-button"
-            href="https://wa.me/639998676459?text=Hi%20Clairy%2C%20I%27m%20interested%20in%20your%20bookkeeping%20services."
+            href="https://wa.me/639998676459?text=Hi%20Clairy%2C%20I%27m%20interested%20in%20your%20bookkeeping%20and%20business%20operations%20services."
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -561,7 +653,8 @@
           <p>
             Pricing is based on the number of accounts, monthly
             transactions, entities or properties, condition of the
-            books, and the level of support required.
+            books, recurring responsibilities, and the level of
+            support required.
           </p>
         </div>
       </aside>
@@ -575,13 +668,14 @@
         <input
           type="hidden"
           name="_subject"
-          value="New quote request from Clairy Sagario's website"
+          value="New service inquiry from Clairy Sagario's website"
         >
 
-        <h2>Bookkeeping Inquiry Form</h2>
+        <h2>Service Inquiry Form</h2>
 
         <p class="form-introduction">
-          Complete the fields below to prepare your inquiry.
+          Complete the fields below so I can review your needs and
+          prepare the appropriate next steps.
         </p>
 
         <section class="form-section">
@@ -629,65 +723,213 @@
         </section>
 
         <section class="form-section">
-          <h3>Business and Bookkeeping</h3>
+          <h3>Business and Support Needs</h3>
 
           <div class="form-grid">
-            <div class="form-group">
-              <label for="businessType">
+            <fieldset
+              class="form-group full-width checkbox-fieldset"
+              data-required-group
+            >
+              <legend>
                 Business type
-              </label>
+                <span class="optional">
+                  (select all that apply)
+                </span>
+              </legend>
 
-              <select
-                id="businessType"
-                name="Business type"
-                required
-              >
-                <option value="">
-                  Select business type
-                </option>
+              <p class="checkbox-help">
+                Choose every option that describes the business.
+              </p>
 
-                <option>Real Estate Investor</option>
-                <option>Property Owner or Landlord</option>
-                <option>Construction or Renovation</option>
-                <option>Short-Term Rental</option>
-                <option>E-commerce</option>
-                <option>Professional Services</option>
-                <option>Other Small Business</option>
-              </select>
-            </div>
+              <div class="checkbox-grid">
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Business type"
+                    value="Real Estate Investor"
+                  >
+                  <span>Real Estate Investor</span>
+                </label>
 
-            <div class="form-group">
-              <label for="serviceNeeded">
-                Service needed
-              </label>
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Business type"
+                    value="Property Owner or Landlord"
+                  >
+                  <span>Property Owner or Landlord</span>
+                </label>
 
-              <select
-                id="serviceNeeded"
-                name="Service needed"
-                required
-              >
-                <option value="">Select a service</option>
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Business type"
+                    value="Construction or Renovation"
+                  >
+                  <span>Construction or Renovation</span>
+                </label>
 
-                <option>Monthly Bookkeeping</option>
-                <option>QuickBooks Online Cleanup</option>
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Business type"
+                    value="Short-Term Rental"
+                  >
+                  <span>Short-Term Rental</span>
+                </label>
 
-                <option>
-                  Bank and Credit Card Reconciliation
-                </option>
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Business type"
+                    value="E-commerce"
+                  >
+                  <span>E-commerce</span>
+                </label>
 
-                <option>Real Estate Accounting</option>
-                <option>Loan and Mortgage Tracking</option>
-                <option>Financial Reporting</option>
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Business type"
+                    value="Professional Services"
+                  >
+                  <span>Professional Services</span>
+                </label>
 
-                <option>
-                  Accounts Payable and Vendor Support
-                </option>
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Business type"
+                    value="Other Small Business"
+                  >
+                  <span>Other Small Business</span>
+                </label>
+              </div>
 
-                <option>
-                  Multiple Bookkeeping Services
-                </option>
-              </select>
-            </div>
+              <p
+                class="checkbox-error"
+                aria-live="polite"
+              ></p>
+            </fieldset>
+
+            <fieldset
+              class="form-group full-width checkbox-fieldset"
+              data-required-group
+            >
+              <legend>
+                Services needed
+                <span class="optional">
+                  (select all that apply)
+                </span>
+              </legend>
+
+              <p class="checkbox-help">
+                Choose every service you may need help with.
+              </p>
+
+              <div class="checkbox-grid">
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="Monthly Bookkeeping"
+                  >
+                  <span>Monthly Bookkeeping</span>
+                </label>
+
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="QuickBooks Online Cleanup"
+                  >
+                  <span>QuickBooks Online Cleanup</span>
+                </label>
+
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="Bank and Credit Card Reconciliation"
+                  >
+                  <span>
+                    Bank and Credit Card Reconciliation
+                  </span>
+                </label>
+
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="Real Estate Accounting"
+                  >
+                  <span>Real Estate Accounting</span>
+                </label>
+
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="Loan and Mortgage Tracking"
+                  >
+                  <span>Loan and Mortgage Tracking</span>
+                </label>
+
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="Financial Reporting"
+                  >
+                  <span>Financial Reporting</span>
+                </label>
+
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="Accounts Payable and Vendor Support"
+                  >
+                  <span>
+                    Accounts Payable and Vendor Support
+                  </span>
+                </label>
+
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="Business Operations Support"
+                  >
+                  <span>Business Operations Support</span>
+                </label>
+
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="Bookkeeping and Business Operations"
+                  >
+                  <span>
+                    Bookkeeping and Business Operations
+                  </span>
+                </label>
+
+                <label class="checkbox-option">
+                  <input
+                    type="checkbox"
+                    name="Services needed"
+                    value="Not Sure Yet"
+                  >
+                  <span>Not Sure Yet</span>
+                </label>
+              </div>
+
+              <p
+                class="checkbox-error"
+                aria-live="polite"
+              ></p>
+            </fieldset>
 
             <div class="form-group">
               <label for="monthlyTransactions">
@@ -786,7 +1028,7 @@
             <textarea
               id="message"
               name="Additional details"
-              placeholder="Tell me about your bookkeeping needs, accounting software, challenges, or questions."
+              placeholder="Tell me about your bookkeeping, reporting, operations, software, current challenges, or questions."
             ></textarea>
           </div>
         </section>
@@ -807,14 +1049,12 @@
           aria-live="polite"
         ></p>
       </form>
-
     </section>
 
     <section class="quote-process">
       <h2>What Happens Next?</h2>
 
       <div class="process-grid">
-
         <article class="process-card">
           <span class="process-number">1</span>
 
@@ -822,7 +1062,7 @@
 
           <p>
             Provide basic information about your business and
-            bookkeeping needs.
+            the financial or operational support you need.
           </p>
         </article>
 
@@ -832,8 +1072,8 @@
           <h3>Needs Review</h3>
 
           <p>
-            I review the scope, transaction volume, accounts, and
-            current bookkeeping condition.
+            I review the scope, transaction volume, accounts,
+            bookkeeping condition, and recurring responsibilities.
           </p>
         </article>
 
@@ -843,18 +1083,19 @@
           <h3>Discuss Next Steps</h3>
 
           <p>
-            I’ll respond within 24–48 hours to discuss the work and
-            custom quotation.
+            I’ll respond within 24–48 hours to discuss the scope,
+            proposal, and custom quotation.
           </p>
         </article>
-
       </div>
     </section>
 
     <footer>
-      <p>© 2026 Clairy Sagario</p>
+      <p>
+        © 2026 Clairy Sagario. Bookkeeping, financial reporting,
+        and business operations support.
+      </p>
     </footer>
-
   </main>
 
   <script>
@@ -867,45 +1108,151 @@
     const submitButton =
       inquiryForm.querySelector("button[type='submit']");
 
-    inquiryForm.addEventListener("submit", async function (event) {
-      event.preventDefault();
+    const requiredCheckboxGroups =
+      inquiryForm.querySelectorAll("[data-required-group]");
 
-      if (!inquiryForm.checkValidity()) {
-        inquiryForm.reportValidity();
-        return;
-      }
+    function validateCheckboxGroups() {
+      let allGroupsAreValid = true;
 
-      submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
-      formStatus.className = "form-status";
-      formStatus.textContent = "Sending your inquiry...";
+      requiredCheckboxGroups.forEach(function (group) {
+        const checkboxes =
+          group.querySelectorAll('input[type="checkbox"]');
 
-      try {
-        const response = await fetch(inquiryForm.action, {
-          method: inquiryForm.method,
-          body: new FormData(inquiryForm),
-          headers: {
-            Accept: "application/json"
-          }
-        });
+        const hasSelection =
+          Array.from(checkboxes).some(function (checkbox) {
+            return checkbox.checked;
+          });
 
-        if (!response.ok) {
-          throw new Error("The inquiry could not be submitted.");
+        const errorMessage =
+          group.querySelector(".checkbox-error");
+
+        group.classList.toggle(
+          "has-error",
+          !hasSelection
+        );
+
+        errorMessage.textContent = hasSelection
+          ? ""
+          : "Please select at least one option.";
+
+        if (!hasSelection) {
+          allGroupsAreValid = false;
+        }
+      });
+
+      return allGroupsAreValid;
+    }
+
+    inquiryForm.addEventListener(
+      "change",
+      function (event) {
+        if (
+          !event.target.matches('input[type="checkbox"]')
+        ) {
+          return;
         }
 
-        inquiryForm.reset();
-        formStatus.className = "form-status success";
-        formStatus.textContent =
-          "Thank you! Your inquiry has been sent. I’ll respond within 24–48 hours.";
-      } catch (error) {
-        formStatus.className = "form-status error";
-        formStatus.textContent =
-          "Your inquiry could not be sent. Please try again or contact me by email or WhatsApp.";
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = "Send Inquiry";
+        const group =
+          event.target.closest("[data-required-group]");
+
+        const hasSelection = Array.from(
+          group.querySelectorAll('input[type="checkbox"]')
+        ).some(function (checkbox) {
+          return checkbox.checked;
+        });
+
+        if (hasSelection) {
+          group.classList.remove("has-error");
+
+          group.querySelector(
+            ".checkbox-error"
+          ).textContent = "";
+        }
       }
-    });
+    );
+
+    inquiryForm.addEventListener(
+      "submit",
+      async function (event) {
+        event.preventDefault();
+
+        const checkboxGroupsAreValid =
+          validateCheckboxGroups();
+
+        if (
+          !inquiryForm.checkValidity() ||
+          !checkboxGroupsAreValid
+        ) {
+          inquiryForm.reportValidity();
+
+          if (!checkboxGroupsAreValid) {
+            const firstInvalidCheckbox =
+              inquiryForm.querySelector(
+                ".checkbox-fieldset.has-error input"
+              );
+
+            if (firstInvalidCheckbox) {
+              firstInvalidCheckbox.focus();
+            }
+          }
+
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        formStatus.className = "form-status";
+        formStatus.textContent =
+          "Sending your inquiry...";
+
+        try {
+          const response = await fetch(
+            inquiryForm.action,
+            {
+              method: inquiryForm.method,
+              body: new FormData(inquiryForm),
+              headers: {
+                Accept: "application/json"
+              }
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error(
+              "The inquiry could not be submitted."
+            );
+          }
+
+          inquiryForm.reset();
+
+          requiredCheckboxGroups.forEach(
+            function (group) {
+              group.classList.remove("has-error");
+
+              group.querySelector(
+                ".checkbox-error"
+              ).textContent = "";
+            }
+          );
+
+          formStatus.className =
+            "form-status success";
+
+          formStatus.textContent =
+            "Thank you! Your inquiry has been sent. I’ll respond within 24–48 hours.";
+        } catch (error) {
+          formStatus.className =
+            "form-status error";
+
+          formStatus.textContent =
+            "Your inquiry could not be sent. Please try again or contact me by email or WhatsApp.";
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send Inquiry";
+        }
+      }
+    );
   </script>
 </body>
 </html>

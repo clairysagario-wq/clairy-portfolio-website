@@ -7,38 +7,55 @@
 
   <meta
     name="description"
-    content="Clairy Sagario provides professional bookkeeping and financial support for real estate, property management, e-commerce, and small businesses."
+    content="Clairy Sagario provides real estate bookkeeping, financial reporting, and business operations support for U.S.-based property owners and growing businesses."
   >
 
-  <title>Clairy Sagario | Bookkeeper &amp; Financial Analyst</title>
+  <title>Clairy Sagario | Real Estate Bookkeeping &amp; Business Operations</title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Clairy Sagario | Bookkeeper &amp; Financial Analyst">
-<meta
-  property="og:description"
-  content="Professional bookkeeping and financial support for real estate, property management, e-commerce, and small businesses."
->
-<meta
-  property="og:url"
-  content="https://clairysagario-wq.github.io/clairy-portfolio-website/"
->
-<meta
-  property="og:image"
-  content="https://clairysagario-wq.github.io/clairy-portfolio-website/clairy-sagario-headshot.png"
->
-<meta property="og:image:alt" content="Professional headshot of Clairy Sagario">
-<meta property="og:site_name" content="Clairy Sagario">
+  <meta property="og:type" content="website">
+  <meta
+    property="og:title"
+    content="Clairy Sagario | Real Estate Bookkeeping &amp; Business Operations"
+  >
+  <meta
+    property="og:description"
+    content="Reliable bookkeeping, financial reporting, and business operations support for real estate and growing businesses."
+  >
+  <meta
+    property="og:url"
+    content="https://clairysagario-wq.github.io/clairy-portfolio-website/"
+  >
+  <meta
+    property="og:image"
+    content="https://clairysagario-wq.github.io/clairy-portfolio-website/clairy-sagario-headshot.png"
+  >
+  <meta
+    property="og:image:alt"
+    content="Professional headshot of Clairy Sagario"
+  >
+  <meta property="og:site_name" content="Clairy Sagario">
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Clairy Sagario | Bookkeeper &amp; Financial Analyst">
-<meta
-  name="twitter:description"
-  content="Professional bookkeeping and financial support for real estate, property management, e-commerce, and small businesses."
->
-<meta
-  name="twitter:image"
-  content="https://clairysagario-wq.github.io/clairy-portfolio-website/clairy-sagario-headshot.png"
->
+  <meta name="twitter:card" content="summary">
+  <meta
+    name="twitter:title"
+    content="Clairy Sagario | Real Estate Bookkeeping &amp; Business Operations"
+  >
+  <meta
+    name="twitter:description"
+    content="Reliable bookkeeping, financial reporting, and business operations support for real estate and growing businesses."
+  >
+  <meta
+    name="twitter:image"
+    content="https://clairysagario-wq.github.io/clairy-portfolio-website/clairy-sagario-headshot.png"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
 
   <style>
@@ -61,7 +78,12 @@
       margin: 0;
       color: var(--home-text);
       background: #fbf9fb;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
       line-height: 1.7;
     }
 
@@ -117,7 +139,9 @@
 
     .home-hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+      grid-template-columns:
+        minmax(0, 1.3fr)
+        minmax(280px, 0.7fr);
       align-items: center;
       gap: clamp(36px, 7vw, 80px);
       padding: clamp(34px, 6vw, 72px);
@@ -129,7 +153,11 @@
           rgba(240, 226, 216, 0.9),
           transparent 33%
         ),
-        linear-gradient(135deg, #f4eef9, var(--home-white));
+        linear-gradient(
+          135deg,
+          #f4eef9,
+          var(--home-white)
+        );
       box-shadow: var(--home-shadow);
     }
 
@@ -180,13 +208,23 @@
 
     .home-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(95, 75, 112, 0.18);
+      box-shadow:
+        0 12px 25px
+        rgba(95, 75, 112, 0.18);
     }
 
-    .home-button.secondary {
-      border-color: #d8c9df;
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--home-text);
+    .home-text-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 6px;
+      color: #715d80;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .home-text-link:hover {
+      text-decoration: underline;
     }
 
     .home-photo-card {
@@ -197,7 +235,9 @@
       border: 1px solid #ded4e3;
       border-radius: 28px;
       background: rgba(255, 255, 255, 0.72);
-      box-shadow: 0 22px 45px rgba(73, 60, 84, 0.13);
+      box-shadow:
+        0 22px 45px
+        rgba(73, 60, 84, 0.13);
     }
 
     .home-photo-card::before {
@@ -298,7 +338,7 @@
 
     .home-services {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
@@ -307,7 +347,9 @@
       border: 1px solid var(--home-border);
       border-radius: 20px;
       background: var(--home-white);
-      box-shadow: 0 12px 30px rgba(73, 60, 84, 0.05);
+      box-shadow:
+        0 12px 30px
+        rgba(73, 60, 84, 0.05);
     }
 
     .home-card-number {
@@ -350,7 +392,12 @@
       padding: clamp(28px, 5vw, 48px);
       border: 1px solid var(--home-border);
       border-radius: 24px;
-      background: linear-gradient(135deg, #f1eaf6, #fffaf6);
+      background:
+        linear-gradient(
+          135deg,
+          #f1eaf6,
+          #fffaf6
+        );
     }
 
     .home-specialty h2 {
@@ -375,7 +422,9 @@
       align-items: flex-start;
       gap: 12px;
       padding: 14px 16px;
-      border: 1px solid rgba(218, 207, 224, 0.9);
+      border:
+        1px solid
+        rgba(218, 207, 224, 0.9);
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.68);
     }
@@ -446,8 +495,15 @@
       overflow: hidden;
       border: 1px solid var(--home-border);
       border-radius: 24px;
-      background: linear-gradient(135deg, #f2ecf7, #fffaf6);
-      box-shadow: 0 12px 30px rgba(73, 60, 84, 0.05);
+      background:
+        linear-gradient(
+          135deg,
+          #f2ecf7,
+          #fffaf6
+        );
+      box-shadow:
+        0 12px 30px
+        rgba(73, 60, 84, 0.05);
     }
 
     .home-testimonial::before {
@@ -545,25 +601,6 @@
       color: var(--home-muted);
     }
 
-    .home-rate {
-      flex-shrink: 0;
-      padding: 20px 24px;
-      border-radius: 18px;
-      background: var(--home-lavender);
-      text-align: center;
-    }
-
-    .home-rate strong {
-      display: block;
-      font-size: 1.55rem;
-      line-height: 1.2;
-    }
-
-    .home-rate span {
-      color: var(--home-muted);
-      font-size: 0.85rem;
-    }
-
     .home-cta {
       display: flex;
       align-items: center;
@@ -572,7 +609,12 @@
       margin-top: 68px;
       padding: clamp(30px, 5vw, 50px);
       border-radius: 24px;
-      background: linear-gradient(135deg, #eee6f4, #f4e8df);
+      background:
+        linear-gradient(
+          135deg,
+          #eee6f4,
+          #f4e8df
+        );
     }
 
     .home-cta h2 {
@@ -617,11 +659,6 @@
         align-items: flex-start;
         flex-direction: column;
       }
-
-      .home-rate {
-        width: 100%;
-        text-align: left;
-      }
     }
 
     @media (max-width: 720px) {
@@ -659,6 +696,15 @@
       .home-actions .home-button {
         width: 100%;
       }
+
+      .home-actions {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .home-text-link {
+        padding: 6px 0;
+      }
     }
   </style>
 </head>
@@ -666,14 +712,26 @@
 <body>
   <header class="home-header">
     <nav class="home-nav" aria-label="Main navigation">
-      <a class="home-brand" href="index.html">Clairy Sagario</a>
+      <a class="home-brand" href="index.html">
+        Clairy Sagario
+      </a>
 
       <div class="home-links">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="services.html">Services</a>
-        <a href="experience.html">Experience</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" aria-current="page">
+          Home
+        </a>
+        <a href="services.html">
+          Services
+        </a>
+        <a href="experience.html">
+          Experience
+        </a>
+        <a href="projects.html">
+          Projects
+        </a>
+        <a href="contact.html">
+          Contact
+        </a>
       </div>
     </nav>
   </header>
@@ -682,18 +740,19 @@
     <section class="home-hero">
       <div>
         <p class="home-eyebrow">
-          Real estate &amp; small business bookkeeper
+          Real estate bookkeeping &amp; business operations
         </p>
 
         <h1>
-          Reliable books. Clear reports. Better decisions.
+          Reliable books. Organized operations. Better decisions.
         </h1>
 
         <p class="home-intro">
-          I’m Clairy Sagario, a bookkeeper and financial analyst helping
-          U.S.-based real estate, property management, e-commerce, and small
-          businesses maintain accurate records and understand their financial
-          performance.
+          I’m Clairy Sagario, a bookkeeper and financial analyst
+          helping U.S.-based real estate companies, property owners,
+          and growing businesses maintain accurate books, monitor
+          cash activity, and keep important financial and
+          administrative workflows organized.
         </p>
 
         <div class="home-actions">
@@ -701,12 +760,9 @@
             Request a quote
           </a>
 
-          <a class="home-button secondary" href="services.html">
+          <a class="home-text-link" href="services.html">
             View my services
-          </a>
-
-          <a class="home-button secondary" href="projects.html">
-            Explore my projects
+            <span aria-hidden="true">&nbsp;→</span>
           </a>
         </div>
       </div>
@@ -720,172 +776,313 @@
 
         <figcaption class="home-photo-caption">
           <strong>Clairy Sagario</strong>
-          <span>Bookkeeper &amp; Financial Analyst</span>
+          <span>
+            Bookkeeper, Financial Analyst &amp; Operations Support
+          </span>
         </figcaption>
       </figure>
     </section>
 
-    <section class="home-stats" aria-label="Professional highlights">
+    <section
+      class="home-stats"
+      aria-label="Professional highlights"
+    >
       <div class="home-stat">
         <strong>3+ years</strong>
-        <span>Bookkeeping and financial support experience</span>
+        <span>
+          Bookkeeping and financial support experience
+        </span>
       </div>
 
       <div class="home-stat">
-        <strong>20–30 hours</strong>
-        <span>Available each week for the right client</span>
+        <strong>Limited openings</strong>
+        <span>
+          Accepting a small number of new clients
+        </span>
       </div>
 
       <div class="home-stat">
         <strong>24–48 hours</strong>
-        <span>Typical response time for new inquiries</span>
+        <span>
+          Typical response time for new inquiries
+        </span>
       </div>
     </section>
 
     <section class="home-section">
       <div class="home-section-heading">
-        <p class="home-eyebrow">How I can help</p>
-        <h2>Dependable financial support for growing businesses</h2>
+        <p class="home-eyebrow">
+          How I can help
+        </p>
+
+        <h2>
+          Financial and operational support for growing businesses
+        </h2>
 
         <p>
-          Practical bookkeeping services designed to keep your records
-          organized, reports understandable, and financial information ready
-          when you need it.
+          Practical support designed to keep your books accurate,
+          reports understandable, and recurring financial and
+          administrative work moving forward.
         </p>
       </div>
 
       <div class="home-services">
         <article class="home-card">
-          <span class="home-card-number">01</span>
-          <h3>Monthly bookkeeping</h3>
+          <span class="home-card-number">
+            01
+          </span>
+
+          <h3>
+            Monthly bookkeeping
+          </h3>
 
           <p>
-            Transaction categorization, bank and credit card reconciliations,
-            accounts receivable, accounts payable, and month-end close.
+            Transaction categorization, bank and credit card
+            reconciliations, accounts receivable, accounts payable,
+            and month-end close.
           </p>
 
-          <a href="services.html">View service details →</a>
+          <a href="services.html">
+            View service details →
+          </a>
         </article>
 
         <article class="home-card">
-          <span class="home-card-number">02</span>
-          <h3>Real estate accounting</h3>
+          <span class="home-card-number">
+            02
+          </span>
+
+          <h3>
+            Real estate accounting
+          </h3>
 
           <p>
-            Multi-entity books, rental income, property expenses, loans,
-            escrow, contractor costs, and property-level reporting.
+            Multi-entity books, rental income, property expenses,
+            loans, escrow, contractor costs, and property-level
+            reporting.
           </p>
 
-          <a href="services.html">View service details →</a>
+          <a href="services.html">
+            View service details →
+          </a>
         </article>
 
         <article class="home-card">
-          <span class="home-card-number">03</span>
-          <h3>Reporting and cleanup</h3>
+          <span class="home-card-number">
+            03
+          </span>
+
+          <h3>
+            Reporting and cleanup
+          </h3>
 
           <p>
-            Financial statements, customized Google Sheets, cash flow
-            tracking, variance analysis, and bookkeeping cleanup.
+            Financial statements, customized Google Sheets,
+            cash-flow tracking, variance analysis, and
+            bookkeeping cleanup.
           </p>
 
-          <a href="services.html">View service details →</a>
+          <a href="services.html">
+            View service details →
+          </a>
+        </article>
+
+        <article class="home-card">
+          <span class="home-card-number">
+            04
+          </span>
+
+          <h3>
+            Business operations support
+          </h3>
+
+          <p>
+            Cash-position monitoring, upcoming-expense tracking,
+            invoice and vendor follow-up, and tenant or
+            subcontractor documentation using client-approved
+            templates.
+          </p>
+
+          <a href="services.html">
+            View service details →
+          </a>
         </article>
       </div>
     </section>
 
     <section class="home-section home-specialty">
       <div>
-        <p class="home-eyebrow">My specialty</p>
+        <p class="home-eyebrow">
+          My specialty
+        </p>
 
         <h2>
-          Organized books for complex real estate operations
+          Financial clarity for complex real estate operations
         </h2>
 
         <p>
-          I understand that real estate bookkeeping often involves multiple
-          companies, properties, bank accounts, loans, contractors, and rental
-          platforms. I organize these details into financial records that are
-          easier to review and manage.
+          I understand that real estate bookkeeping often involves
+          multiple companies, properties, bank accounts, loans,
+          contractors, and rental platforms. I bring the books and
+          supporting workflows together so owners can review cash
+          activity, outstanding items, and property performance
+          more easily.
         </p>
       </div>
 
       <div class="home-checklist">
         <div class="home-check">
-          <span class="home-check-mark">✓</span>
-          <span>QuickBooks Online and multi-entity bookkeeping</span>
+          <span class="home-check-mark">
+            ✓
+          </span>
+          <span>
+            QuickBooks Online and multi-entity bookkeeping
+          </span>
         </div>
 
         <div class="home-check">
-          <span class="home-check-mark">✓</span>
-          <span>Bank, credit card, loan, and escrow reconciliations</span>
+          <span class="home-check-mark">
+            ✓
+          </span>
+          <span>
+            Bank, credit card, loan, and escrow reconciliations
+          </span>
         </div>
 
         <div class="home-check">
-          <span class="home-check-mark">✓</span>
-          <span>Short-term and long-term rental tracking</span>
+          <span class="home-check-mark">
+            ✓
+          </span>
+          <span>
+            Short-term and long-term rental tracking
+          </span>
         </div>
 
         <div class="home-check">
-          <span class="home-check-mark">✓</span>
-          <span>Property-level reports and customized spreadsheets</span>
+          <span class="home-check-mark">
+            ✓
+          </span>
+          <span>
+            Property-level reports and customized spreadsheets
+          </span>
+        </div>
+
+        <div class="home-check">
+          <span class="home-check-mark">
+            ✓
+          </span>
+          <span>
+            Cash-position monitoring and upcoming-expense tracking
+          </span>
+        </div>
+
+        <div class="home-check">
+          <span class="home-check-mark">
+            ✓
+          </span>
+          <span>
+            Vendor, tenant, and subcontractor document organization
+          </span>
         </div>
       </div>
     </section>
 
     <section class="home-section">
       <div class="home-section-heading">
-        <p class="home-eyebrow">Interactive portfolio</p>
-        <h2>Financial tools and sample projects</h2>
+        <p class="home-eyebrow">
+          Interactive portfolio
+        </p>
+
+        <h2>
+          Financial tools and sample projects
+        </h2>
 
         <p>
-          These projects demonstrate how I organize financial information and
-          create practical solutions for bookkeeping workflows.
+          These projects demonstrate how I organize financial
+          information and create practical solutions for
+          bookkeeping workflows.
         </p>
       </div>
 
       <div class="home-projects">
-        <a class="home-project" href="property-dashboard.html">
-          <span class="home-project-tag">Real estate</span>
-          <h3>Property Financial Dashboard</h3>
+        <a
+          class="home-project"
+          href="property-dashboard.html"
+        >
+          <span class="home-project-tag">
+            Real estate
+          </span>
+
+          <h3>
+            Property Financial Dashboard
+          </h3>
 
           <p>
-            A property-level dashboard for monitoring income, expenses, and
-            financial performance.
+            A property-level dashboard for monitoring income,
+            expenses, and financial performance.
           </p>
 
-          <span class="home-project-link">Open project →</span>
+          <span class="home-project-link">
+            Open project →
+          </span>
         </a>
 
-        <a class="home-project" href="loan-tracker.html">
-          <span class="home-project-tag">Loan accounting</span>
-          <h3>Loan Payment Splitter &amp; Tracker</h3>
+        <a
+          class="home-project"
+          href="loan-tracker.html"
+        >
+          <span class="home-project-tag">
+            Loan accounting
+          </span>
+
+          <h3>
+            Loan Payment Splitter &amp; Tracker
+          </h3>
 
           <p>
-            An interactive tool for separating principal, interest, escrow,
-            and fees while tracking the remaining loan balance.
+            An interactive tool for separating principal,
+            interest, escrow, and fees while tracking the
+            remaining loan balance.
           </p>
 
-          <span class="home-project-link">Open project →</span>
+          <span class="home-project-link">
+            Open project →
+          </span>
         </a>
 
-        <a class="home-project" href="invoice.html">
-          <span class="home-project-tag">Contractor payments</span>
-          <h3>Invoice &amp; Hours Tracker</h3>
+        <a
+          class="home-project"
+          href="invoice.html"
+        >
+          <span class="home-project-tag">
+            Contractor payments
+          </span>
+
+          <h3>
+            Invoice &amp; Hours Tracker
+          </h3>
 
           <p>
-            A sample system for organizing work hours, rates, pay periods, and
-            contractor invoice totals.
+            A sample system for organizing work hours, rates,
+            pay periods, and contractor invoice totals.
           </p>
 
-          <span class="home-project-link">Open project →</span>
+          <span class="home-project-link">
+            Open project →
+          </span>
         </a>
       </div>
     </section>
 
     <section class="home-section">
       <div class="home-section-heading">
-        <p class="home-eyebrow">Client feedback</p>
-        <h2>Trusted support, delivered with care</h2>
+        <p class="home-eyebrow">
+          Client feedback
+        </p>
+
+        <h2>
+          Trusted support, delivered with care
+        </h2>
       </div>
 
       <article class="home-testimonial">
@@ -894,82 +1091,144 @@
         </blockquote>
 
         <footer>
-          <strong>Rose Kern</strong>
-          <span>Former Client · OnlineJobs.ph · March 3, 2024</span>
+          <strong>
+            Rose Kern
+          </strong>
+
+          <span>
+            Former Client · OnlineJobs.ph · March 3, 2024
+          </span>
         </footer>
       </article>
     </section>
 
     <section class="home-section">
       <div class="home-section-heading">
-        <p class="home-eyebrow">What to expect</p>
-        <h2>A reliable and organized working relationship</h2>
+        <p class="home-eyebrow">
+          What to expect
+        </p>
+
+        <h2>
+          A reliable and organized working relationship
+        </h2>
 
         <p>
-          I aim to make financial support straightforward, dependable, and
-          easy to follow from the beginning of our work together.
+          I aim to make financial and operational support
+          straightforward, dependable, and easy to follow from
+          the beginning of our work together.
         </p>
       </div>
 
       <div class="home-expect-grid">
         <article class="home-expect-card">
-          <span class="home-expect-icon">01</span>
-          <h3>Clear communication</h3>
-          <p>Questions, priorities, and next steps are communicated clearly.</p>
+          <span class="home-expect-icon">
+            01
+          </span>
+
+          <h3>
+            Clear communication
+          </h3>
+
+          <p>
+            Questions, priorities, and next steps are
+            communicated clearly.
+          </p>
         </article>
 
         <article class="home-expect-card">
-          <span class="home-expect-icon">02</span>
-          <h3>Accurate work</h3>
-          <p>Financial details are reviewed carefully and kept organized.</p>
+          <span class="home-expect-icon">
+            02
+          </span>
+
+          <h3>
+            Accurate work
+          </h3>
+
+          <p>
+            Financial details are reviewed carefully and
+            kept organized.
+          </p>
         </article>
 
         <article class="home-expect-card">
-          <span class="home-expect-icon">03</span>
-          <h3>Confidentiality</h3>
-          <p>Your business and financial information are handled responsibly.</p>
+          <span class="home-expect-icon">
+            03
+          </span>
+
+          <h3>
+            Confidentiality
+          </h3>
+
+          <p>
+            Sensitive access and documents are never requested
+            through the public inquiry form.
+          </p>
         </article>
 
         <article class="home-expect-card">
-          <span class="home-expect-icon">04</span>
-          <h3>Progress updates</h3>
-          <p>You receive reliable updates on completed work and open items.</p>
+          <span class="home-expect-icon">
+            04
+          </span>
+
+          <h3>
+            Progress updates
+          </h3>
+
+          <p>
+            You receive reliable updates on completed work and
+            open items.
+          </p>
         </article>
 
         <article class="home-expect-card">
-          <span class="home-expect-icon">05</span>
-          <h3>Timely responses</h3>
-          <p>New inquiries normally receive a response within 24–48 hours.</p>
+          <span class="home-expect-icon">
+            05
+          </span>
+
+          <h3>
+            Timely responses
+          </h3>
+
+          <p>
+            New inquiries normally receive a response within
+            24–48 hours.
+          </p>
         </article>
       </div>
     </section>
 
     <section class="home-section home-pricing">
       <div>
-        <p class="home-eyebrow">Professional pricing</p>
-        <h2>Flexible support based on your bookkeeping needs</h2>
+        <p class="home-eyebrow">
+          Custom engagements
+        </p>
+
+        <h2>
+          Support designed around your business
+        </h2>
 
         <p>
-          Basic bookkeeping starts at $10 USD per hour. Ongoing real estate,
-          multi-entity, cleanup, and specialized work is generally quoted from
-          $10–$15 per hour depending on complexity and the condition of the
-          books.
+          Monthly and project-based work is quoted after reviewing
+          your number of entities, accounts, transaction volume,
+          current bookkeeping condition, and the level of
+          operational support required.
         </p>
       </div>
 
-      <div class="home-rate">
-        <strong>$10–$15/hr</strong>
-        <span>Typical professional range</span>
-      </div>
+      <a class="home-button" href="contact.html">
+        Request a custom quote
+      </a>
     </section>
 
     <section class="home-cta">
       <div>
-        <h2>Ready for cleaner books and clearer reports?</h2>
+        <h2>
+          Ready for cleaner books and more organized operations?
+        </h2>
 
         <p>
-          Tell me about your business and what kind of support you need.
-          I normally respond within 24–48 hours.
+          Tell me about your bookkeeping, reporting, or business
+          operations needs. I normally respond within 24–48 hours.
         </p>
       </div>
 
@@ -981,7 +1240,8 @@
 
   <footer class="home-footer">
     <p>
-      © 2026 Clairy Sagario. Professional bookkeeping and financial support.
+      © 2026 Clairy Sagario. Bookkeeping, financial reporting,
+      and business operations support.
     </p>
   </footer>
 </body>
