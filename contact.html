@@ -305,6 +305,19 @@
       text-align: center;
     }
 
+    .form-status.success {
+      color: #2f6b4f;
+    }
+
+    .form-status.error {
+      color: #9a3f4b;
+    }
+
+    .submit-button:disabled {
+      cursor: wait;
+      opacity: 0.7;
+    }
+
     .quote-process {
       margin-top: 60px;
     }
@@ -553,7 +566,18 @@
         </div>
       </aside>
 
-      <form id="inquiryForm" class="inquiry-form">
+      <form
+        id="inquiryForm"
+        class="inquiry-form"
+        action="https://formspree.io/f/xppzjazn"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="New quote request from Clairy Sagario's website"
+        >
+
         <h2>Bookkeeping Inquiry Form</h2>
 
         <p class="form-introduction">
@@ -569,6 +593,7 @@
 
               <input
                 id="clientName"
+                name="Name"
                 type="text"
                 required
                 placeholder="Your full name"
@@ -580,6 +605,7 @@
 
               <input
                 id="clientEmail"
+                name="email"
                 type="email"
                 required
                 placeholder="you@example.com"
@@ -594,6 +620,7 @@
 
               <input
                 id="businessName"
+                name="Business name"
                 type="text"
                 placeholder="Your company or organization"
               >
@@ -610,7 +637,11 @@
                 Business type
               </label>
 
-              <select id="businessType" required>
+              <select
+                id="businessType"
+                name="Business type"
+                required
+              >
                 <option value="">
                   Select business type
                 </option>
@@ -630,7 +661,11 @@
                 Service needed
               </label>
 
-              <select id="serviceNeeded" required>
+              <select
+                id="serviceNeeded"
+                name="Service needed"
+                required
+              >
                 <option value="">Select a service</option>
 
                 <option>Monthly Bookkeeping</option>
@@ -659,7 +694,11 @@
                 Approximate monthly transactions
               </label>
 
-              <select id="monthlyTransactions" required>
+              <select
+                id="monthlyTransactions"
+                name="Approximate monthly transactions"
+                required
+              >
                 <option value="">Select a range</option>
                 <option>Fewer than 100</option>
                 <option>100–300</option>
@@ -674,7 +713,11 @@
                 Current condition of your books
               </label>
 
-              <select id="bookStatus" required>
+              <select
+                id="bookStatus"
+                name="Current condition of books"
+                required
+              >
                 <option value="">
                   Select current status
                 </option>
@@ -693,7 +736,11 @@
                 Number of entities or properties
               </label>
 
-              <select id="entities" required>
+              <select
+                id="entities"
+                name="Number of entities or properties"
+                required
+              >
                 <option value="">Select a range</option>
                 <option>1</option>
                 <option>2–3</option>
@@ -708,7 +755,11 @@
                 Preferred start time
               </label>
 
-              <select id="startTime" required>
+              <select
+                id="startTime"
+                name="Preferred start time"
+                required
+              >
                 <option value="">
                   Select a timeframe
                 </option>
@@ -734,21 +785,27 @@
 
             <textarea
               id="message"
+              name="Additional details"
               placeholder="Tell me about your bookkeeping needs, accounting software, challenges, or questions."
             ></textarea>
           </div>
         </section>
 
         <button class="submit-button" type="submit">
-          Prepare Email Inquiry
+          Send Inquiry
         </button>
 
         <p class="form-notice">
-          This opens your email application with the inquiry
-          information filled in. You can review it before sending.
+          Your inquiry will be sent directly to me. I normally
+          respond within 24–48 hours.
         </p>
 
-        <p id="formStatus" class="form-status"></p>
+        <p
+          id="formStatus"
+          class="form-status"
+          role="status"
+          aria-live="polite"
+        ></p>
       </form>
 
     </section>
@@ -807,7 +864,10 @@
     const formStatus =
       document.getElementById("formStatus");
 
-    inquiryForm.addEventListener("submit", function (event) {
+    const submitButton =
+      inquiryForm.querySelector("button[type='submit']");
+
+    inquiryForm.addEventListener("submit", async function (event) {
       event.preventDefault();
 
       if (!inquiryForm.checkValidity()) {
@@ -815,72 +875,36 @@
         return;
       }
 
-      const clientName =
-        document.getElementById("clientName").value.trim();
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+      formStatus.className = "form-status";
+      formStatus.textContent = "Sending your inquiry...";
 
-      const clientEmail =
-        document.getElementById("clientEmail").value.trim();
+      try {
+        const response = await fetch(inquiryForm.action, {
+          method: inquiryForm.method,
+          body: new FormData(inquiryForm),
+          headers: {
+            Accept: "application/json"
+          }
+        });
 
-      const businessName =
-        document.getElementById("businessName").value.trim();
+        if (!response.ok) {
+          throw new Error("The inquiry could not be submitted.");
+        }
 
-      const businessType =
-        document.getElementById("businessType").value;
-
-      const serviceNeeded =
-        document.getElementById("serviceNeeded").value;
-
-      const monthlyTransactions =
-        document.getElementById("monthlyTransactions").value;
-
-      const bookStatus =
-        document.getElementById("bookStatus").value;
-
-      const entities =
-        document.getElementById("entities").value;
-
-      const startTime =
-        document.getElementById("startTime").value;
-
-      const message =
-        document.getElementById("message").value.trim();
-
-      const emailSubject =
-        "Bookkeeping Quote Request from " + clientName;
-
-      const emailBody = `
-Hello Clairy,
-
-I would like to request a custom bookkeeping quote.
-
-CONTACT INFORMATION
-Name: ${clientName}
-Email: ${clientEmail}
-Business: ${businessName || "Not provided"}
-
-BOOKKEEPING DETAILS
-Business type: ${businessType}
-Service needed: ${serviceNeeded}
-Monthly transactions: ${monthlyTransactions}
-Condition of books: ${bookStatus}
-Entities or properties: ${entities}
-Preferred start time: ${startTime}
-
-ADDITIONAL DETAILS
-${message || "No additional details provided."}
-
-Thank you.
-      `.trim();
-
-      const emailLink =
-        "mailto:clairysagario@gmail.com" +
-        "?subject=" + encodeURIComponent(emailSubject) +
-        "&body=" + encodeURIComponent(emailBody);
-
-      formStatus.textContent =
-        "Opening your email application...";
-
-      window.location.href = emailLink;
+        inquiryForm.reset();
+        formStatus.className = "form-status success";
+        formStatus.textContent =
+          "Thank you! Your inquiry has been sent. I’ll respond within 24–48 hours.";
+      } catch (error) {
+        formStatus.className = "form-status error";
+        formStatus.textContent =
+          "Your inquiry could not be sent. Please try again or contact me by email or WhatsApp.";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Inquiry";
+      }
     });
   </script>
 </body>
