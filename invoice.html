@@ -9,7 +9,25 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="Explore Clairy Sagario's interactive invoice generator with fictional sample client and service information."
+  >
+
   <title>Invoice Generator | Clairy Sagario</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="style.css">
 
@@ -65,12 +83,55 @@
       margin-bottom: 8px;
     }
 
+    .invoice-sample-notice {
+      align-items: flex-start;
+      background:
+        linear-gradient(
+          135deg,
+          var(--lavender-soft),
+          var(--nude-soft)
+        );
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--lavender-accent);
+      border-radius: 13px;
+      display: flex;
+      gap: 14px;
+      margin: 38px 0 0;
+      padding: 20px 22px;
+    }
+
+    .invoice-sample-icon {
+      align-items: center;
+      background-color: white;
+      border-radius: 50%;
+      color: var(--primary-dark);
+      display: flex;
+      flex: 0 0 auto;
+      font-size: 13px;
+      font-weight: 900;
+      height: 32px;
+      justify-content: center;
+      width: 32px;
+    }
+
+    .invoice-sample-notice strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .invoice-sample-notice p {
+      color: #625b65;
+      font-size: 14px;
+      margin: 0;
+    }
+
     .invoice-workspace {
       align-items: start;
       display: grid;
       gap: 28px;
       grid-template-columns: 0.9fr 1.1fr;
-      margin-top: 45px;
+      margin-top: 30px;
     }
 
     .editor-panel {
@@ -207,12 +268,25 @@
     }
 
     .editor-actions {
-      display: flex;
+      display: grid;
       gap: 10px;
+      grid-template-columns: 1fr 1fr;
     }
 
-    .editor-actions button {
-      flex: 1;
+    .editor-actions button:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .sample-button {
+      background-color: var(--lavender-accent);
+      border-color: var(--lavender-accent);
+      color: #463b4d;
+    }
+
+    .sample-button:hover {
+      background-color: #c7b5d3;
+      border-color: #c7b5d3;
+      color: #3f3546;
     }
 
     .reset-button {
@@ -307,6 +381,7 @@
       color: #655e68;
       font-size: 13px;
       margin: 0;
+      overflow-wrap: anywhere;
     }
 
     .invoice-table-wrapper {
@@ -474,7 +549,11 @@
       }
 
       .editor-actions {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+      }
+
+      .editor-actions button:first-child {
+        grid-column: auto;
       }
 
       .invoice-preview {
@@ -505,6 +584,7 @@
 
       .navigation,
       .invoice-hero,
+      .invoice-sample-notice,
       .editor-panel,
       footer {
         display: none;
@@ -530,7 +610,9 @@
   <main class="container">
 
     <nav class="navigation">
-      <a href="index.html" class="logo">Clairy</a>
+      <a href="index.html" class="logo">
+        Clairy Sagario
+      </a>
 
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -542,16 +624,17 @@
     </nav>
 
     <section class="invoice-hero">
-
       <div class="invoice-hero-content">
-        <p class="greeting">Interactive Project</p>
+        <p class="greeting">
+          Interactive Portfolio Project
+        </p>
 
         <h1>Invoice Generator</h1>
 
         <p>
-          Create professional invoices with multiple line items,
-          discounts, tax calculations, notes, and payment
-          instructions.
+          Create professional invoices with multiple service items,
+          automatic totals, discounts, tax calculations, notes, and
+          payment instructions.
         </p>
       </div>
 
@@ -559,17 +642,31 @@
         <h2>Generator Features</h2>
 
         <ul>
+          <li>Completed fictional invoice included</li>
           <li>Automatic invoice calculations</li>
+          <li>Multiple service or work items</li>
           <li>Discount and tax options</li>
           <li>Automatic browser draft saving</li>
           <li>Printable and PDF-ready layout</li>
         </ul>
       </aside>
+    </section>
 
+    <section class="invoice-sample-notice">
+      <span class="invoice-sample-icon">i</span>
+
+      <div>
+        <strong>Portfolio demonstration</strong>
+
+        <p>
+          The sample client, invoice number, services, and amounts
+          are entirely fictional. They are included only to
+          demonstrate the invoicing workflow.
+        </p>
+      </div>
     </section>
 
     <section class="invoice-workspace">
-
       <div class="editor-panel">
         <h2>Invoice Details</h2>
 
@@ -589,7 +686,7 @@
               <input
                 id="businessName"
                 type="text"
-                value="Marie Clair Sagario"
+                value="Clairy Sagario"
               >
             </div>
 
@@ -649,7 +746,7 @@
               <input
                 id="invoiceNumber"
                 type="text"
-                value="INV-001"
+                value="DEMO-2026-001"
               >
             </div>
 
@@ -732,9 +829,11 @@
 
           <div class="form-grid">
             <div class="form-group full-width">
-              <label for="notes">Invoice notes</label>
+              <label for="notes">
+                Invoice notes
+              </label>
 
-              <textarea id="notes">Thank you for your business!</textarea>
+              <textarea id="notes"></textarea>
             </div>
 
             <div class="form-group full-width">
@@ -756,21 +855,28 @@
           </button>
 
           <button
+            id="sampleButton"
+            class="sample-button"
+            type="button"
+          >
+            Reset to Sample Data
+          </button>
+
+          <button
             id="resetButton"
             class="reset-button"
             type="button"
           >
-            Reset Invoice
+            Clear Invoice
           </button>
         </div>
       </div>
 
       <article class="invoice-preview">
-
         <header class="invoice-top">
           <div class="invoice-brand">
             <h2 id="previewBusinessName">
-              Marie Clair Sagario
+              Clairy Sagario
             </h2>
 
             <p id="previewBusinessEmail">
@@ -783,7 +889,7 @@
 
             <p>
               <strong>Invoice:</strong>
-              <span id="previewInvoiceNumber">INV-001</span>
+              <span id="previewInvoiceNumber"></span>
             </p>
 
             <p>
@@ -803,7 +909,7 @@
             <span>From</span>
 
             <strong id="previewFromName">
-              Marie Clair Sagario
+              Clairy Sagario
             </strong>
 
             <p id="previewFromEmail">
@@ -842,22 +948,38 @@
         <section class="invoice-summary">
           <div class="summary-row">
             <span>Subtotal</span>
-            <strong id="previewSubtotal">$0.00</strong>
+
+            <strong id="previewSubtotal">
+              $0.00
+            </strong>
           </div>
 
           <div class="summary-row">
-            <span id="discountLabel">Discount (0%)</span>
-            <strong id="previewDiscount">-$0.00</strong>
+            <span id="discountLabel">
+              Discount (0%)
+            </span>
+
+            <strong id="previewDiscount">
+              -$0.00
+            </strong>
           </div>
 
           <div class="summary-row">
-            <span id="taxLabel">Tax (0%)</span>
-            <strong id="previewTax">$0.00</strong>
+            <span id="taxLabel">
+              Tax (0%)
+            </span>
+
+            <strong id="previewTax">
+              $0.00
+            </strong>
           </div>
 
           <div class="summary-row total-row">
             <span>Total Due</span>
-            <strong id="previewTotal">$0.00</strong>
+
+            <strong id="previewTotal">
+              $0.00
+            </strong>
           </div>
         </section>
 
@@ -866,7 +988,7 @@
             <span>Notes</span>
 
             <p id="previewNotes">
-              Thank you for your business!
+              No notes provided.
             </p>
           </div>
 
@@ -878,18 +1000,17 @@
             </p>
           </div>
         </section>
-
       </article>
-
     </section>
 
     <footer>
       <p>© 2026 Clairy Sagario</p>
     </footer>
-
   </main>
 
   <script>
+    const STORAGE_KEY = "clairyInvoiceDraft";
+
     const businessName =
       document.getElementById("businessName");
 
@@ -924,7 +1045,9 @@
       document.getElementById("notes");
 
     const paymentInstructions =
-      document.getElementById("paymentInstructions");
+      document.getElementById(
+        "paymentInstructions"
+      );
 
     const lineItemInputs =
       document.getElementById("lineItemInputs");
@@ -934,6 +1057,9 @@
 
     const printButton =
       document.getElementById("printButton");
+
+    const sampleButton =
+      document.getElementById("sampleButton");
 
     const resetButton =
       document.getElementById("resetButton");
@@ -955,14 +1081,80 @@
       return `${year}-${month}-${day}`;
     }
 
-    function setDefaultDates() {
-      const today = new Date();
+    function getSampleDraft() {
+      const issued = new Date();
       const due = new Date();
 
       due.setDate(due.getDate() + 14);
 
-      issueDate.value = getLocalDate(today);
-      dueDate.value = getLocalDate(due);
+      return {
+        businessName: "Clairy Sagario",
+        businessEmail: "clairysagario@gmail.com",
+        clientName: "BrightPath Consulting LLC",
+        clientEmail: "accounts@example.com",
+        invoiceNumber:
+          "DEMO-" +
+          issued.getFullYear() +
+          "-001",
+        currency: "$",
+        issueDate: getLocalDate(issued),
+        dueDate: getLocalDate(due),
+        discountPercent: "0",
+        taxPercent: "0",
+        notes:
+          "Thank you for your business. This invoice uses fictional client and service information for portfolio demonstration purposes.",
+        paymentInstructions:
+          "Payment is due within 14 days. Demonstration only—no payment should be sent.",
+        lineItems: [
+          {
+            description:
+              "Monthly bookkeeping and reconciliation",
+            quantity: 1,
+            rate: 650
+          },
+          {
+            description:
+              "Administrative and operations support",
+            quantity: 1,
+            rate: 350
+          },
+          {
+            description:
+              "Customized cash-flow report",
+            quantity: 1,
+            rate: 225
+          }
+        ]
+      };
+    }
+
+    function getBlankDraft() {
+      const issued = new Date();
+      const due = new Date();
+
+      due.setDate(due.getDate() + 14);
+
+      return {
+        businessName: "Clairy Sagario",
+        businessEmail: "clairysagario@gmail.com",
+        clientName: "",
+        clientEmail: "",
+        invoiceNumber: "INV-001",
+        currency: "$",
+        issueDate: getLocalDate(issued),
+        dueDate: getLocalDate(due),
+        discountPercent: "0",
+        taxPercent: "0",
+        notes: "Thank you for your business!",
+        paymentInstructions: "",
+        lineItems: [
+          {
+            description: "",
+            quantity: 1,
+            rate: ""
+          }
+        ]
+      };
     }
 
     function addLineItem(itemData) {
@@ -972,7 +1164,8 @@
         rate: ""
       };
 
-      const row = document.createElement("div");
+      const row =
+        document.createElement("div");
 
       row.className = "line-item-input";
 
@@ -1009,34 +1202,56 @@
         </button>
       `;
 
-      row.querySelector(".line-description").value =
+      row.querySelector(
+        ".line-description"
+      ).value =
         item.description;
 
-      row.querySelector(".line-quantity").value =
+      row.querySelector(
+        ".line-quantity"
+      ).value =
         item.quantity;
 
-      row.querySelector(".line-rate").value =
+      row.querySelector(
+        ".line-rate"
+      ).value =
         item.rate;
 
       const removeButton =
         row.querySelector(".remove-line");
 
-      removeButton.addEventListener("click", function () {
-        const rows =
-          document.querySelectorAll(".line-item-input");
+      removeButton.addEventListener(
+        "click",
+        function () {
+          const rows =
+            document.querySelectorAll(
+              ".line-item-input"
+            );
 
-        if (rows.length === 1) {
-          row.querySelector(".line-description").value = "";
-          row.querySelector(".line-quantity").value = "1";
-          row.querySelector(".line-rate").value = "";
-        } else {
-          row.remove();
+          if (rows.length === 1) {
+            row.querySelector(
+              ".line-description"
+            ).value = "";
+
+            row.querySelector(
+              ".line-quantity"
+            ).value = "1";
+
+            row.querySelector(
+              ".line-rate"
+            ).value = "";
+          } else {
+            row.remove();
+          }
+
+          updateInvoice();
         }
+      );
 
-        updateInvoice();
-      });
-
-      row.addEventListener("input", updateInvoice);
+      row.addEventListener(
+        "input",
+        updateInvoice
+      );
 
       lineItemInputs.appendChild(row);
     }
@@ -1046,13 +1261,17 @@
         return "Not selected";
       }
 
-      const date = new Date(dateValue + "T00:00:00");
+      const date =
+        new Date(dateValue + "T00:00:00");
 
-      return date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric"
-      });
+      return date.toLocaleDateString(
+        "en-US",
+        {
+          month: "short",
+          day: "numeric",
+          year: "numeric"
+        }
+      );
     }
 
     function formatMoney(amount) {
@@ -1067,25 +1286,34 @@
 
     function collectLineItems() {
       const rows =
-        document.querySelectorAll(".line-item-input");
+        document.querySelectorAll(
+          ".line-item-input"
+        );
 
-      return Array.from(rows).map(function (row) {
-        return {
-          description:
-            row.querySelector(".line-description")
-              .value.trim(),
+      return Array.from(rows).map(
+        function (row) {
+          return {
+            description:
+              row.querySelector(
+                ".line-description"
+              ).value.trim(),
 
-          quantity:
-            Number(
-              row.querySelector(".line-quantity").value
-            ) || 0,
+            quantity:
+              Number(
+                row.querySelector(
+                  ".line-quantity"
+                ).value
+              ) || 0,
 
-          rate:
-            Number(
-              row.querySelector(".line-rate").value
-            ) || 0
-        };
-      });
+            rate:
+              Number(
+                row.querySelector(
+                  ".line-rate"
+                ).value
+              ) || 0
+          };
+        }
+      );
     }
 
     function saveDraft() {
@@ -1098,7 +1326,8 @@
         currency: currency.value,
         issueDate: issueDate.value,
         dueDate: dueDate.value,
-        discountPercent: discountPercent.value,
+        discountPercent:
+          discountPercent.value,
         taxPercent: taxPercent.value,
         notes: notes.value,
         paymentInstructions:
@@ -1107,7 +1336,7 @@
       };
 
       localStorage.setItem(
-        "clairyInvoiceDraft",
+        STORAGE_KEY,
         JSON.stringify(draft)
       );
 
@@ -1115,41 +1344,103 @@
         "Draft saved automatically.";
     }
 
+    function applyDraft(draft) {
+      businessName.value =
+        draft.businessName ||
+        "Clairy Sagario";
+
+      businessEmail.value =
+        draft.businessEmail ||
+        "clairysagario@gmail.com";
+
+      clientName.value =
+        draft.clientName || "";
+
+      clientEmail.value =
+        draft.clientEmail || "";
+
+      invoiceNumber.value =
+        draft.invoiceNumber || "INV-001";
+
+      currency.value =
+        draft.currency || "$";
+
+      issueDate.value =
+        draft.issueDate || "";
+
+      dueDate.value =
+        draft.dueDate || "";
+
+      discountPercent.value =
+        draft.discountPercent || "0";
+
+      taxPercent.value =
+        draft.taxPercent || "0";
+
+      notes.value =
+        draft.notes || "";
+
+      paymentInstructions.value =
+        draft.paymentInstructions || "";
+
+      lineItemInputs.innerHTML = "";
+
+      if (
+        Array.isArray(draft.lineItems) &&
+        draft.lineItems.length > 0
+      ) {
+        draft.lineItems.forEach(
+          function (item) {
+            addLineItem(item);
+          }
+        );
+      } else {
+        addLineItem();
+      }
+    }
+
     function updateInvoice() {
       document.getElementById(
         "previewBusinessName"
       ).textContent =
-        businessName.value.trim() || "Your Name";
+        businessName.value.trim() ||
+        "Your Name";
 
       document.getElementById(
         "previewBusinessEmail"
       ).textContent =
-        businessEmail.value.trim() || "your@email.com";
+        businessEmail.value.trim() ||
+        "your@email.com";
 
       document.getElementById(
         "previewFromName"
       ).textContent =
-        businessName.value.trim() || "Your Name";
+        businessName.value.trim() ||
+        "Your Name";
 
       document.getElementById(
         "previewFromEmail"
       ).textContent =
-        businessEmail.value.trim() || "your@email.com";
+        businessEmail.value.trim() ||
+        "your@email.com";
 
       document.getElementById(
         "previewClientName"
       ).textContent =
-        clientName.value.trim() || "Client name";
+        clientName.value.trim() ||
+        "Client name";
 
       document.getElementById(
         "previewClientEmail"
       ).textContent =
-        clientEmail.value.trim() || "Client email";
+        clientEmail.value.trim() ||
+        "Client email";
 
       document.getElementById(
         "previewInvoiceNumber"
       ).textContent =
-        invoiceNumber.value.trim() || "INV-001";
+        invoiceNumber.value.trim() ||
+        "INV-001";
 
       document.getElementById(
         "previewIssueDate"
@@ -1164,7 +1455,8 @@
       document.getElementById(
         "previewNotes"
       ).textContent =
-        notes.value.trim() || "No notes provided.";
+        notes.value.trim() ||
+        "No notes provided.";
 
       document.getElementById(
         "previewPaymentInstructions"
@@ -1173,11 +1465,14 @@
         "Payment instructions not provided.";
 
       const previewItems =
-        document.getElementById("previewItems");
+        document.getElementById(
+          "previewItems"
+        );
 
       previewItems.innerHTML = "";
 
       const items = collectLineItems();
+
       let subtotal = 0;
 
       items.forEach(function (item) {
@@ -1186,11 +1481,20 @@
 
         subtotal += itemAmount;
 
-        const row = document.createElement("tr");
-        const descriptionCell = document.createElement("td");
-        const quantityCell = document.createElement("td");
-        const rateCell = document.createElement("td");
-        const amountCell = document.createElement("td");
+        const row =
+          document.createElement("tr");
+
+        const descriptionCell =
+          document.createElement("td");
+
+        const quantityCell =
+          document.createElement("td");
+
+        const rateCell =
+          document.createElement("td");
+
+        const amountCell =
+          document.createElement("td");
 
         descriptionCell.textContent =
           item.description || "Service";
@@ -1244,7 +1548,9 @@
       document.getElementById(
         "discountLabel"
       ).textContent =
-        "Discount (" + discountRate + "%)";
+        "Discount (" +
+        discountRate +
+        "%)";
 
       document.getElementById(
         "previewDiscount"
@@ -1271,112 +1577,95 @@
 
     function loadDraft() {
       const savedDraft =
-        localStorage.getItem("clairyInvoiceDraft");
+        localStorage.getItem(STORAGE_KEY);
 
       if (!savedDraft) {
-        setDefaultDates();
-        addLineItem();
+        applyDraft(getSampleDraft());
         updateInvoice();
         return;
       }
 
-      const draft = JSON.parse(savedDraft);
+      try {
+        const draft =
+          JSON.parse(savedDraft);
 
-      businessName.value =
-        draft.businessName || "Marie Clair Sagario";
-
-      businessEmail.value =
-        draft.businessEmail ||
-        "clairysagario@gmail.com";
-
-      clientName.value = draft.clientName || "";
-      clientEmail.value = draft.clientEmail || "";
-      invoiceNumber.value =
-        draft.invoiceNumber || "INV-001";
-
-      currency.value = draft.currency || "$";
-      issueDate.value = draft.issueDate || "";
-      dueDate.value = draft.dueDate || "";
-
-      discountPercent.value =
-        draft.discountPercent || "0";
-
-      taxPercent.value =
-        draft.taxPercent || "0";
-
-      notes.value =
-        draft.notes || "Thank you for your business!";
-
-      paymentInstructions.value =
-        draft.paymentInstructions || "";
-
-      lineItemInputs.innerHTML = "";
-
-      if (
-        draft.lineItems &&
-        draft.lineItems.length > 0
-      ) {
-        draft.lineItems.forEach(function (item) {
-          addLineItem(item);
-        });
-      } else {
-        addLineItem();
-      }
-
-      if (!issueDate.value || !dueDate.value) {
-        setDefaultDates();
+        applyDraft(draft);
+      } catch (error) {
+        applyDraft(getSampleDraft());
       }
 
       updateInvoice();
     }
 
-    addLineButton.addEventListener("click", function () {
-      addLineItem();
-      updateInvoice();
-    });
+    addLineButton.addEventListener(
+      "click",
+      function () {
+        addLineItem();
+        updateInvoice();
+      }
+    );
 
-    printButton.addEventListener("click", function () {
-      updateInvoice();
-      window.print();
-    });
+    printButton.addEventListener(
+      "click",
+      function () {
+        updateInvoice();
+        window.print();
+      }
+    );
 
-    resetButton.addEventListener("click", function () {
-      const confirmed = window.confirm(
-        "Are you sure you want to reset this invoice?"
+    sampleButton.addEventListener(
+      "click",
+      function () {
+        const confirmed =
+          window.confirm(
+            "Replace the current invoice with fictional sample data?"
+          );
+
+        if (!confirmed) {
+          return;
+        }
+
+        applyDraft(getSampleDraft());
+        updateInvoice();
+
+        saveStatus.textContent =
+          "Fictional sample invoice restored.";
+      }
+    );
+
+    resetButton.addEventListener(
+      "click",
+      function () {
+        const confirmed =
+          window.confirm(
+            "Clear the current invoice and start a blank invoice?"
+          );
+
+        if (!confirmed) {
+          return;
+        }
+
+        applyDraft(getBlankDraft());
+        updateInvoice();
+
+        saveStatus.textContent =
+          "A new blank invoice is ready.";
+      }
+    );
+
+    document
+      .querySelector(".editor-panel")
+      .addEventListener(
+        "input",
+        updateInvoice
       );
 
-      if (!confirmed) {
-        return;
-      }
-
-      localStorage.removeItem("clairyInvoiceDraft");
-
-      businessName.value = "Marie Clair Sagario";
-      businessEmail.value = "clairysagario@gmail.com";
-      clientName.value = "";
-      clientEmail.value = "";
-      invoiceNumber.value = "INV-001";
-      currency.value = "$";
-      discountPercent.value = "0";
-      taxPercent.value = "0";
-      notes.value = "Thank you for your business!";
-      paymentInstructions.value = "";
-
-      setDefaultDates();
-
-      lineItemInputs.innerHTML = "";
-      addLineItem();
-
-      updateInvoice();
-    });
-
     document
       .querySelector(".editor-panel")
-      .addEventListener("input", updateInvoice);
-
-    document
-      .querySelector(".editor-panel")
-      .addEventListener("change", updateInvoice);
+      .addEventListener(
+        "change",
+        updateInvoice
+      );
 
     loadDraft();
   </script>
