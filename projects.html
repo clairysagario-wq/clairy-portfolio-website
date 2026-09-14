@@ -9,7 +9,23 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="Explore interactive bookkeeping, financial reporting, administrative, and business operations projects created by Clairy Sagario."
+  >
+
   <title>Projects | Clairy Sagario</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="style.css">
 
@@ -28,8 +44,8 @@
           var(--nude-soft)
         );
       display: grid;
-      gap: 40px;
-      grid-template-columns: 1.2fr 0.8fr;
+      gap: 45px;
+      grid-template-columns: 1.15fr 0.85fr;
       margin: 0 -55px;
       padding: 70px 55px 60px;
     }
@@ -40,38 +56,60 @@
       max-width: 680px;
     }
 
-    .project-overview {
-      background-color: rgba(255, 255, 255, 0.8);
+    .featured-overview {
+      background-color: rgba(255, 255, 255, 0.88);
       border: 1px solid var(--border);
       border-radius: 18px;
-      box-shadow:
-        0 14px 30px rgba(82, 68, 91, 0.08);
-      display: grid;
-      gap: 12px;
-      grid-template-columns: 1fr 1fr;
-      padding: 25px;
+      box-shadow: 0 14px 30px rgba(82, 68, 91, 0.08);
+      padding: 28px;
     }
 
-    .overview-item {
-      background-color: var(--surface-soft);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 17px;
-      text-align: center;
-    }
-
-    .overview-item strong {
-      color: var(--primary);
+    .featured-label {
+      color: var(--primary-dark);
       display: block;
-      font-size: 28px;
-      margin-bottom: 4px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      margin-bottom: 11px;
+      text-transform: uppercase;
     }
 
-    .overview-item span {
-      color: var(--text-soft);
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
+    .featured-overview h2 {
+      font-size: 25px;
+      line-height: 1.25;
+      margin: 0 0 12px;
+    }
+
+    .featured-overview p {
+      color: #625b65;
+      font-size: 14px;
+      margin: 0 0 18px;
+    }
+
+    .featured-details {
+      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 17px 0;
+    }
+
+    .featured-detail {
+      align-items: flex-start;
+      color: #5f5962;
+      display: flex;
+      font-size: 13px;
+      gap: 10px;
+    }
+
+    .featured-check {
+      color: var(--primary-dark);
+      font-weight: 900;
+    }
+
+    .featured-overview .button {
+      width: 100%;
     }
 
     .projects-introduction {
@@ -98,7 +136,7 @@
       display: flex;
       gap: 20px;
       justify-content: space-between;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
 
     .project-controls h2 {
@@ -134,13 +172,13 @@
     .project-result {
       color: var(--text-soft);
       font-size: 14px;
-      margin: 0 0 20px;
+      margin: 0 0 24px;
     }
 
     .project-gallery {
       display: grid;
       gap: 22px;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .portfolio-project {
@@ -150,7 +188,7 @@
       border-top: 4px solid var(--lavender-accent);
       display: flex;
       flex-direction: column;
-      min-height: 330px;
+      min-height: 350px;
       padding: 28px;
       transition:
         box-shadow 0.2s ease,
@@ -158,8 +196,7 @@
     }
 
     .portfolio-project:hover {
-      box-shadow:
-        0 14px 28px rgba(82, 68, 91, 0.09);
+      box-shadow: 0 14px 28px rgba(82, 68, 91, 0.09);
       transform: translateY(-4px);
     }
 
@@ -176,7 +213,8 @@
     .project-top {
       align-items: center;
       display: flex;
-      gap: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
       justify-content: space-between;
     }
 
@@ -199,6 +237,7 @@
 
     .portfolio-project h3 {
       font-size: 23px;
+      line-height: 1.3;
       margin: 22px 0 10px;
     }
 
@@ -233,7 +272,7 @@
       border-radius: 16px;
       color: #635a68;
       font-size: 12px;
-      font-weight: 650;
+      font-weight: 700;
       padding: 6px 10px;
     }
 
@@ -254,10 +293,10 @@
       color: #655b60;
       font-size: 13px;
       margin-top: auto;
-      padding: 11px;
+      padding: 12px;
     }
 
-    .learning-section {
+    .capabilities-section {
       background:
         linear-gradient(
           135deg,
@@ -266,46 +305,72 @@
         );
       border: 1px solid var(--border);
       border-radius: 18px;
-      display: grid;
-      gap: 35px;
-      grid-template-columns: 1fr 1fr;
       margin-top: 60px;
       padding: 38px;
     }
 
-    .learning-section h2 {
-      margin-top: 0;
+    .capabilities-heading {
+      margin-bottom: 25px;
+      max-width: 700px;
     }
 
-    .learning-section p {
+    .capabilities-heading h2 {
+      margin: 0 0 10px;
+    }
+
+    .capabilities-heading p {
       color: #5f5962;
+      margin: 0;
     }
 
-    .learning-list {
+    .capabilities-grid {
       display: grid;
-      gap: 10px;
-      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .learning-item {
-      background-color: rgba(255, 255, 255, 0.75);
+    .capability-item {
+      background-color: rgba(255, 255, 255, 0.78);
       border: 1px solid var(--border);
-      border-radius: 9px;
+      border-radius: 10px;
       color: #554e59;
       font-size: 14px;
       font-weight: 700;
-      padding: 13px;
+      padding: 15px;
+    }
+
+    .privacy-note {
+      background-color: #fffdfc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--lavender-accent);
+      border-radius: 11px;
+      color: #625c65;
+      font-size: 14px;
+      margin-top: 25px;
+      padding: 18px 20px;
     }
 
     .projects-cta {
+      background:
+        linear-gradient(
+          135deg,
+          #eee6f4,
+          #f4e8df
+        );
+      border-radius: 18px;
       margin-top: 60px;
+      padding: 42px 30px;
       text-align: center;
+    }
+
+    .projects-cta h2 {
+      margin-bottom: 0;
     }
 
     .projects-cta p {
       color: var(--text-soft);
       margin: 12px auto 24px;
-      max-width: 620px;
+      max-width: 650px;
     }
 
     [hidden] {
@@ -319,15 +384,15 @@
         padding-left: 35px;
         padding-right: 35px;
       }
+
+      .capabilities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 750px) {
-      .projects-hero,
-      .learning-section {
-        grid-template-columns: 1fr;
-      }
-
       .projects-hero {
+        grid-template-columns: 1fr;
         text-align: center;
       }
 
@@ -336,9 +401,10 @@
         margin-right: auto;
       }
 
-      .project-overview {
+      .featured-overview {
         margin: 0 auto;
-        max-width: 450px;
+        max-width: 480px;
+        text-align: left;
         width: 100%;
       }
 
@@ -359,17 +425,12 @@
         padding: 55px 22px 45px;
       }
 
-      .project-overview,
-      .learning-list {
-        grid-template-columns: 1fr;
-      }
-
       .filter-buttons {
         width: 100%;
       }
 
       .filter-button {
-        flex: 1;
+        flex: 1 1 140px;
       }
 
       .portfolio-project {
@@ -377,8 +438,12 @@
         padding: 23px;
       }
 
-      .learning-section {
+      .capabilities-section {
         padding: 27px 22px;
+      }
+
+      .capabilities-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -386,9 +451,10 @@
 
 <body>
   <main class="container">
-
-    <nav class="navigation">
-      <a href="index.html" class="logo">Clairy</a>
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="index.html" class="logo">
+        Clairy Sagario
+      </a>
 
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -400,48 +466,67 @@
     </nav>
 
     <section class="projects-hero">
-
       <div class="projects-hero-content">
-        <p class="greeting">Portfolio and Practice</p>
+        <p class="greeting">
+          Systems and Solutions
+        </p>
 
-        <h1>My Projects</h1>
+        <h1>
+          Practical Tools for Financial and Business Workflows
+        </h1>
 
         <p>
-          A collection of bookkeeping systems and interactive
-          web-development projects inspired by practical financial
-          and business needs.
+          Explore interactive tools and workflow systems that
+          demonstrate how I organize information, automate
+          calculations, prepare reports, and support recurring
+          bookkeeping and administrative responsibilities.
         </p>
       </div>
 
-      <aside class="project-overview">
-        <div class="overview-item">
-          <strong>6</strong>
-          <span>Total Projects</span>
+      <aside class="featured-overview">
+        <span class="featured-label">
+          Featured Project
+        </span>
+
+        <h2>
+          Property Financial Dashboard
+        </h2>
+
+        <p>
+          Review a working dashboard containing fictional transactions
+          across three sample properties.
+        </p>
+
+        <div class="featured-details">
+          <div class="featured-detail">
+            <span class="featured-check">✓</span>
+            <span>Income and expense summaries</span>
+          </div>
+
+          <div class="featured-detail">
+            <span class="featured-check">✓</span>
+            <span>Monthly financial chart</span>
+          </div>
+
+          <div class="featured-detail">
+            <span class="featured-check">✓</span>
+            <span>Filters, CSV export, and printable reports</span>
+          </div>
         </div>
 
-        <div class="overview-item">
-          <strong>4</strong>
-          <span>Interactive Tools</span>
-        </div>
-
-        <div class="overview-item">
-          <strong>3</strong>
-          <span>Bookkeeping Projects</span>
-        </div>
-
-        <div class="overview-item">
-          <strong>3</strong>
-          <span>Web Projects</span>
-        </div>
+        <a href="property-dashboard.html" class="button">
+          Explore the Dashboard
+        </a>
       </aside>
     </section>
 
     <section class="projects-introduction">
       <p>
-        These projects combine my accounting background with the
-        web-development skills I’m currently learning. They
-        demonstrate organization, calculations, data tracking,
-        responsive design, and JavaScript functionality.
+        These projects demonstrate practical problem-solving,
+        financial organization, accurate calculations, browser-based
+        data storage, and clear reporting. All public demonstrations
+        use fictional information. Private client and worker details
+        are not displayed.
       </p>
     </section>
 
@@ -449,7 +534,7 @@
       <div class="project-controls">
         <h2>Project Gallery</h2>
 
-        <div class="filter-buttons">
+        <div class="filter-buttons" aria-label="Filter projects">
           <button
             class="filter-button active"
             data-filter="all"
@@ -461,99 +546,65 @@
 
           <button
             class="filter-button"
-            data-filter="bookkeeping"
+            data-filter="financial"
             type="button"
             aria-pressed="false"
           >
-            Bookkeeping
+            Financial Tools
           </button>
 
           <button
             class="filter-button"
-            data-filter="web"
+            data-filter="business"
             type="button"
             aria-pressed="false"
           >
-            Web Development
+            Business Tools
           </button>
         </div>
       </div>
 
-      <p id="projectResult" class="project-result">
-        Showing all 6 projects
+      <p
+        id="projectResult"
+        class="project-result"
+        aria-live="polite"
+      >
+        Showing all projects
       </p>
 
       <div class="project-gallery">
-
-        <article
-          class="portfolio-project"
-          data-category="bookkeeping"
-        >
-          <div class="project-top">
-            <span class="project-category">
-              Bookkeeping
-            </span>
-
-            <span class="project-status">
-              Spreadsheet System
-            </span>
-          </div>
-
-          <h3>Worker Invoice Tracker</h3>
-
-          <p class="project-description">
-            A Google Sheets system for tracking employee hours,
-            different hourly rates, pay periods, and invoice totals.
-          </p>
-
-          <ul class="project-features">
-            <li>Manual worker time entry</li>
-            <li>Biweekly pay-period selection</li>
-            <li>Automatic hours and amount totals</li>
-          </ul>
-
-          <div class="project-tools">
-            <span>Google Sheets</span>
-            <span>Formulas</span>
-            <span>Data Validation</span>
-          </div>
-
-          <p class="project-note">
-            Created as a working bookkeeping and payroll-support
-            system.
-          </p>
-        </article>
-
         <article
           class="portfolio-project featured-project"
-          data-category="bookkeeping"
+          data-category="financial"
         >
           <div class="project-top">
             <span class="project-category">
-              Bookkeeping
+              Financial Tool
             </span>
 
             <span class="project-status">
-              Interactive
+              Interactive Sample
             </span>
           </div>
 
           <h3>Property Financial Dashboard</h3>
 
           <p class="project-description">
-            An interactive dashboard for recording property income
-            and expenses and calculating net income by property.
+            A working dashboard for organizing property income and
+            expenses and reviewing financial performance by property
+            and month.
           </p>
 
           <ul class="project-features">
-            <li>Property-level transaction tracking</li>
-            <li>Income, expense, and net-income totals</li>
-            <li>Property filters and printable reports</li>
+            <li>Thirty fictional sample transactions</li>
+            <li>Property-level income, expenses, and net income</li>
+            <li>Monthly income-versus-expense chart</li>
+            <li>Filters, CSV export, and printable reporting</li>
           </ul>
 
           <div class="project-tools">
-            <span>HTML</span>
-            <span>CSS</span>
+            <span>Financial Reporting</span>
+            <span>Data Organization</span>
             <span>JavaScript</span>
             <span>Local Storage</span>
           </div>
@@ -570,34 +621,35 @@
 
         <article
           class="portfolio-project featured-project"
-          data-category="bookkeeping"
+          data-category="financial"
         >
           <div class="project-top">
             <span class="project-category">
-              Bookkeeping
+              Financial Tool
             </span>
 
             <span class="project-status">
-              Interactive
+              Interactive Sample
             </span>
           </div>
 
-          <h3>Loan Payment Tracking</h3>
+          <h3>Loan Payment Splitter &amp; Tracker</h3>
 
           <p class="project-description">
-            An interactive tool for splitting loan and mortgage
-            payments and tracking the remaining principal balance.
+            An interactive tool for separating loan payments and
+            monitoring changes to the remaining principal balance.
           </p>
 
           <ul class="project-features">
             <li>Principal, interest, escrow, and fee allocation</li>
-            <li>Automatic payment validation and balance updates</li>
-            <li>Browser storage, CSV export, and printable reports</li>
+            <li>Automatic payment validation</li>
+            <li>Six fictional monthly payment records</li>
+            <li>CSV export and printable reporting</li>
           </ul>
 
           <div class="project-tools">
-            <span>HTML</span>
-            <span>CSS</span>
+            <span>Loan Tracking</span>
+            <span>Payment Allocation</span>
             <span>JavaScript</span>
             <span>Local Storage</span>
           </div>
@@ -610,51 +662,54 @@
         </article>
 
         <article
-          class="portfolio-project"
-          data-category="web"
+          class="portfolio-project featured-project"
+          data-category="business"
         >
           <div class="project-top">
             <span class="project-category">
-              Web Development
+              Business Tool
             </span>
 
             <span class="project-status">
-              Current Website
+              Interactive Sample
             </span>
           </div>
 
-          <h3>Personal Portfolio Website</h3>
+          <h3>Online Invoice Generator</h3>
 
           <p class="project-description">
-            A responsive multi-page website created to showcase my
-            services, experience, and interactive projects.
+            A reusable tool for preparing organized, professional
+            invoices with a live preview and automatic calculations.
           </p>
 
           <ul class="project-features">
-            <li>Responsive desktop and mobile layouts</li>
-            <li>Professional services and contact pages</li>
-            <li>Consistent lavender and nude design system</li>
+            <li>Fictional sample client and service details</li>
+            <li>Multiple fixed-fee or hourly line items</li>
+            <li>Discount and tax calculations</li>
+            <li>Printable and PDF-ready invoice layout</li>
           </ul>
 
           <div class="project-tools">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Responsive Design</span>
+            <span>Invoicing</span>
+            <span>Automatic Calculations</span>
+            <span>JavaScript</span>
+            <span>Print Layout</span>
           </div>
 
-          <p class="project-note">
-            This website is an active project that will continue to
-            improve as I learn.
-          </p>
+          <div class="project-actions">
+            <a href="invoice.html" class="button">
+              Open Invoice Generator
+            </a>
+          </div>
         </article>
 
         <article
-          class="portfolio-project featured-project"
-          data-category="web"
+          class="portfolio-project"
+          data-category="financial"
         >
           <div class="project-top">
             <span class="project-category">
-              Web Development
+              Financial Tool
             </span>
 
             <span class="project-status">
@@ -665,19 +720,20 @@
           <h3>Expense Tracker</h3>
 
           <p class="project-description">
-            An online tool for recording expenses, calculating
-            totals, and reviewing spending by category.
+            A browser-based tool for recording expenses, reviewing
+            spending, and calculating totals by category.
           </p>
 
           <ul class="project-features">
-            <li>Expense dates and categories</li>
+            <li>Expense dates and customizable categories</li>
             <li>Automatic overall and category totals</li>
+            <li>Simple transaction removal</li>
             <li>Browser-based data storage</li>
           </ul>
 
           <div class="project-tools">
-            <span>HTML</span>
-            <span>CSS</span>
+            <span>Expense Tracking</span>
+            <span>Categories</span>
             <span>JavaScript</span>
             <span>Local Storage</span>
           </div>
@@ -690,84 +746,162 @@
         </article>
 
         <article
-          class="portfolio-project featured-project"
-          data-category="web"
+          class="portfolio-project"
+          data-category="business"
         >
           <div class="project-top">
             <span class="project-category">
-              Web Development
+              Operations System
             </span>
 
             <span class="project-status">
-              Interactive
+              Private Workflow
             </span>
           </div>
 
-          <h3>Online Invoice Generator</h3>
+          <h3>Worker Invoice Tracker</h3>
 
           <p class="project-description">
-            A reusable invoice tool that calculates service amounts
-            and creates clean, printable invoices.
+            A structured spreadsheet workflow for organizing worker
+            hours, different rates, pay periods, and invoice totals.
           </p>
 
           <ul class="project-features">
-            <li>Multiple invoice line items</li>
-            <li>Automatic quantity and rate calculations</li>
-            <li>Printable and PDF-ready invoice layout</li>
+            <li>Worker time and service tracking</li>
+            <li>Biweekly pay-period organization</li>
+            <li>Automatic hours and payment calculations</li>
+            <li>Consistent invoice-support records</li>
           </ul>
 
           <div class="project-tools">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>Print Layout</span>
+            <span>Google Sheets</span>
+            <span>Formulas</span>
+            <span>Data Validation</span>
+            <span>Administrative Support</span>
           </div>
 
-          <div class="project-actions">
-            <a href="invoice.html" class="button">
-              Open Invoice Generator
-            </a>
-          </div>
+          <p class="project-note">
+            This project contains confidential worker information, so
+            the live file is not publicly available. Its workflow is
+            described here without displaying client data.
+          </p>
         </article>
 
+        <article
+          class="portfolio-project"
+          data-category="business"
+        >
+          <div class="project-top">
+            <span class="project-category">
+              Business Tool
+            </span>
+
+            <span class="project-status">
+              Live Website
+            </span>
+          </div>
+
+          <h3>Professional Portfolio Website</h3>
+
+          <p class="project-description">
+            A responsive website that presents my bookkeeping,
+            administrative, and business operations services and
+            provides a reliable client inquiry process.
+          </p>
+
+          <ul class="project-features">
+            <li>Responsive desktop and mobile layouts</li>
+            <li>Clear services and experience pages</li>
+            <li>Formspree-powered quotation form</li>
+            <li>Interactive financial portfolio projects</li>
+          </ul>
+
+          <div class="project-tools">
+            <span>Business Presentation</span>
+            <span>Responsive Design</span>
+            <span>Formspree</span>
+            <span>GitHub Pages</span>
+          </div>
+
+          <p class="project-note">
+            Designed, organized, and maintained as the central place
+            for prospective clients to review my work and request a
+            custom quotation.
+          </p>
+        </article>
       </div>
     </section>
 
-    <section class="learning-section">
+    <section class="capabilities-section">
+      <div class="capabilities-heading">
+        <p class="greeting">
+          Demonstrated Capabilities
+        </p>
 
-      <div>
-        <p class="greeting">What I’m Learning</p>
-
-        <h2>Building Skills Through Practical Projects</h2>
+        <h2>
+          More Than a Collection of Screens
+        </h2>
 
         <p>
-          Each project introduces a different part of web
-          development while connecting the lessons to financial
-          systems I already understand.
+          Each project demonstrates a practical capability that can
+          support accurate records, clearer reporting, and more
+          organized day-to-day business operations.
         </p>
       </div>
 
-      <div class="learning-list">
-        <div class="learning-item">HTML Structure</div>
-        <div class="learning-item">CSS Layouts</div>
-        <div class="learning-item">Responsive Design</div>
-        <div class="learning-item">JavaScript Events</div>
-        <div class="learning-item">Form Validation</div>
-        <div class="learning-item">Local Storage</div>
-        <div class="learning-item">Calculations</div>
-        <div class="learning-item">Print Layouts</div>
+      <div class="capabilities-grid">
+        <div class="capability-item">
+          Financial calculations and validation
+        </div>
+
+        <div class="capability-item">
+          Spreadsheet and data organization
+        </div>
+
+        <div class="capability-item">
+          Workflow and document support
+        </div>
+
+        <div class="capability-item">
+          Reports and printable records
+        </div>
+
+        <div class="capability-item">
+          Form design and information collection
+        </div>
+
+        <div class="capability-item">
+          Browser-based record storage
+        </div>
+
+        <div class="capability-item">
+          Responsive desktop and mobile layouts
+        </div>
+
+        <div class="capability-item">
+          Confidential handling of client information
+        </div>
       </div>
 
+      <p class="privacy-note">
+        <strong>Privacy note:</strong>
+        Public demonstrations use fictional sample information.
+        Actual client, tenant, contractor, worker, and financial
+        records are never published as portfolio content.
+      </p>
     </section>
 
     <section class="projects-cta">
       <p class="greeting">Work With Me</p>
 
-      <h2>Need Help Organizing Your Books?</h2>
+      <h2>
+        Need More Organized Financial or Administrative Workflows?
+      </h2>
 
       <p>
-        Contact me to discuss bookkeeping, financial reporting, or
-        real-estate accounting support.
+        Tell me about the bookkeeping, reporting, administrative, or
+        business operations support your company needs. I’ll review
+        the details and respond within 24–48 hours.
       </p>
 
       <a href="contact.html" class="button">
@@ -776,9 +910,11 @@
     </section>
 
     <footer>
-      <p>© 2026 Clairy Sagario</p>
+      <p>
+        © 2026 Clairy Sagario. Bookkeeping, administrative, and
+        business operations support.
+      </p>
     </footer>
-
   </main>
 
   <script>
@@ -791,22 +927,45 @@
     const projectResult =
       document.getElementById("projectResult");
 
+    function updateProjectResult(selectedFilter, visibleProjects) {
+      if (selectedFilter === "all") {
+        projectResult.textContent =
+          "Showing all " + visibleProjects + " projects";
+        return;
+      }
+
+      if (selectedFilter === "financial") {
+        projectResult.textContent =
+          "Showing " +
+          visibleProjects +
+          " financial tools";
+        return;
+      }
+
+      projectResult.textContent =
+        "Showing " +
+        visibleProjects +
+        " business tools";
+    }
+
     filterButtons.forEach(function (button) {
       button.addEventListener("click", function () {
         const selectedFilter = button.dataset.filter;
+        let visibleProjects = 0;
 
         filterButtons.forEach(function (filterButton) {
-          filterButton.classList.remove("active");
+          const isSelected = filterButton === button;
+
+          filterButton.classList.toggle(
+            "active",
+            isSelected
+          );
+
           filterButton.setAttribute(
             "aria-pressed",
-            "false"
+            String(isSelected)
           );
         });
-
-        button.classList.add("active");
-        button.setAttribute("aria-pressed", "true");
-
-        let visibleProjects = 0;
 
         projectCards.forEach(function (card) {
           const shouldShow =
@@ -820,24 +979,14 @@
           }
         });
 
-        if (selectedFilter === "all") {
-          projectResult.textContent =
-            "Showing all " +
-            visibleProjects +
-            " projects";
-        } else if (selectedFilter === "bookkeeping") {
-          projectResult.textContent =
-            "Showing " +
-            visibleProjects +
-            " bookkeeping projects";
-        } else {
-          projectResult.textContent =
-            "Showing " +
-            visibleProjects +
-            " web-development projects";
-        }
+        updateProjectResult(
+          selectedFilter,
+          visibleProjects
+        );
       });
     });
+
+    updateProjectResult("all", projectCards.length);
   </script>
 </body>
 </html>
