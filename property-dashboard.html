@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
   <meta charset="UTF-8">
 
   <meta
@@ -9,7 +10,24 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="Explore Clairy Sagario's interactive property financial dashboard with fictional rental income, expenses, property summaries, filters, and financial reports."
+  >
+
   <title>Property Financial Dashboard | Clairy Sagario</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="style.css">
 
@@ -44,8 +62,7 @@
       background-color: rgba(255, 255, 255, 0.8);
       border: 1px solid var(--border);
       border-radius: 17px;
-      box-shadow:
-        0 14px 30px rgba(82, 68, 91, 0.08);
+      box-shadow: 0 14px 30px rgba(82, 68, 91, 0.08);
       padding: 25px;
     }
 
@@ -63,6 +80,49 @@
       color: #5d5760;
       font-size: 14px;
       margin-bottom: 8px;
+    }
+
+    .sample-notice {
+      align-items: flex-start;
+      background:
+        linear-gradient(
+          135deg,
+          var(--lavender-soft),
+          var(--nude-soft)
+        );
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--lavender-accent);
+      border-radius: 12px;
+      display: flex;
+      gap: 14px;
+      margin: 38px 0 0;
+      padding: 20px 22px;
+    }
+
+    .sample-notice-mark {
+      align-items: center;
+      background-color: white;
+      border-radius: 50%;
+      color: var(--primary-dark);
+      display: flex;
+      flex: 0 0 auto;
+      font-size: 13px;
+      font-weight: 900;
+      height: 32px;
+      justify-content: center;
+      width: 32px;
+    }
+
+    .sample-notice strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .sample-notice p {
+      color: #625b65;
+      font-size: 14px;
+      margin: 0;
     }
 
     .entry-section {
@@ -129,7 +189,7 @@
     }
 
     .message {
-      color: #9a6269;
+      color: #765f82;
       font-weight: bold;
       min-height: 25px;
       text-align: center;
@@ -170,6 +230,18 @@
       background-color: white;
       border-color: var(--lavender-accent);
       color: var(--primary-dark);
+    }
+
+    .sample-button {
+      background-color: var(--lavender-accent);
+      border-color: var(--lavender-accent);
+      color: #463b4d;
+    }
+
+    .sample-button:hover {
+      background-color: #c7b5d3;
+      border-color: #c7b5d3;
+      color: #3f3546;
     }
 
     .clear-button {
@@ -243,6 +315,115 @@
     .section-heading p {
       color: var(--text-soft);
       margin-top: 0;
+    }
+
+    .chart-section {
+      background:
+        linear-gradient(
+          145deg,
+          #fffdfc,
+          #faf7fb
+        );
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      margin-bottom: 48px;
+      padding: 27px;
+    }
+
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 23px;
+    }
+
+    .legend-item {
+      align-items: center;
+      color: #625b65;
+      display: flex;
+      font-size: 13px;
+      gap: 8px;
+    }
+
+    .legend-color {
+      border-radius: 4px;
+      display: inline-block;
+      height: 13px;
+      width: 13px;
+    }
+
+    .income-color {
+      background-color: #78998e;
+    }
+
+    .expense-color {
+      background-color: #c48d94;
+    }
+
+    .monthly-chart {
+      align-items: stretch;
+      display: grid;
+      gap: 20px;
+      grid-template-columns:
+        repeat(auto-fit, minmax(130px, 1fr));
+      min-height: 280px;
+    }
+
+    .chart-month {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .chart-bars {
+      align-items: flex-end;
+      border-bottom: 1px solid #dcd4dc;
+      display: flex;
+      gap: 9px;
+      height: 205px;
+      justify-content: center;
+      padding: 0 12px;
+    }
+
+    .chart-bar {
+      border-radius: 7px 7px 2px 2px;
+      max-width: 45px;
+      min-height: 4px;
+      transition: height 0.25s ease;
+      width: 42%;
+    }
+
+    .chart-income-bar {
+      background:
+        linear-gradient(
+          180deg,
+          #8dac9f,
+          #67877c
+        );
+    }
+
+    .chart-expense-bar {
+      background:
+        linear-gradient(
+          180deg,
+          #d5a5aa,
+          #b97880
+        );
+    }
+
+    .chart-month-label {
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      margin: 12px 0 4px;
+      text-align: center;
+    }
+
+    .chart-values {
+      color: var(--text-soft);
+      font-size: 11px;
+      line-height: 1.5;
+      text-align: center;
     }
 
     .property-summary-grid {
@@ -377,10 +558,7 @@
         padding-right: 35px;
       }
 
-      .dashboard-controls {
-        grid-template-columns: 1fr 1fr;
-      }
-
+      .dashboard-controls,
       .overall-summary {
         grid-template-columns: 1fr 1fr;
       }
@@ -411,6 +589,11 @@
       .transaction-form {
         grid-template-columns: 1fr 1fr;
       }
+
+      .monthly-chart {
+        grid-template-columns:
+          repeat(auto-fit, minmax(110px, 1fr));
+      }
     }
 
     @media (max-width: 600px) {
@@ -439,6 +622,18 @@
 
       .currency-note {
         text-align: left;
+      }
+
+      .chart-section {
+        padding: 22px 16px;
+      }
+
+      .monthly-chart {
+        grid-template-columns: 1fr;
+      }
+
+      .chart-bars {
+        height: 170px;
       }
     }
 
@@ -491,7 +686,8 @@
       }
 
       .summary-card,
-      .property-card {
+      .property-card,
+      .chart-section {
         break-inside: avoid;
       }
 
@@ -506,7 +702,7 @@
   <main class="container">
 
     <nav class="navigation">
-      <a href="index.html" class="logo">Clairy</a>
+      <a href="index.html" class="logo">Clairy Sagario</a>
 
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -518,7 +714,6 @@
     </nav>
 
     <section class="dashboard-hero">
-
       <div class="dashboard-hero-content">
         <p class="greeting">
           Interactive Bookkeeping Project
@@ -527,8 +722,9 @@
         <h1>Property Financial Dashboard</h1>
 
         <p>
-          Record property income and expenses, review net income,
-          filter financial activity, and export property records.
+          Review sample property income and expenses, compare monthly
+          performance, filter financial activity, and export property
+          records.
         </p>
       </div>
 
@@ -536,24 +732,42 @@
         <h2>Dashboard Features</h2>
 
         <ul>
+          <li>Fictional sample transactions included</li>
           <li>Income and expenses by property</li>
+          <li>Monthly financial comparison chart</li>
           <li>Date and property filters</li>
           <li>Automatic net-income calculations</li>
           <li>CSV export and printable reports</li>
         </ul>
       </aside>
+    </section>
 
+    <section class="sample-notice">
+      <span class="sample-notice-mark">i</span>
+
+      <div>
+        <strong>Portfolio demonstration</strong>
+
+        <p>
+          All properties, transactions, and amounts shown on this
+          dashboard are fictional and are included only to demonstrate
+          the bookkeeping workflow.
+        </p>
+      </div>
     </section>
 
     <section class="entry-section">
       <h2>Add a Property Transaction</h2>
 
       <form id="transactionForm" class="transaction-form">
-
         <div class="form-group">
           <label for="transactionDate">Date</label>
 
-          <input id="transactionDate" type="date" required>
+          <input
+            id="transactionDate"
+            type="date"
+            required
+          >
         </div>
 
         <div class="form-group">
@@ -591,7 +805,7 @@
             id="description"
             type="text"
             required
-            placeholder="Example: August rent"
+            placeholder="Example: Monthly rent"
           >
         </div>
 
@@ -613,7 +827,6 @@
             Add Transaction
           </button>
         </div>
-
       </form>
 
       <p id="message" class="message"></p>
@@ -625,7 +838,6 @@
 
     <section>
       <div class="dashboard-controls">
-
         <div class="form-group">
           <label for="propertyFilter">
             Filter by property
@@ -673,6 +885,14 @@
           </button>
 
           <button
+            id="sampleDataButton"
+            class="sample-button"
+            type="button"
+          >
+            Reset to Sample Data
+          </button>
+
+          <button
             id="printButton"
             class="secondary-button"
             type="button"
@@ -692,7 +912,6 @@
             Clear All Data
           </button>
         </div>
-
       </div>
 
       <p class="currency-note">
@@ -701,7 +920,6 @@
       </p>
 
       <section class="overall-summary">
-
         <article class="summary-card income-card">
           <span>Total Income</span>
           <strong id="totalIncome">$0.00</strong>
@@ -721,8 +939,36 @@
           <span>Transactions</span>
           <strong id="transactionCount">0</strong>
         </article>
-
       </section>
+    </section>
+
+    <section class="chart-section">
+      <div class="section-heading">
+        <h2>Monthly Income vs. Expenses</h2>
+
+        <p>
+          A visual comparison based on the property and date filters
+          selected above.
+        </p>
+      </div>
+
+      <div class="chart-legend">
+        <span class="legend-item">
+          <span class="legend-color income-color"></span>
+          Income
+        </span>
+
+        <span class="legend-item">
+          <span class="legend-color expense-color"></span>
+          Expenses
+        </span>
+      </div>
+
+      <div
+        id="monthlyChart"
+        class="monthly-chart"
+        aria-label="Monthly income and expense chart"
+      ></div>
     </section>
 
     <section>
@@ -821,6 +1067,9 @@
     const transactionCount =
       document.getElementById("transactionCount");
 
+    const monthlyChart =
+      document.getElementById("monthlyChart");
+
     const propertySummary =
       document.getElementById("propertySummary");
 
@@ -835,6 +1084,9 @@
 
     const resetFiltersButton =
       document.getElementById("resetFiltersButton");
+
+    const sampleDataButton =
+      document.getElementById("sampleDataButton");
 
     const printButton =
       document.getElementById("printButton");
@@ -872,10 +1124,310 @@
       GBP: "£"
     };
 
-    let transactions =
-      JSON.parse(
-        localStorage.getItem("propertyTransactions")
-      ) || [];
+    const sampleTransactions = [
+      {
+        id: 1001,
+        date: "2026-01-03",
+        property: "Maple Grove Duplex",
+        type: "Income",
+        category: "Rental Income",
+        description: "January rental income",
+        amount: 2400
+      },
+      {
+        id: 1002,
+        date: "2026-01-08",
+        property: "Maple Grove Duplex",
+        type: "Expense",
+        category: "Utilities",
+        description: "Water and electricity",
+        amount: 210
+      },
+      {
+        id: 1003,
+        date: "2026-01-19",
+        property: "Maple Grove Duplex",
+        type: "Expense",
+        category: "Repairs and Maintenance",
+        description: "Plumbing repair",
+        amount: 340
+      },
+      {
+        id: 1004,
+        date: "2026-02-03",
+        property: "Maple Grove Duplex",
+        type: "Income",
+        category: "Rental Income",
+        description: "February rental income",
+        amount: 2400
+      },
+      {
+        id: 1005,
+        date: "2026-02-11",
+        property: "Maple Grove Duplex",
+        type: "Expense",
+        category: "Insurance",
+        description: "Monthly insurance allocation",
+        amount: 185
+      },
+      {
+        id: 1006,
+        date: "2026-02-25",
+        property: "Maple Grove Duplex",
+        type: "Expense",
+        category: "Management Fees",
+        description: "Property management fee",
+        amount: 192
+      },
+      {
+        id: 1007,
+        date: "2026-03-03",
+        property: "Maple Grove Duplex",
+        type: "Income",
+        category: "Rental Income",
+        description: "March rental income",
+        amount: 2400
+      },
+      {
+        id: 1008,
+        date: "2026-03-09",
+        property: "Maple Grove Duplex",
+        type: "Expense",
+        category: "Cleaning",
+        description: "Common-area cleaning",
+        amount: 160
+      },
+      {
+        id: 1009,
+        date: "2026-03-18",
+        property: "Maple Grove Duplex",
+        type: "Expense",
+        category: "Supplies",
+        description: "Property supplies",
+        amount: 95
+      },
+      {
+        id: 1010,
+        date: "2026-03-24",
+        property: "Maple Grove Duplex",
+        type: "Expense",
+        category: "Property Taxes",
+        description: "Property-tax allocation",
+        amount: 425
+      },
+
+      {
+        id: 1011,
+        date: "2026-01-04",
+        property: "Harbor View Rental",
+        type: "Income",
+        category: "Rental Income",
+        description: "January rental income",
+        amount: 3200
+      },
+      {
+        id: 1012,
+        date: "2026-01-10",
+        property: "Harbor View Rental",
+        type: "Expense",
+        category: "Management Fees",
+        description: "Property management fee",
+        amount: 256
+      },
+      {
+        id: 1013,
+        date: "2026-01-21",
+        property: "Harbor View Rental",
+        type: "Expense",
+        category: "Utilities",
+        description: "Water and electricity",
+        amount: 285
+      },
+      {
+        id: 1014,
+        date: "2026-02-04",
+        property: "Harbor View Rental",
+        type: "Income",
+        category: "Rental Income",
+        description: "February rental income",
+        amount: 3200
+      },
+      {
+        id: 1015,
+        date: "2026-02-13",
+        property: "Harbor View Rental",
+        type: "Expense",
+        category: "Repairs and Maintenance",
+        description: "HVAC service",
+        amount: 575
+      },
+      {
+        id: 1016,
+        date: "2026-02-20",
+        property: "Harbor View Rental",
+        type: "Expense",
+        category: "Insurance",
+        description: "Monthly insurance allocation",
+        amount: 240
+      },
+      {
+        id: 1017,
+        date: "2026-03-04",
+        property: "Harbor View Rental",
+        type: "Income",
+        category: "Rental Income",
+        description: "March rental income",
+        amount: 3200
+      },
+      {
+        id: 1018,
+        date: "2026-03-12",
+        property: "Harbor View Rental",
+        type: "Expense",
+        category: "Cleaning",
+        description: "Turnover cleaning",
+        amount: 190
+      },
+      {
+        id: 1019,
+        date: "2026-03-19",
+        property: "Harbor View Rental",
+        type: "Expense",
+        category: "Mortgage Interest",
+        description: "Monthly mortgage interest",
+        amount: 680
+      },
+      {
+        id: 1020,
+        date: "2026-03-27",
+        property: "Harbor View Rental",
+        type: "Expense",
+        category: "Supplies",
+        description: "Guest and property supplies",
+        amount: 120
+      },
+
+      {
+        id: 1021,
+        date: "2026-01-05",
+        property: "Cedar Lane Townhome",
+        type: "Income",
+        category: "Rental Income",
+        description: "January rental income",
+        amount: 2750
+      },
+      {
+        id: 1022,
+        date: "2026-01-11",
+        property: "Cedar Lane Townhome",
+        type: "Expense",
+        category: "Utilities",
+        description: "Water and electricity",
+        amount: 230
+      },
+      {
+        id: 1023,
+        date: "2026-01-23",
+        property: "Cedar Lane Townhome",
+        type: "Expense",
+        category: "Cleaning",
+        description: "Property cleaning",
+        amount: 145
+      },
+      {
+        id: 1024,
+        date: "2026-02-05",
+        property: "Cedar Lane Townhome",
+        type: "Income",
+        category: "Rental Income",
+        description: "February rental income",
+        amount: 2750
+      },
+      {
+        id: 1025,
+        date: "2026-02-14",
+        property: "Cedar Lane Townhome",
+        type: "Expense",
+        category: "Repairs and Maintenance",
+        description: "Appliance repair",
+        amount: 410
+      },
+      {
+        id: 1026,
+        date: "2026-02-24",
+        property: "Cedar Lane Townhome",
+        type: "Expense",
+        category: "Management Fees",
+        description: "Property management fee",
+        amount: 220
+      },
+      {
+        id: 1027,
+        date: "2026-03-05",
+        property: "Cedar Lane Townhome",
+        type: "Income",
+        category: "Rental Income",
+        description: "March rental income",
+        amount: 2750
+      },
+      {
+        id: 1028,
+        date: "2026-03-13",
+        property: "Cedar Lane Townhome",
+        type: "Expense",
+        category: "Insurance",
+        description: "Monthly insurance allocation",
+        amount: 205
+      },
+      {
+        id: 1029,
+        date: "2026-03-21",
+        property: "Cedar Lane Townhome",
+        type: "Expense",
+        category: "Property Taxes",
+        description: "Property-tax allocation",
+        amount: 510
+      },
+      {
+        id: 1030,
+        date: "2026-03-28",
+        property: "Cedar Lane Townhome",
+        type: "Expense",
+        category: "Supplies",
+        description: "Maintenance supplies",
+        amount: 88
+      }
+    ];
+
+    function copySampleTransactions() {
+      return sampleTransactions.map(function (transaction) {
+        return { ...transaction };
+      });
+    }
+
+    function loadTransactions() {
+      const savedTransactions =
+        localStorage.getItem("propertyTransactions");
+
+      if (savedTransactions === null) {
+        return copySampleTransactions();
+      }
+
+      try {
+        const parsedTransactions =
+          JSON.parse(savedTransactions);
+
+        if (Array.isArray(parsedTransactions)) {
+          return parsedTransactions;
+        }
+      } catch (error) {
+        return copySampleTransactions();
+      }
+
+      return copySampleTransactions();
+    }
+
+    let transactions = loadTransactions();
 
     const savedCurrency =
       localStorage.getItem("propertyCurrency");
@@ -905,6 +1457,15 @@
       return date.toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
+        year: "numeric"
+      });
+    }
+
+    function formatMonth(monthValue) {
+      const date = new Date(monthValue + "-01T00:00:00");
+
+      return date.toLocaleDateString("en-US", {
+        month: "short",
         year: "numeric"
       });
     }
@@ -944,6 +1505,12 @@
       );
     }
 
+    function resetFilters() {
+      propertyFilter.value = "All Properties";
+      dateFrom.value = "";
+      dateTo.value = "";
+    }
+
     transactionForm.addEventListener(
       "submit",
       function (event) {
@@ -976,7 +1543,6 @@
         };
 
         transactions.push(transaction);
-
         saveTransactions();
 
         const savedProperty =
@@ -990,7 +1556,8 @@
 
         updateCategories();
 
-        message.textContent = "";
+        message.textContent =
+          "Transaction added successfully.";
 
         updateDashboard();
       }
@@ -1113,11 +1680,156 @@
         filteredTransactions.length;
     }
 
+    function updateMonthlyChart(filteredTransactions) {
+      monthlyChart.innerHTML = "";
+
+      if (filteredTransactions.length === 0) {
+        const emptyMessage =
+          document.createElement("div");
+
+        emptyMessage.className = "empty-message";
+        emptyMessage.textContent =
+          "No monthly activity matches the selected filters.";
+
+        monthlyChart.appendChild(emptyMessage);
+        return;
+      }
+
+      const monthlyTotals = {};
+
+      filteredTransactions.forEach(function (transaction) {
+        const month = transaction.date.slice(0, 7);
+
+        if (!monthlyTotals[month]) {
+          monthlyTotals[month] = {
+            income: 0,
+            expenses: 0
+          };
+        }
+
+        if (transaction.type === "Income") {
+          monthlyTotals[month].income +=
+            transaction.amount;
+        } else {
+          monthlyTotals[month].expenses +=
+            transaction.amount;
+        }
+      });
+
+      const months =
+        Object.keys(monthlyTotals).sort();
+
+      const maximumAmount = Math.max(
+        ...months.map(function (month) {
+          return Math.max(
+            monthlyTotals[month].income,
+            monthlyTotals[month].expenses
+          );
+        }),
+        1
+      );
+
+      months.forEach(function (month) {
+        const totals = monthlyTotals[month];
+
+        const monthGroup =
+          document.createElement("article");
+
+        const bars =
+          document.createElement("div");
+
+        const incomeBar =
+          document.createElement("div");
+
+        const expenseBar =
+          document.createElement("div");
+
+        const monthLabel =
+          document.createElement("p");
+
+        const chartValues =
+          document.createElement("p");
+
+        monthGroup.className = "chart-month";
+        bars.className = "chart-bars";
+
+        incomeBar.className =
+          "chart-bar chart-income-bar";
+
+        expenseBar.className =
+          "chart-bar chart-expense-bar";
+
+        monthLabel.className = "chart-month-label";
+        chartValues.className = "chart-values";
+
+        const incomeHeight =
+          totals.income === 0
+            ? 0
+            : Math.max(
+                4,
+                totals.income / maximumAmount * 100
+              );
+
+        const expenseHeight =
+          totals.expenses === 0
+            ? 0
+            : Math.max(
+                4,
+                totals.expenses / maximumAmount * 100
+              );
+
+        incomeBar.style.height =
+          incomeHeight + "%";
+
+        expenseBar.style.height =
+          expenseHeight + "%";
+
+        incomeBar.title =
+          formatMonth(month) +
+          " income: " +
+          formatMoney(totals.income);
+
+        expenseBar.title =
+          formatMonth(month) +
+          " expenses: " +
+          formatMoney(totals.expenses);
+
+        incomeBar.setAttribute(
+          "aria-label",
+          incomeBar.title
+        );
+
+        expenseBar.setAttribute(
+          "aria-label",
+          expenseBar.title
+        );
+
+        monthLabel.textContent =
+          formatMonth(month);
+
+        chartValues.textContent =
+          formatMoney(totals.income) +
+          " income · " +
+          formatMoney(totals.expenses) +
+          " expenses";
+
+        bars.appendChild(incomeBar);
+        bars.appendChild(expenseBar);
+
+        monthGroup.appendChild(bars);
+        monthGroup.appendChild(monthLabel);
+        monthGroup.appendChild(chartValues);
+
+        monthlyChart.appendChild(monthGroup);
+      });
+    }
+
     function updatePropertySummary(filteredTransactions) {
       propertySummary.innerHTML = "";
 
       if (filteredTransactions.length === 0) {
-        const emptyMessage = document.createElement("div");
+        const emptyMessage =
+          document.createElement("div");
 
         emptyMessage.className = "empty-message";
         emptyMessage.textContent =
@@ -1151,15 +1863,25 @@
         .forEach(function (property) {
           const totals = summaries[property];
 
-          const card = document.createElement("article");
-          const heading = document.createElement("h3");
-          const incomeRow = document.createElement("div");
-          const expenseRow = document.createElement("div");
-          const netRow = document.createElement("div");
+          const card =
+            document.createElement("article");
+
+          const heading =
+            document.createElement("h3");
+
+          const incomeRow =
+            document.createElement("div");
+
+          const expenseRow =
+            document.createElement("div");
+
+          const netRow =
+            document.createElement("div");
 
           card.className = "property-card";
           incomeRow.className = "property-amount";
           expenseRow.className = "property-amount";
+
           netRow.className =
             "property-amount property-net";
 
@@ -1172,6 +1894,7 @@
             document.createElement("strong");
 
           incomeLabel.textContent = "Income";
+
           incomeValue.textContent =
             formatMoney(totals.income);
 
@@ -1185,6 +1908,7 @@
             document.createElement("strong");
 
           expenseLabel.textContent = "Expenses";
+
           expenseValue.textContent =
             formatMoney(totals.expenses);
 
@@ -1198,6 +1922,7 @@
             document.createElement("strong");
 
           netLabel.textContent = "Net Income";
+
           netValue.textContent =
             formatMoney(
               totals.income - totals.expenses
@@ -1233,11 +1958,13 @@
 
         cell.colSpan = 7;
         cell.className = "empty-message";
+
         cell.textContent =
           "No transactions match the selected filters.";
 
         row.appendChild(cell);
         transactionTableBody.appendChild(row);
+
         return;
       }
 
@@ -1264,7 +1991,8 @@
           row.appendChild(cell);
         });
 
-        const amountCell = document.createElement("td");
+        const amountCell =
+          document.createElement("td");
 
         amountCell.className =
           "amount-column " +
@@ -1316,6 +2044,7 @@
         getFilteredTransactions();
 
       updateOverallSummary(filteredTransactions);
+      updateMonthlyChart(filteredTransactions);
       updatePropertySummary(filteredTransactions);
       updateTransactionTable(filteredTransactions);
     }
@@ -1329,22 +2058,52 @@
 
       saveTransactions();
       updateDashboard();
+
+      message.textContent =
+        "Transaction removed.";
     }
 
     resetFiltersButton.addEventListener(
       "click",
       function () {
-        propertyFilter.value = "All Properties";
-        dateFrom.value = "";
-        dateTo.value = "";
-
+        resetFilters();
         updateDashboard();
+
+        message.textContent =
+          "Dashboard filters have been reset.";
       }
     );
 
-    printButton.addEventListener("click", function () {
-      window.print();
-    });
+    sampleDataButton.addEventListener(
+      "click",
+      function () {
+        const confirmed =
+          transactions.length === 0 ||
+          window.confirm(
+            "Replace the current transactions with fictional sample data?"
+          );
+
+        if (!confirmed) {
+          return;
+        }
+
+        transactions = copySampleTransactions();
+
+        saveTransactions();
+        resetFilters();
+        updateDashboard();
+
+        message.textContent =
+          "The fictional sample data has been restored.";
+      }
+    );
+
+    printButton.addEventListener(
+      "click",
+      function () {
+        window.print();
+      }
+    );
 
     exportButton.addEventListener(
       "click",
@@ -1401,13 +2160,19 @@
 
         const file = new Blob(
           [csvContent],
-          { type: "text/csv;charset=utf-8;" }
+          {
+            type: "text/csv;charset=utf-8;"
+          }
         );
 
-        const fileUrl = URL.createObjectURL(file);
-        const downloadLink = document.createElement("a");
+        const fileUrl =
+          URL.createObjectURL(file);
+
+        const downloadLink =
+          document.createElement("a");
 
         downloadLink.href = fileUrl;
+
         downloadLink.download =
           "property-financial-report.csv";
 
@@ -1436,19 +2201,26 @@
           "Are you sure you want to delete all property transactions?"
         );
 
-        if (confirmed) {
-          transactions = [];
-          saveTransactions();
-
-          propertyFilter.value = "All Properties";
-          dateFrom.value = "";
-          dateTo.value = "";
-          message.textContent = "";
-
-          updateDashboard();
+        if (!confirmed) {
+          return;
         }
+
+        transactions = [];
+
+        saveTransactions();
+        resetFilters();
+        updateDashboard();
+
+        message.textContent =
+          "All transactions were cleared. Use “Reset to Sample Data” to restore the demonstration.";
       }
     );
+
+    if (
+      localStorage.getItem("propertyTransactions") === null
+    ) {
+      saveTransactions();
+    }
 
     transactionDate.value = getToday();
 
